@@ -116,11 +116,16 @@
             // 
             // DataGridViewQueuedItems
             // 
+            this.DataGridViewQueuedItems.AllowUserToAddRows = false;
+            this.DataGridViewQueuedItems.AllowUserToDeleteRows = false;
+            this.DataGridViewQueuedItems.AllowUserToResizeColumns = false;
+            this.DataGridViewQueuedItems.AllowUserToResizeRows = false;
             this.DataGridViewQueuedItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridViewQueuedItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewQueuedItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DataGridViewQueuedItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,8 +135,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewQueuedItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewQueuedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewQueuedItems.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DataGridViewQueuedItems.Location = new System.Drawing.Point(12, 320);
             this.DataGridViewQueuedItems.Name = "DataGridViewQueuedItems";
+            this.DataGridViewQueuedItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridViewQueuedItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridViewQueuedItems.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Black;
             this.DataGridViewQueuedItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewQueuedItems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
@@ -321,6 +329,7 @@
             this.Name = "NewTransactionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_";
+            this.Load += new System.EventHandler(this.NewTransactionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewQueuedItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

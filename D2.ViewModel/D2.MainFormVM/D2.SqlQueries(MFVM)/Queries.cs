@@ -67,8 +67,14 @@ namespace _3_13_25.D2.QueryStorage
         #endregion
 
         #region NewTransactionsQuery
-        
-        public static string TransactionId
+
+        public static string TransactionIdExisting
+        {
+            get => "SELECT MAX(Transaction_Id) FROM D2.Transactions WHERE Student_Name = @Student";
+            set { }
+        }
+
+        public static string TransactionIdNew
         {
             get => "SELECT MAX(Transaction_Id) FROM D2.Transactions";
             set { }
@@ -119,6 +125,16 @@ namespace _3_13_25.D2.QueryStorage
             get => "D2.SearchTransactionList";
             set { }
         }
+        #endregion
+
+        #region EditFunctions
+
+        public static string FetchTransactionInformation
+        {
+            get => "SELECT * FROM D2.TransactionInformation WHERE Transaction_Id = @Id";
+            set { }
+        }
+
         #endregion
     }
 }

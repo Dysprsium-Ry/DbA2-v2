@@ -1,11 +1,9 @@
 ﻿using _3_13_25.D2.Classes;
 using _3_13_25.D2.DbConn;
-using _3_13_25.D2.IdFetcherClasses;
 using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
+using _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
@@ -16,21 +14,18 @@ namespace _3_13_25.D2.View.D2.MainFormV
         public NewTransactionForm()
         {
             InitializeComponent();
-            TemporalData.TransactionId = DbItemFetcher.TransactionIdFetcher();
-            TextBoxTransactionID.Text = TemporalData.TransactionId.ToString();
             textBoxStudentName.AutoCompleteCustomSource = DtEstablisher.studentListFetcher();
+            this.FormClosed += (s, e) => { clearTemporalDatas(); Cancel(); refreshFields(); };
+        }
 
-            this.Activated += (s, e) =>
+        private void NewTransactionForm_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TemporalData.StudentName))
             {
-                if (QueuedItemList.QueuedItemsList.Count > 0)
-                {
-                    textBoxTotal.Text = QueuedItemList.QueuedItemsList.Sum(QueuedItemsList => QueuedItemsList.QueuedHourlyRate).ToString();
-                }
-                else
-                {
-                    textBoxTotal.Text = "0.00";
-                }
-            };
+                textBoxStudentName.Text = TemporalData.StudentName;
+            }
+
+            TextBoxTransactionID.Text = TemporalData.TransactionId.ToString();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -52,30 +47,30 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
             TemporalData.StudentName = textBoxStudentName.Text;
 
-            DataGrid_Load();
+            capsuleForm capsule = new capsuleForm();
+            if (capsule.ShowDialog() == DialogResult.OK)
+            {
+                DataGrid_Load();
+            }
         }
 
         private void DataGrid_Load()
         {
-            capsuleForm capsule = new capsuleForm();
-            if (capsule.ShowDialog() == DialogResult.OK)
-            {
-                DataGridViewQueuedItems.DataSource = null;
+            DataGridViewQueuedItems.DataSource = null;
 
-                DataGridViewQueuedItems.DataSource = QueuedItemList.QueuedItemsList;
+            DataGridViewQueuedItems.DataSource = QueuedItemList.QueuedItemsList;
 
-                DataGridViewQueuedItems.Columns["QueuedSubject"].HeaderText = "Subject";
-                DataGridViewQueuedItems.Columns["QueuedTutor"].HeaderText = "Tutor";
-                DataGridViewQueuedItems.Columns["QueuedHourlyRate"].HeaderText = "Hourly Rate";
-                DataGridViewQueuedItems.Columns["QueuedStartTime"].HeaderText = "Start Time";
-                DataGridViewQueuedItems.Columns["QueuedEndTime"].HeaderText = "End Time";
-                DataGridViewQueuedItems.Columns["QueuedSessionSchedule"].HeaderText = "Schedule";
+            DataGridViewQueuedItems.Columns["TransactionId"].HeaderText = "Transaction ID";
+            DataGridViewQueuedItems.Columns["QueuedSubject"].HeaderText = "Subject";
+            DataGridViewQueuedItems.Columns["QueuedTutor"].HeaderText = "Tutor";
+            DataGridViewQueuedItems.Columns["QueuedHourlyRate"].HeaderText = "Hourly Rate";
+            DataGridViewQueuedItems.Columns["QueuedStartTime"].HeaderText = "Start Time";
+            DataGridViewQueuedItems.Columns["QueuedEndTime"].HeaderText = "End Time";
+            DataGridViewQueuedItems.Columns["QueuedSessionSchedule"].HeaderText = "Schedule";
 
-                DataGridViewQueuedItems.Columns["QueuedSubjectId"].Visible = false;
-                DataGridViewQueuedItems.Columns["QueuedTutorId"].Visible = false;
+            DataGridViewQueuedItems.Columns["TransactionId"].Visible = false;
 
-                DataGridViewQueuedItems.CellFormatting += DataGridViewQueuedItems_CellFormatting;
-            }
+            DataGridViewQueuedItems.CellFormatting += DataGridViewQueuedItems_CellFormatting;
         }
 
         private void DataGridViewQueuedItems_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -104,9 +99,14 @@ namespace _3_13_25.D2.View.D2.MainFormV
         private void textBoxStudentName_TextChanged(object sender, EventArgs e)
         {
             TextBoxStudEmail.Text = DbItemFetcher.StudentEmailFetcher(textBoxStudentName.Text);
+            TemporalData.StudentName = textBoxStudentName.Text;
+            if (TemporalData.TransactionId != DbItemFetcher.TransactionIdFetcher())
+            {
+                TextBoxTransactionID.Text = (TemporalData.TransactionId = DbItemFetcher.TransactionIdFetcher()).ToString();
+            }
         }
 
-        private void Enroll()
+        private void Register(string State)
         {
             if (QueuedItemList.QueuedItemsList.Count > 0)
             {
@@ -114,7 +114,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 Enrollment.StudentName = TemporalData.StudentName;
                 Enrollment.StudentEmail = TextBoxStudEmail.Text;
 
-                BillingClass.RegisterTransaction();
+                BillingClass.RegisterTransaction(State);
 
                 foreach (var item in QueuedItemList.QueuedItemsList)
                 {
@@ -128,13 +128,17 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
                     BillingClass.RegisterTransactionInformation();
                 }
-                MessageBox.Show("Enrolled Successfully", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 BillingClass.RegisterTransactionBilling();
-
                 Cancel();
                 this.Close();
             }
+        }
+
+        private void Enroll()
+        {
+            Register("Enroll");
+
+            MessageBox.Show("Enrolled Successfully", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Cancel()
@@ -144,12 +148,15 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 QueuedItemList.QueuedItemsList.Clear();
                 DataGridViewQueuedItems.DataSource = null;
                 DataGrid_Load();
+                this.Close();
             }
         }
 
         private void Draft()
         {
+            Register("Draft");
 
+            MessageBox.Show("Queue Drafted", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void Remove()
@@ -161,7 +168,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                     QueuedItemList.QueuedItemsList.RemoveAt(row.Index);
                 }
                 DataGridViewQueuedItems.DataSource = null;
-                DataGridViewQueuedItems.DataSource = QueuedItemList.QueuedItemsList;
+                DataGrid_Load();
             }
         }
 
@@ -173,8 +180,8 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 {
                     var items = new EditItemList
                     {
-                        EditSubject = row.Cells["QueuedSubject"].Value.ToString(),
-                        EditTutor = row.Cells["QueuedTutor"].Value.ToString(),
+                        Subject = row.Cells["QueuedSubject"].Value.ToString(),
+                        Tutor = row.Cells["QueuedTutor"].Value.ToString(),
                         EditHourlyRate = Convert.ToDecimal(row.Cells["QueuedHourlyRate"].Value),
                         EditStartTime = (TimeSpan)row.Cells["QueuedStartTime"].Value,
                         EditEndTime = (TimeSpan)row.Cells["QueuedEndTime"].Value,
@@ -191,6 +198,46 @@ namespace _3_13_25.D2.View.D2.MainFormV
             }
         }
 
+        private void reLoad()
+        {
+            this.Activated += (s, e) =>
+            {
+                try
+                {
+                    if (QueuedItemList.QueuedItemsList == null)
+                    {
+                        textBoxTotal.Text = "0.00";
+                        return;
+                    }
+
+                    var items = QueuedItemList.QueuedItemsList;
+
+                    if (textBoxTotal.InvokeRequired)
+                    {
+                        textBoxTotal.Invoke(new Action(() =>
+                        {
+                            textBoxTotal.Text = items.Count > 0
+                                ? items.Sum(item => item.QueuedHourlyRate).ToString("0.00")
+                                : "0.00";
+                        }));
+                    }
+                    else
+                    {
+                        textBoxTotal.Text = items.Count > 0
+                            ? items.Sum(item => item.QueuedHourlyRate).ToString("0.00")
+                            : "0.00";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error updating total: {ex.Message}");
+                    textBoxTotal.Text = "0.00";
+                }
+                return;
+            };
+
+        }
+
         private void buttonEnroll_Click(object sender, EventArgs e)
         {
             Enroll();
@@ -200,6 +247,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
         {
             Cancel();
         }
+
         private void buttonDraft_Click(object sender, EventArgs e)
         {
             Draft();
@@ -213,6 +261,28 @@ namespace _3_13_25.D2.View.D2.MainFormV
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             Edit();
+        }
+
+        private void clearTemporalDatas()
+        {
+            TemporalData.StudentName = string.Empty;
+            TemporalData.Subject = string.Empty;
+            TemporalData.TutorName = string.Empty;
+            TemporalData.HourlyRate = 0;
+            TemporalData.InTime = TimeSpan.Zero;
+            TemporalData.OutTime = TimeSpan.Zero;
+            TemporalData.SessionScheduleDate = DateTime.MinValue;
+        }
+
+        private void refreshFields()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox textbox)
+                {
+                    textbox.Clear();
+                }
+            }
         }
     }
 }

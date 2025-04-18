@@ -7,6 +7,11 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
 {
     public class ObjectModels
     {
+        public class BindingSources
+        {
+            public static BindingSource QueueItems = new BindingSource();
+        }
+
         public class DataId
         {
             public static long StudentId { get; set; }
@@ -153,9 +158,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
         {
             public long TransactionId { get; set; }
             public string QueuedSubject { get; set; }
-            public long QueuedSubjectId { get; set; }
             public string QueuedTutor { get; set; }
-            public long QueuedTutorId { get; set; }
             public decimal QueuedHourlyRate { get; set; }
             public DateTime QueuedSessionSchedule { get; set; }
             public TimeSpan QueuedStartTime { get; set; }
@@ -173,10 +176,13 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public static DateTime QueuedSessionSchedule { get; set; }
         }
 
+        #region editModels
+
         public class EditItemList
         {
-            public string EditSubject { get; set; }
-            public string EditTutor { get; set; }
+            public long TransactionId { get; set; }
+            public string Subject { get; set; }
+            public string Tutor { get; set; }
             public decimal EditHourlyRate { get; set; }
             public TimeSpan EditStartTime { get; set; }
             public TimeSpan EditEndTime { get; set; }
@@ -193,5 +199,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public static TimeSpan EditEndTime{ get; set; }
             public static DateTime EditScheduleDate { get; set; }
         }
+
+        #endregion
     }
 }

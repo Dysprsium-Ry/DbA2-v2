@@ -12,23 +12,39 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
     {
         public static long TransactionIdFetcher()
         {
-            long transactionId = 0;
-
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand(Queries.TransactionId, connection))
+                if (!string.IsNullOrEmpty(TemporalData.StudentName))
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand(Queries.TransactionIdExisting, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            transactionId = reader.GetInt64(0);
+                            if (reader.Read())
+                            {
+                                return Convert.ToInt64(reader.GetInt64(0));
+                            }
+                            else return 1;
+                        }
+                    }
+                }
+                else
+                {
+                    using (SqlCommand command = new SqlCommand(Queries.TransactionIdNew, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return Convert.ToInt64(reader.GetInt64(0)) + 1;
+                            }
+                            else return 0;
                         }
                     }
                 }
             }
-
-            return transactionId + 1;
         }
 
 

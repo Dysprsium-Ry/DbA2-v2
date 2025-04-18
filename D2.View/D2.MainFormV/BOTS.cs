@@ -3,6 +3,8 @@ using _3_13_25.D2.DbConn;
 using _3_13_25.D2.IdFetcherClasses;
 using _3_13_25.D2.QueryStorage;
 using _3_13_25.D2.View.D2.MainFormV;
+using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
+using _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_;
 using BienvenidoOnlineTutorServices.D2.Classes;
 using System;
 using System.Data;
@@ -17,7 +19,7 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
     public partial class MainForm : Form
     {
         private TransactionStatus transactionStatus = new TransactionStatus();
-
+        NewTransactionForm newForm = new NewTransactionForm();
         public MainForm()
         {
             InitializeComponent();
@@ -490,12 +492,7 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
 
         private void DataGridViewPendingPayment_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            BillingClass.SelectedValue(DataGridViewPendingPayment);
-        }
-
-        private void DataGridViewPartialPayment_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            BillingClass.SelectedValue(DataGridViewPartialPayment);
+            //BillingClass.SelectedValue(DataGridViewPendingPayment);
         }
         #endregion
 
@@ -503,14 +500,28 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            NewTransactionForm OpenNew = new NewTransactionForm();
-            OpenNew.ShowDialog();
+            TemporalData.TransactionId = DbItemFetcher.TransactionIdFetcher();
+            newForm.ShowDialog();
         }
 
         private void textBoxSearchBar_TextChanged(object sender, EventArgs e)
         {
             DataTable SearchResult = DtEstablisher.SearchTransactions(textBoxSearchBar.Text.Trim());
             DataGridViewTransactionList.DataSource = SearchResult;
+        }
+
+        private void DataGridViewTransactionList_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DataGridViewTransactionList.SelectedRows.Count > 0)
+            {
+                //TemporalData.TransactionId = Convert.ToInt64(DataGridViewTransactionList.SelectedRows[0].Cells["Transaction Id"].Value ?? 0);
+                TemporalData.StudentName = Convert.ToString(DataGridViewTransactionList.SelectedRows[0].Cells["Student"].Value ?? string.Empty);
+                TemporalData.TransactionId = DbItemFetcher.TransactionIdFetcher();
+            }
+
+            var editItemList = EditClass.FetchEditLogData();
+            QueuedItemList.QueuedItemsList.AddRange(editItemList);
+            newForm.ShowDialog();
         }
     }
 }

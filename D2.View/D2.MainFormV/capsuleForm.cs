@@ -56,6 +56,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 }
 
                 QueuedItemList.QueuedItemsList.Add(QueueItems);
+                this.Close();
             }
         }
 
