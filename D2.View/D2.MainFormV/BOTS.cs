@@ -6,6 +6,7 @@ using _3_13_25.D2.View.D2.MainFormV;
 using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
 using _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_;
 using BienvenidoOnlineTutorServices.D2.Classes;
+using BienvenidoOnlineTutorServices.D2.Objects;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -26,6 +27,8 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
             dateTimeValueSetter();
             refresh();
             PlaceholderSetter(SearchBoxBilling);
+
+            newForm.FormClosed += (s, e) => { Refresh(); refresh(); };  
 
             transactionStatus.TransactionState();
             TransactionStatus.RefreshRequested += RefreshTransactionGrid;
@@ -500,7 +503,7 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            TemporalData.TransactionId = DbItemFetcher.TransactionIdFetcher();
+            TemporalData.TransactionId = DbItemFetcher.NewTransactionIdFetcher();
             newForm.ShowDialog();
         }
 
@@ -516,11 +519,11 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
             {
                 //TemporalData.TransactionId = Convert.ToInt64(DataGridViewTransactionList.SelectedRows[0].Cells["Transaction Id"].Value ?? 0);
                 TemporalData.StudentName = Convert.ToString(DataGridViewTransactionList.SelectedRows[0].Cells["Student"].Value ?? string.Empty);
-                TemporalData.TransactionId = DbItemFetcher.TransactionIdFetcher();
+                TemporalData.TransactionId = DbItemFetcher.ExistingTransactionIdFetcher();
             }
 
-            var editItemList = EditClass.FetchEditLogData();
-            QueuedItemList.QueuedItemsList.AddRange(editItemList);
+            var editItemList = EditClass.FetchClientData();
+            QueuedItemList.QueuedItemsBindingList.AddRange(editItemList);
             newForm.ShowDialog();
         }
     }

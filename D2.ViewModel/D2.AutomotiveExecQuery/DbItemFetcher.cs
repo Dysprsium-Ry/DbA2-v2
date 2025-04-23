@@ -1,5 +1,4 @@
-﻿using _3_13_25.D2.DataModels;
-using _3_13_25.D2.QueryStorage;
+﻿using _3_13_25.D2.QueryStorage;
 using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
@@ -10,38 +9,47 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
 {
     public class DbItemFetcher
     {
-        public static long TransactionIdFetcher()
+        public static long ExistingTransactionIdFetcher()
         {
+            long value = 0;
+
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                if (!string.IsNullOrEmpty(TemporalData.StudentName))
+                using (SqlCommand command = new SqlCommand(Queries.TransactionIdExisting, connection))
                 {
-                    using (SqlCommand command = new SqlCommand(Queries.TransactionIdExisting, connection))
-                    {
-                        command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
 
-                        using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
                         {
-                            if (reader.Read())
+                            value = reader.IsDBNull(0) ? 0 : reader.GetInt64(0);
+
+                            if (value == 0)
                             {
-                                return Convert.ToInt64(reader.GetInt64(0));
+                               value = NewTransactionIdFetcher();
                             }
-                            else return 1;
                         }
                     }
                 }
-                else
+            }
+
+            return value;
+        }
+
+        public static long NewTransactionIdFetcher()
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.TransactionIdNew, connection))
                 {
-                    using (SqlCommand command = new SqlCommand(Queries.TransactionIdNew, connection))
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
-                                return Convert.ToInt64(reader.GetInt64(0)) + 1;
-                            }
-                            else return 0;
+                            return reader.IsDBNull(0) ? 1 : reader.GetInt64(0) + 1;
                         }
+                        else return 0;
                     }
                 }
             }

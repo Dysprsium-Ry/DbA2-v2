@@ -1,4 +1,5 @@
 ﻿using _3_13_25.D2.IdFetcherClasses;
+using _3_13_25.D2.QueryStorage;
 using BienvenidoOnlineTutorServices.D2.Classes;
 using BOTS.Database_Connection;
 using System;
@@ -19,6 +20,14 @@ namespace _3_13_25.D2.Classes
         public static decimal CalculateTotalFee(decimal sessionDuration, decimal hourlyRate)
         {
             return sessionDuration * hourlyRate;
+        }
+        public static decimal CalculateSumSessionFee(decimal currentTotal, decimal hourlyRate)
+        {
+            return currentTotal + hourlyRate;
+        }
+        public static decimal CalculateSubtSessionFee(decimal currenTotal, decimal hourlyRate)
+        {
+            return currenTotal - hourlyRate;
         }
         public static decimal CalculateRemainingFee(decimal RemainingFee, decimal paidFee)
         {
@@ -143,6 +152,23 @@ namespace _3_13_25.D2.Classes
         }
 
         #endregion
+
+        public static bool IsStudentNameExist(string Name)
+        {
+            if (string.IsNullOrWhiteSpace(Name))
+                return false;
+
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.IsStudentNameExist, connection))
+                {
+                    command.Parameters.AddWithValue("@name", Name);
+                    int count = (int)command.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
     }
 
     public class TransactionStatus
@@ -217,6 +243,11 @@ namespace _3_13_25.D2.Classes
                 }
             }
         }
-        #endregion  
+        #endregion
+
+        public void Refresh()
+        {
+            RefreshRequested?.Invoke();
+        }
     }
 }

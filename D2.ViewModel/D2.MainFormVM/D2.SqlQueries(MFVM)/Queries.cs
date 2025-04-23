@@ -102,9 +102,15 @@ namespace _3_13_25.D2.QueryStorage
 
         #region Enrollment
 
-        public static string RegisterTransaction
+        public static string RegisterTransactions
         {
             get => "D2.RegisterTransactions";
+            set { }
+        }
+
+        public static string UpdateTransactions
+        {
+            get => "D2.UpdateTransactions";
             set { }
         }
 
@@ -131,10 +137,16 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string FetchTransactionInformation
         {
-            get => "SELECT * FROM D2.TransactionInformation WHERE Transaction_Id = @Id";
+            get => "SELECT DISTINCT * FROM D2.TransactionInformation WHERE Transaction_Id = @Id";
             set { }
         }
 
         #endregion
+
+        public static string IsStudentNameExist
+        {
+            get => "SELECT COUNT(1) FROM D2.Students WHERE StudUsername = @name";
+            set { }
+        }
     }
 }

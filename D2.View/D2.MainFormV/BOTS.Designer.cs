@@ -58,6 +58,7 @@
             this.labelInventoryService = new System.Windows.Forms.Label();
             this.dataGridViewSubjects = new System.Windows.Forms.DataGridView();
             this.tabPageBilling = new System.Windows.Forms.TabPage();
+            this.DataGridViewPendingPayment = new System.Windows.Forms.DataGridView();
             this.SearchBoxBilling = new System.Windows.Forms.TextBox();
             this.labelPartialPayment = new System.Windows.Forms.Label();
             this.DataGridViewPartialPayment = new System.Windows.Forms.DataGridView();
@@ -67,7 +68,6 @@
             this.labelPendingPayments = new System.Windows.Forms.Label();
             this.DataGridViewPaidPayment = new System.Windows.Forms.DataGridView();
             this.buttonPaid = new System.Windows.Forms.Button();
-            this.DataGridViewPendingPayment = new System.Windows.Forms.DataGridView();
             this.tabPageReceiptReport = new System.Windows.Forms.TabPage();
             this.reportViewerReceipt = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPageEnroll = new System.Windows.Forms.TabPage();
@@ -101,9 +101,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTutorPerSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubjects)).BeginInit();
             this.tabPageBilling.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPendingPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPartialPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPaidPayment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPendingPayment)).BeginInit();
             this.tabPageReceiptReport.SuspendLayout();
             this.tabPageEnroll.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTutorInTheSubject)).BeginInit();
@@ -384,6 +384,8 @@
             this.dataGridViewTutorManagement.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewTutorManagement.Location = new System.Drawing.Point(435, 26);
             this.dataGridViewTutorManagement.Name = "dataGridViewTutorManagement";
+            this.dataGridViewTutorManagement.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewTutorManagement.RowHeadersVisible = false;
             this.dataGridViewTutorManagement.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewTutorManagement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTutorManagement.ShowEditingIcon = false;
@@ -516,6 +518,27 @@
             this.tabPageBilling.Text = "Billing Management";
             this.tabPageBilling.UseVisualStyleBackColor = true;
             // 
+            // DataGridViewPendingPayment
+            // 
+            this.DataGridViewPendingPayment.AllowUserToAddRows = false;
+            this.DataGridViewPendingPayment.AllowUserToDeleteRows = false;
+            this.DataGridViewPendingPayment.AllowUserToResizeColumns = false;
+            this.DataGridViewPendingPayment.AllowUserToResizeRows = false;
+            this.DataGridViewPendingPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataGridViewPendingPayment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridViewPendingPayment.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DataGridViewPendingPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewPendingPayment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.DataGridViewPendingPayment.Location = new System.Drawing.Point(8, 62);
+            this.DataGridViewPendingPayment.Name = "DataGridViewPendingPayment";
+            this.DataGridViewPendingPayment.ReadOnly = true;
+            this.DataGridViewPendingPayment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.DataGridViewPendingPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewPendingPayment.ShowEditingIcon = false;
+            this.DataGridViewPendingPayment.Size = new System.Drawing.Size(1086, 424);
+            this.DataGridViewPendingPayment.TabIndex = 0;
+            this.DataGridViewPendingPayment.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPendingPayment_RowHeaderMouseClick);
+            // 
             // SearchBoxBilling
             // 
             this.SearchBoxBilling.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -632,27 +655,6 @@
             this.buttonPaid.Text = "Pay";
             this.buttonPaid.UseVisualStyleBackColor = true;
             this.buttonPaid.Click += new System.EventHandler(this.buttonPaid_Click);
-            // 
-            // DataGridViewPendingPayment
-            // 
-            this.DataGridViewPendingPayment.AllowUserToAddRows = false;
-            this.DataGridViewPendingPayment.AllowUserToDeleteRows = false;
-            this.DataGridViewPendingPayment.AllowUserToResizeColumns = false;
-            this.DataGridViewPendingPayment.AllowUserToResizeRows = false;
-            this.DataGridViewPendingPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataGridViewPendingPayment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridViewPendingPayment.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.DataGridViewPendingPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewPendingPayment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.DataGridViewPendingPayment.Location = new System.Drawing.Point(8, 62);
-            this.DataGridViewPendingPayment.Name = "DataGridViewPendingPayment";
-            this.DataGridViewPendingPayment.ReadOnly = true;
-            this.DataGridViewPendingPayment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.DataGridViewPendingPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewPendingPayment.ShowEditingIcon = false;
-            this.DataGridViewPendingPayment.Size = new System.Drawing.Size(1086, 424);
-            this.DataGridViewPendingPayment.TabIndex = 0;
-            this.DataGridViewPendingPayment.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewPendingPayment_RowHeaderMouseClick);
             // 
             // tabPageReceiptReport
             // 
@@ -983,9 +985,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubjects)).EndInit();
             this.tabPageBilling.ResumeLayout(false);
             this.tabPageBilling.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPendingPayment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPartialPayment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPaidPayment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPendingPayment)).EndInit();
             this.tabPageReceiptReport.ResumeLayout(false);
             this.tabPageEnroll.ResumeLayout(false);
             this.tabPageEnroll.PerformLayout();

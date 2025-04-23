@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TextBoxStudEmail = new System.Windows.Forms.TextBox();
             this.TextBoxTransactionID = new System.Windows.Forms.TextBox();
             this.labelStudentEmail = new System.Windows.Forms.Label();
             this.LabelTransactionID = new System.Windows.Forms.Label();
             this.labelStudentName = new System.Windows.Forms.Label();
-            this.DataGridViewQueuedItems = new System.Windows.Forms.DataGridView();
+            this.DataGridViewItemLists = new System.Windows.Forms.DataGridView();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
@@ -45,7 +45,9 @@
             this.buttonDraft = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewQueuedItems)).BeginInit();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemLists)).BeginInit();
             this.SuspendLayout();
             // 
             // TextBoxStudEmail
@@ -55,7 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxStudEmail.Enabled = false;
             this.TextBoxStudEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxStudEmail.Location = new System.Drawing.Point(233, 152);
+            this.TextBoxStudEmail.Location = new System.Drawing.Point(233, 130);
             this.TextBoxStudEmail.Name = "TextBoxStudEmail";
             this.TextBoxStudEmail.Size = new System.Drawing.Size(521, 33);
             this.TextBoxStudEmail.TabIndex = 3;
@@ -67,7 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxTransactionID.Enabled = false;
             this.TextBoxTransactionID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxTransactionID.Location = new System.Drawing.Point(233, 55);
+            this.TextBoxTransactionID.Location = new System.Drawing.Point(233, 34);
             this.TextBoxTransactionID.Name = "TextBoxTransactionID";
             this.TextBoxTransactionID.Size = new System.Drawing.Size(521, 33);
             this.TextBoxTransactionID.TabIndex = 1;
@@ -80,7 +82,7 @@
             this.labelStudentEmail.AutoSize = true;
             this.labelStudentEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStudentEmail.ForeColor = System.Drawing.Color.White;
-            this.labelStudentEmail.Location = new System.Drawing.Point(152, 156);
+            this.labelStudentEmail.Location = new System.Drawing.Point(156, 134);
             this.labelStudentEmail.Name = "labelStudentEmail";
             this.labelStudentEmail.Size = new System.Drawing.Size(71, 25);
             this.labelStudentEmail.TabIndex = 10;
@@ -94,7 +96,7 @@
             this.LabelTransactionID.AutoSize = true;
             this.LabelTransactionID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelTransactionID.ForeColor = System.Drawing.Color.White;
-            this.LabelTransactionID.Location = new System.Drawing.Point(92, 59);
+            this.LabelTransactionID.Location = new System.Drawing.Point(92, 38);
             this.LabelTransactionID.Name = "LabelTransactionID";
             this.LabelTransactionID.Size = new System.Drawing.Size(135, 25);
             this.LabelTransactionID.TabIndex = 8;
@@ -108,44 +110,44 @@
             this.labelStudentName.AutoSize = true;
             this.labelStudentName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStudentName.ForeColor = System.Drawing.Color.White;
-            this.labelStudentName.Location = new System.Drawing.Point(92, 107);
+            this.labelStudentName.Location = new System.Drawing.Point(92, 86);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(135, 25);
             this.labelStudentName.TabIndex = 9;
             this.labelStudentName.Text = "Student Name:";
             // 
-            // DataGridViewQueuedItems
+            // DataGridViewItemLists
             // 
-            this.DataGridViewQueuedItems.AllowUserToAddRows = false;
-            this.DataGridViewQueuedItems.AllowUserToDeleteRows = false;
-            this.DataGridViewQueuedItems.AllowUserToResizeColumns = false;
-            this.DataGridViewQueuedItems.AllowUserToResizeRows = false;
-            this.DataGridViewQueuedItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DataGridViewItemLists.AllowUserToAddRows = false;
+            this.DataGridViewItemLists.AllowUserToDeleteRows = false;
+            this.DataGridViewItemLists.AllowUserToResizeColumns = false;
+            this.DataGridViewItemLists.AllowUserToResizeRows = false;
+            this.DataGridViewItemLists.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataGridViewQueuedItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DataGridViewQueuedItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.DataGridViewQueuedItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewQueuedItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DataGridViewQueuedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewQueuedItems.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.DataGridViewQueuedItems.Location = new System.Drawing.Point(12, 320);
-            this.DataGridViewQueuedItems.Name = "DataGridViewQueuedItems";
-            this.DataGridViewQueuedItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DataGridViewQueuedItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.DataGridViewQueuedItems.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Black;
-            this.DataGridViewQueuedItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataGridViewQueuedItems.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.DataGridViewQueuedItems.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DimGray;
-            this.DataGridViewQueuedItems.Size = new System.Drawing.Size(858, 208);
-            this.DataGridViewQueuedItems.TabIndex = 7;
+            this.DataGridViewItemLists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridViewItemLists.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DataGridViewItemLists.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewItemLists.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.DataGridViewItemLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewItemLists.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.DataGridViewItemLists.Location = new System.Drawing.Point(12, 320);
+            this.DataGridViewItemLists.Name = "DataGridViewItemLists";
+            this.DataGridViewItemLists.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridViewItemLists.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridViewItemLists.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Black;
+            this.DataGridViewItemLists.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DataGridViewItemLists.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.DataGridViewItemLists.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DimGray;
+            this.DataGridViewItemLists.Size = new System.Drawing.Size(858, 208);
+            this.DataGridViewItemLists.TabIndex = 7;
             // 
             // buttonAdd
             // 
@@ -171,7 +173,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTotal.Enabled = false;
             this.textBoxTotal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.Location = new System.Drawing.Point(233, 200);
+            this.textBoxTotal.Location = new System.Drawing.Point(233, 178);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.Size = new System.Drawing.Size(521, 33);
             this.textBoxTotal.TabIndex = 4;
@@ -184,7 +186,7 @@
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotal.ForeColor = System.Drawing.Color.White;
-            this.labelTotal.Location = new System.Drawing.Point(160, 204);
+            this.labelTotal.Location = new System.Drawing.Point(171, 182);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(56, 25);
             this.labelTotal.TabIndex = 11;
@@ -198,7 +200,7 @@
             this.textBoxStudentName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBoxStudentName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBoxStudentName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStudentName.Location = new System.Drawing.Point(233, 103);
+            this.textBoxStudentName.Location = new System.Drawing.Point(233, 82);
             this.textBoxStudentName.Name = "textBoxStudentName";
             this.textBoxStudentName.Size = new System.Drawing.Size(521, 33);
             this.textBoxStudentName.TabIndex = 2;
@@ -303,12 +305,37 @@
             this.buttonEdit.UseVisualStyleBackColor = false;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
+            // labelStatus
+            // 
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.ForeColor = System.Drawing.Color.White;
+            this.labelStatus.Location = new System.Drawing.Point(71, 230);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(156, 25);
+            this.labelStatus.TabIndex = 18;
+            this.labelStatus.Text = "Transaction Type:";
+            // 
+            // comboBoxStatus
+            // 
+            this.comboBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxStatus.FormattingEnabled = true;
+            this.comboBoxStatus.Location = new System.Drawing.Point(233, 226);
+            this.comboBoxStatus.Name = "comboBoxStatus";
+            this.comboBoxStatus.Size = new System.Drawing.Size(521, 32);
+            this.comboBoxStatus.TabIndex = 19;
+            // 
             // NewTransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(882, 585);
+            this.Controls.Add(this.comboBoxStatus);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonDraft);
@@ -319,7 +346,7 @@
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.DataGridViewQueuedItems);
+            this.Controls.Add(this.DataGridViewItemLists);
             this.Controls.Add(this.TextBoxStudEmail);
             this.Controls.Add(this.TextBoxTransactionID);
             this.Controls.Add(this.labelStudentEmail);
@@ -330,7 +357,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_";
             this.Load += new System.EventHandler(this.NewTransactionForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewQueuedItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemLists)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,7 +369,7 @@
         private System.Windows.Forms.Label labelStudentEmail;
         private System.Windows.Forms.Label LabelTransactionID;
         private System.Windows.Forms.Label labelStudentName;
-        private System.Windows.Forms.DataGridView DataGridViewQueuedItems;
+        private System.Windows.Forms.DataGridView DataGridViewItemLists;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label labelTotal;
@@ -353,5 +380,7 @@
         private System.Windows.Forms.Button buttonDraft;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.ComboBox comboBoxStatus;
     }
 }

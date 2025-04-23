@@ -51,6 +51,9 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.9.0.3\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.HashCode.6.0.0\lib\net462\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=9.0.0.3, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.9.0.3\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
@@ -176,6 +179,7 @@
       <DependentUpon>TutorModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="D2.dbEstablisher\DtEstablisher.cs" />
+    <Compile Include="D2.Model\BindingListExtensionsBase.cs" />
     <Compile Include="D2.ViewModel\D2.AutomotiveExecQuery\DbItemFetcher.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\BillingClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\EditClass.cs" />

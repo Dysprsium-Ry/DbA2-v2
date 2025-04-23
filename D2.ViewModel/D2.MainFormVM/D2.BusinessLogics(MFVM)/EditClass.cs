@@ -12,9 +12,9 @@ namespace _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_
 {
     public class EditClass
     {
-        public static List<QueuedItems> FetchEditLogData()
+        public static List<QueuedItems> FetchClientData()
         {
-            List<QueuedItems> editItemList = new List<QueuedItems>();
+            List<QueuedItems> ClientItemList = new List<QueuedItems>();
 
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
@@ -29,21 +29,22 @@ namespace _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_
                             var itemsList = new QueuedItems()
                             {
                                 TransactionId = reader["Transaction_Id"] != DBNull.Value ? (long)reader["Transaction_Id"] : 0,
-                                QueuedSubject = reader["Subject"] != DBNull.Value ? (string)reader["Subject"] : string.Empty,
-                                QueuedTutor = reader["Tutor"] != DBNull.Value ? (string)reader["Tutor"] : string.Empty,
-                                QueuedHourlyRate = reader["Per_Hour_Rate"] != DBNull.Value ? (decimal)reader["Per_Hour_Rate"] : decimal.Zero,
-                                QueuedStartTime = reader["Time_Period_Begin"] != DBNull.Value ? (TimeSpan)reader["Time_Period_Begin"] : TimeSpan.Zero,
-                                QueuedEndTime = reader["Time_Period_End"] != DBNull.Value ? (TimeSpan)reader["Time_Period_End"] : TimeSpan.Zero,
-                                QueuedSessionSchedule = reader["Date_Schedule"] != DBNull.Value ? (DateTime)reader["Date_Schedule"] : DateTime.MinValue,
+                                Subject = reader["Subject"] != DBNull.Value ? (string)reader["Subject"] : string.Empty,
+                                Tutor = reader["Tutor"] != DBNull.Value ? (string)reader["Tutor"] : string.Empty,
+                                HourlyRate = reader["Per_Hour_Rate"] != DBNull.Value ? (decimal)reader["Per_Hour_Rate"] : decimal.Zero,
+                                StartSchedule = reader["Time_Period_Begin"] != DBNull.Value ? (TimeSpan)reader["Time_Period_Begin"] : TimeSpan.Zero,
+                                EndSchedule = reader["Time_Period_End"] != DBNull.Value ? (TimeSpan)reader["Time_Period_End"] : TimeSpan.Zero,
+                                SessionScheduleDate = reader["Date_Schedule"] != DBNull.Value ? (DateTime)reader["Date_Schedule"] : DateTime.MinValue,
+                                Status = reader["Transaction_State"] != DBNull.Value ? (string)reader["Transaction_State"] : string.Empty,
                             };
 
-                            editItemList.Add(itemsList);
+                            ClientItemList.Add(itemsList);
                         }
                     }
                 }
             }
 
-            return editItemList;
+            return ClientItemList;
         }
     }
 }
