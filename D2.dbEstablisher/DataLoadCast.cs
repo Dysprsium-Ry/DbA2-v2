@@ -13,7 +13,7 @@ using Microsoft.ReportingServices.Diagnostics.Internal;
 
 namespace _3_13_25.D2.DbConn
 {
-    public class DtEstablisher
+    public class DataLoadCast
     {
         #region EnrollmentClass
 

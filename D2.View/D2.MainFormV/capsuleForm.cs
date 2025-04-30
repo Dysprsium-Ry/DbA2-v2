@@ -1,5 +1,5 @@
-﻿using _3_13_25.D2.Classes;
-using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
+﻿using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
+using _3_13_25.D2.ViewModel.D2.BusinessLogics;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -14,7 +14,6 @@ namespace _3_13_25.D2.View.D2.MainFormV
         public capsuleForm()
         {
             InitializeComponent();
-            //this.OnFormClosing += (s, e) => { if (MessageBox("Quit form", "Form Close", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation).DialogResult == DialogResult.OK) { } };
 
             DateTimePickerDateSelection.MinDate = DateTime.Today;
 
@@ -28,6 +27,12 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void QueuedItemSave()
         {
+            if (TransactionLogics.IsTutorAvailable(ComboBoxTutorSelection.Text, TemporalData.InTime, TemporalData.OutTime, DateTimePickerDateSelection.Value.Date))
+            {
+                MessageBox.Show("Date occupied", "Date Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             TemporalData.Subject = ComboBoxSubjectSelection.Text;
             TemporalData.TutorName = ComboBoxTutorSelection.Text;
             TemporalData.HourlyRate = Convert.ToDecimal(textBoxHourlyRate.Text);
@@ -58,8 +63,13 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 if (isAlreadyExist || isOverlapping || isStudentAvailable || isStudentOverlapping)
                 {
                     DateTimePickerDateSelection.Focus();
-                    DialogResult = DialogResult.Retry;
-                    return;
+                    var result = MessageBox.Show("Date already exist.", "Schedule Unavailable", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+
+                    if (result != DialogResult.Retry)
+                    {
+                        Cancel();
+                    }
+                    else { return; }
                 }
 
                 queue.Add(newItem);
@@ -67,7 +77,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 DialogResult = DialogResult.Yes;
                 this.Close();
             }
-            else { DialogResult = DialogResult.No; }
+            else { DialogResult = DialogResult.No; }    
         }
 
         private void ComboBoxSubjectSelection_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,6 +109,12 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            Cancel();
+        }
+
+        private void Cancel()
+        {
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace _3_13_25.D2.View.D2.MainFormV
 {
-    partial class NewTransactionForm
+    partial class TransactionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TextBoxStudEmail = new System.Windows.Forms.TextBox();
             this.TextBoxTransactionID = new System.Windows.Forms.TextBox();
             this.labelStudentEmail = new System.Windows.Forms.Label();
@@ -42,11 +42,10 @@
             this.labelNewTransaction = new System.Windows.Forms.Label();
             this.buttonEnroll = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonDraft = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
+            this.TextBoxStatus = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemLists)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,14 +127,14 @@
             this.DataGridViewItemLists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewItemLists.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DataGridViewItemLists.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridViewItemLists.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewItemLists.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewItemLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewItemLists.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DataGridViewItemLists.Location = new System.Drawing.Point(12, 320);
@@ -160,7 +159,7 @@
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
             this.buttonAdd.Location = new System.Drawing.Point(233, 275);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(198, 39);
+            this.buttonAdd.Size = new System.Drawing.Size(255, 39);
             this.buttonAdd.TabIndex = 6;
             this.buttonAdd.Text = "Add New";
             this.buttonAdd.UseVisualStyleBackColor = false;
@@ -229,7 +228,7 @@
             this.buttonEnroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEnroll.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.buttonEnroll.ForeColor = System.Drawing.Color.White;
-            this.buttonEnroll.Location = new System.Drawing.Point(739, 534);
+            this.buttonEnroll.Location = new System.Drawing.Point(602, 534);
             this.buttonEnroll.Name = "buttonEnroll";
             this.buttonEnroll.Size = new System.Drawing.Size(131, 39);
             this.buttonEnroll.TabIndex = 13;
@@ -246,7 +245,7 @@
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCancel.Location = new System.Drawing.Point(602, 534);
+            this.buttonCancel.Location = new System.Drawing.Point(739, 534);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(131, 39);
             this.buttonCancel.TabIndex = 14;
@@ -254,22 +253,22 @@
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // buttonDraft
+            // buttonSave
             // 
-            this.buttonDraft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDraft.BackColor = System.Drawing.Color.Gray;
-            this.buttonDraft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDraft.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.buttonDraft.ForeColor = System.Drawing.Color.White;
-            this.buttonDraft.Location = new System.Drawing.Point(465, 534);
-            this.buttonDraft.Name = "buttonDraft";
-            this.buttonDraft.Size = new System.Drawing.Size(131, 39);
-            this.buttonDraft.TabIndex = 15;
-            this.buttonDraft.Text = "Draft";
-            this.buttonDraft.UseVisualStyleBackColor = false;
-            this.buttonDraft.Click += new System.EventHandler(this.buttonDraft_Click);
+            this.buttonSave.BackColor = System.Drawing.Color.Gray;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.buttonSave.ForeColor = System.Drawing.Color.White;
+            this.buttonSave.Location = new System.Drawing.Point(465, 534);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(131, 39);
+            this.buttonSave.TabIndex = 15;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = false;
+            this.buttonSave.Click += new System.EventHandler(this.buttonDraft_Click);
             // 
             // buttonRemove
             // 
@@ -280,30 +279,13 @@
             this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemove.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.buttonRemove.ForeColor = System.Drawing.Color.White;
-            this.buttonRemove.Location = new System.Drawing.Point(437, 275);
+            this.buttonRemove.Location = new System.Drawing.Point(499, 275);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(198, 39);
+            this.buttonRemove.Size = new System.Drawing.Size(255, 39);
             this.buttonRemove.TabIndex = 16;
             this.buttonRemove.Text = "Remove";
             this.buttonRemove.UseVisualStyleBackColor = false;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
-            // 
-            // buttonEdit
-            // 
-            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonEdit.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEdit.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.buttonEdit.ForeColor = System.Drawing.Color.Black;
-            this.buttonEdit.Location = new System.Drawing.Point(641, 275);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(198, 39);
-            this.buttonEdit.TabIndex = 17;
-            this.buttonEdit.Text = "Edit";
-            this.buttonEdit.UseVisualStyleBackColor = false;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // labelStatus
             // 
@@ -313,32 +295,36 @@
             this.labelStatus.AutoSize = true;
             this.labelStatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStatus.ForeColor = System.Drawing.Color.White;
-            this.labelStatus.Location = new System.Drawing.Point(71, 230);
+            this.labelStatus.Location = new System.Drawing.Point(161, 231);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(156, 25);
+            this.labelStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelStatus.Size = new System.Drawing.Size(66, 25);
             this.labelStatus.TabIndex = 18;
-            this.labelStatus.Text = "Transaction Type:";
+            this.labelStatus.Text = ":Status";
+            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBoxStatus
+            // TextBoxStatus
             // 
-            this.comboBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxStatus.FormattingEnabled = true;
-            this.comboBoxStatus.Location = new System.Drawing.Point(233, 226);
-            this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(521, 32);
-            this.comboBoxStatus.TabIndex = 19;
+            this.TextBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxStatus.Enabled = false;
+            this.TextBoxStatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxStatus.Location = new System.Drawing.Point(233, 227);
+            this.TextBoxStatus.Name = "TextBoxStatus";
+            this.TextBoxStatus.Size = new System.Drawing.Size(521, 33);
+            this.TextBoxStatus.TabIndex = 19;
             // 
-            // NewTransactionForm
+            // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(882, 585);
-            this.Controls.Add(this.comboBoxStatus);
+            this.Controls.Add(this.TextBoxStatus);
             this.Controls.Add(this.labelStatus);
-            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonRemove);
-            this.Controls.Add(this.buttonDraft);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonEnroll);
             this.Controls.Add(this.labelNewTransaction);
@@ -353,7 +339,7 @@
             this.Controls.Add(this.LabelTransactionID);
             this.Controls.Add(this.labelStudentName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "NewTransactionForm";
+            this.Name = "TransactionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_";
             this.Load += new System.EventHandler(this.NewTransactionForm_Load);
@@ -377,10 +363,9 @@
         private System.Windows.Forms.Label labelNewTransaction;
         private System.Windows.Forms.Button buttonEnroll;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonDraft;
+        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonRemove;
-        private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.ComboBox comboBoxStatus;
+        private System.Windows.Forms.TextBox TextBoxStatus;
     }
 }

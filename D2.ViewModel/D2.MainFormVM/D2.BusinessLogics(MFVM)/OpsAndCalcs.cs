@@ -17,10 +17,6 @@ namespace _3_13_25.D2.Classes
 {
     public class OpsAndCalcs
     {
-        public static decimal CalculateTotalFee(decimal sessionDuration, decimal hourlyRate)
-        {
-            return sessionDuration * hourlyRate;
-        }
         public static decimal CalculateSumSessionFee(decimal currentTotal, decimal hourlyRate)
         {
             return currentTotal + hourlyRate;
@@ -28,14 +24,6 @@ namespace _3_13_25.D2.Classes
         public static decimal CalculateSubtSessionFee(decimal currenTotal, decimal hourlyRate)
         {
             return currenTotal - hourlyRate;
-        }
-        public static decimal CalculateRemainingFee(decimal RemainingFee, decimal paidFee)
-        {
-            decimal result = RemainingFee - paidFee;
-
-            if (result >= 0) { return result; }
-            else if (result < 0) { return 0; }
-            else { return 0; }
         }
         public static decimal SumPaidFee(decimal PaidFee, decimal PayFee)
         {

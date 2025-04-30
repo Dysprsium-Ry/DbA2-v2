@@ -1,39 +1,49 @@
 ﻿using _3_13_25.D2.Classes;
+using _3_13_25.D2.DAL;
 using _3_13_25.D2.DbConn;
 using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
 using _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_;
 using BienvenidoOnlineTutorServices.D2.Objects;
 using System;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows.Forms;
 using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
 namespace _3_13_25.D2.View.D2.MainFormV
 {
-    public partial class NewTransactionForm : Form
+    public partial class TransactionForm : Form
     {
-        private readonly string[] statusOptions = { "Enrolled", "Draft" };
-
-        public NewTransactionForm()
+        public TransactionForm()
         {
             InitializeComponent();
-            textBoxStudentName.AutoCompleteCustomSource = DtEstablisher.studentListFetcher();
-            this.FormClosed += (s, e) => { clearTemporalDatas(); Cancel(QueuedItemList.QueuedItemsBindingList); refreshFields(); };
-            comboBoxStatus.SelectedIndexChanged += (s, e) => { TransactionList_StatusSort(); DataGrid_Load(QueuedItemList.QueuedItemsBindingList); };
-            comboBoxStatus.DataSource = statusOptions;
+            textBoxStudentName.AutoCompleteCustomSource = DataLoadCast.studentListFetcher();
+            this.FormClosed += (s, e) => { TemporalData.Clear(); Cancel(QueuedItemList.QueuedItemsBindingList); refreshControls(); QueuedItemList.TransactionQueues.Clear(); };
             _sumTotal();
-        }
+        }   
 
         private void NewTransactionForm_Load(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TemporalData.StudentName))
             {
                 textBoxStudentName.Text = TemporalData.StudentName;
+                textBoxStudentName.Enabled = false;
             }
 
-            TextBoxTransactionID.Text = TemporalData.TransactionId.ToString();
+            if (TemporalData.Status == "Enrolled")
+            {
+                foreach (Control control in this.Controls)
+                {
+                    if (control is Button button && button != buttonCancel)
+                    {
+                        button.Visible = false;
+                    }
+                }
 
+                TextBoxStatus.Text = TemporalData.Status.ToString();
+            }
+            else { TextBoxStatus.Text = "Draft"; }
+
+            TextBoxTransactionID.Text = TemporalData.TransactionId.ToString();
             DataGrid_Load(QueuedItemList.QueuedItemsBindingList);
             _sumTotal();
         }
@@ -48,39 +58,52 @@ namespace _3_13_25.D2.View.D2.MainFormV
                     textBoxStudentName.Focus();
                     return;
                 }
-
-                if (control is not (Button or DataGridView or Label))
+                else
                 {
-                    control.Enabled = false;
+                    if (control is not (Button or DataGridView or Label))
+                    {
+                        control.Enabled = false;
+                    }
+
+                    TemporalData.TransactionId = Convert.ToInt64(TextBoxTransactionID.Text);
                 }
             }
 
             TemporalData.StudentName = textBoxStudentName.Text;
 
             capsuleForm capsule = new capsuleForm();
-            if (capsule.ShowDialog() == DialogResult.Yes)
+            var result = capsule.ShowDialog();
+
+            while (true)
             {
-                if (QueuedItemList.GetQueueForDate(TemporalData.TransactionId).Count > 0)
+                switch (result)
                 {
-                    DataGrid_Load(QueuedItemList.GetQueueForDate(TemporalData.TransactionId));
+                    case DialogResult.Yes:
+                        if (QueuedItemList.GetQueueForDate(TemporalData.TransactionId).Count > 0)
+                        {
+                            DataGrid_Load(QueuedItemList.GetQueueForDate(TemporalData.TransactionId));
+                        }
+                        else
+                        {
+                            DataGrid_Load(QueuedItemList.QueuedItemsBindingList);
+                        }
+                        _sumTotal();
+                        return;
+
+                    case DialogResult.No:
+                        MessageBox.Show("Item already exist", "Item Redundancy Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+
+                    default:
+                        return;
                 }
-                else { DataGrid_Load(QueuedItemList.QueuedItemsBindingList); }
-                _sumTotal();
-            }
-            else if (capsule.ShowDialog() == DialogResult.No)
-            {
-                MessageBox.Show("Item already exist", "Item Redundancy Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (capsule.ShowDialog() == DialogResult.Retry)
-            {
-                MessageBox.Show("This schedule is not available, please pick a different one.", "Schedule Conflict", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                capsule.ShowDialog();
             }
         }
 
         private void DataGrid_Load(object binding)
         {
             if (binding is not BindingList<QueuedItems> list) return;
+
 
             DataGridViewItemLists.CellFormatting -= DataGridViewQueuedItems_CellFormatting;
 
@@ -103,7 +126,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (dgv.Columns.Contains("Status"))
             {
                 dgv.Columns["Status"].HeaderText = "State";
-                dgv.Columns["Status"].Visible = false;
+                //dgv.Columns["Status"].Visible = false;
             }
 
             if (dgv.Columns.Contains("Subject"))
@@ -124,7 +147,6 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (dgv.Columns.Contains("SessionScheduleDate"))
                 dgv.Columns["SessionScheduleDate"].HeaderText = "Schedule";
         }
-
 
         private void DataGridViewQueuedItems_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -148,14 +170,13 @@ namespace _3_13_25.D2.View.D2.MainFormV
             }
         }
 
-
         private void textBoxStudentName_TextChanged(object sender, EventArgs e)
         {
             DataGridReloader(QueuedItemList.QueuedItemsBindingList);
 
             if (string.IsNullOrWhiteSpace(textBoxStudentName.Text))
             {
-                clearTemporalDatas();
+                TemporalData.Clear();
             }
 
             TextBoxStudEmail.Text = DbItemFetcher.StudentEmailFetcher(textBoxStudentName.Text);
@@ -164,10 +185,10 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
             if (OpsAndCalcs.IsStudentNameExist(textBoxStudentName.Text))
             {
-                TextBoxTransactionID.Text = (TemporalData.TransactionId = DbItemFetcher.ExistingTransactionIdFetcher()).ToString();
+                TextBoxTransactionID.Text = TemporalData.TransactionId.ToString();
                 fetchRecords();
             }
-            else { DbItemFetcher.NewTransactionIdFetcher(); }
+            else { TextBoxTransactionID.Text = (TemporalData.TransactionId = DbItemFetcher.NewTransactionIdFetcher()).ToString(); }
         }
 
         private void Register(string State)
@@ -181,6 +202,31 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 BillingClass.RegisterTransaction(State);
 
                 foreach (var item in QueuedItemList.GetQueueForDate(TemporalData.TransactionId))
+                {
+                    Enrollment.Subject = item.Subject;
+                    Enrollment.TutorName = item.Tutor;
+                    Enrollment.HourlyRate = item.HourlyRate;
+                    Enrollment.StartSchedule = item.StartSchedule;
+                    Enrollment.EndSchedule = item.EndSchedule;
+                    Enrollment.SessionScheduleDate = item.SessionScheduleDate;
+                    Enrollment.TotalFee = decimal.Parse(textBoxTotal.Text);
+
+                    BillingClass.RegisterTransactionInformation(State);
+                }
+
+                //BillingClass.RegisterTransactionBilling();
+                Cancel(QueuedItemList.QueuedItemsBindingList);
+                this.Close();
+            }
+            else if (QueuedItemList.QueuedItemsBindingList.Count > 0)
+            {
+                Enrollment.TransactionId = long.Parse(TextBoxTransactionID.Text);
+                Enrollment.StudentName = TemporalData.StudentName;
+                Enrollment.StudentEmail = TextBoxStudEmail.Text;
+
+                BillingClass.RegisterTransaction(State);
+
+                foreach (var item in QueuedItemList.QueuedItemsBindingList)
                 {
                     Enrollment.Subject = item.Subject;
                     Enrollment.TutorName = item.Tutor;
@@ -222,20 +268,20 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (List.Count > 0)
             {
                 DataGridReloader(List);
-                this.Close();
             }
+            this.Close();
         }
 
-        private void Draft()
+        private void Save()
         {
             Register("Draft");
-            MessageBox.Show("Queue Drafted", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Transaction Saved as Draft", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
         private void Remove()
         {
-            if (DataGridViewItemLists.SelectedRows.Count > 0 && DataGridViewItemLists.DataSource == QueuedItemList.QueuedItemsBindingList)
+            if (DataGridViewItemLists.SelectedRows.Count > 0 && DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value?.ToString() == "Draft")
             {
                 foreach (DataGridViewRow row in DataGridViewItemLists.SelectedRows)
                 {
@@ -244,6 +290,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 DataGridViewItemLists.DataSource = null;
                 DataGrid_Load(QueuedItemList.QueuedItemsBindingList);
             }
+            else { }
 
             if (DataGridViewItemLists.SelectedRows.Count > 0 && DataGridViewItemLists.DataSource == QueuedItemList.GetQueueForDate(TemporalData.TransactionId))
             {
@@ -297,11 +344,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
         {
             decimal calculatedSum = OpsAndCalcs.CalculateSumSessionFee(TemporalData.SessionTotal, TemporalData.HourlyRate);
             textBoxTotal.Text = calculatedSum.ToString();
-
-            if (calculatedSum > 0m)
-            {
-                TemporalData.SessionTotal = calculatedSum;
-            }
+            TemporalData.SessionTotal = calculatedSum;
         }
 
 
@@ -313,9 +356,9 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 var cellValue = DataGridViewItemLists.SelectedRows[0].Cells[3].Value;
                 subtracted = Convert.ToDecimal(cellValue ?? 0m);
             }
-
-            textBoxTotal.Text = OpsAndCalcs.CalculateSubtSessionFee(TemporalData.SessionTotal, subtracted).ToString();
-            TemporalData.SessionTotal = subtracted;
+            decimal newTotal = OpsAndCalcs.CalculateSubtSessionFee(TemporalData.SessionTotal, subtracted);
+            textBoxTotal.Text = newTotal.ToString();
+            TemporalData.SessionTotal = newTotal;
         }
 
         private void buttonEnroll_Click(object sender, EventArgs e)
@@ -330,7 +373,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void buttonDraft_Click(object sender, EventArgs e)
         {
-            Draft();
+            Save();
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -343,19 +386,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             Edit();
         }
 
-        private void clearTemporalDatas()
-        {
-            TemporalData.StudentName = string.Empty;
-            TemporalData.Subject = string.Empty;
-            TemporalData.TutorName = string.Empty;
-            TemporalData.HourlyRate = 0;
-            TemporalData.InTime = TimeSpan.Zero;
-            TemporalData.OutTime = TimeSpan.Zero;
-            TemporalData.SessionScheduleDate = DateTime.MinValue;
-            TemporalData.SessionTotal = 0;
-        }
-
-        private void refreshFields()
+        private void refreshControls()
         {
             foreach (Control control in this.Controls)
             {
@@ -368,18 +399,50 @@ namespace _3_13_25.D2.View.D2.MainFormV
                         textbox.Enabled = true;
                     }
                 }
+
+                if (control is ComboBox comboBox)
+                {
+                    comboBox.Enabled = true;
+                }
+
+                if (control is Button button)
+                {
+                    button.Visible = true;
+                }
             }
         }
 
         private void fetchRecords()
         {
+            QueuedItemList.QueuedItemsBindingList.Clear();
             var editItemList = EditClass.FetchClientData();
             QueuedItemList.QueuedItemsBindingList.AddRange(editItemList);
         }
 
-        private void TransactionList_StatusSort()
-        {
+        #region DAL
 
+        private void DAL_SaveFunction()
+        {
+            var repo = new DAL_RepoClass();
+            //repo.Save(item); // save an item
+
+            var allItems = repo.GetAllByTransactionId(12345); // load by transaction
+            DataGridViewItemLists.DataSource = new BindingList<QueuedItems>(allItems);
         }
+
+        private void DAL_DeleteFunction()
+        {
+            var selectedItem = (QueuedItems)DataGridViewItemLists.CurrentRow.DataBoundItem;
+
+            if (selectedItem != null)
+            {
+                QueuedItemList.QueuedItemsBindingList.Remove(selectedItem);
+
+                var repo = new DAL_RepoClass();
+                repo.Delete(selectedItem.TransactionId, selectedItem.SessionScheduleDate);
+            }
+        }
+
+        #endregion
     }
 }

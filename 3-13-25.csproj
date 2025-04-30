@@ -142,6 +142,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="D2.DAL\DAL_RepoClass.cs" />
     <Compile Include="D2.DataModels\Student.cs">
       <DependentUpon>StudentModel.tt</DependentUpon>
     </Compile>
@@ -178,9 +179,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TutorModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="D2.dbEstablisher\DtEstablisher.cs" />
+    <Compile Include="D2.dbEstablisher\DataLoadCast.cs" />
     <Compile Include="D2.Model\BindingListExtensionsBase.cs" />
     <Compile Include="D2.ViewModel\D2.AutomotiveExecQuery\DbItemFetcher.cs" />
+    <Compile Include="D2.ViewModel\D2.BusinessLogics\Logics.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\BillingClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\EditClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\OpsAndCalcs.cs" />
@@ -209,6 +211,48 @@
     </Compile>
     <Compile Include="D2.View\D2.MainFormV\NewTransactionForm.Designer.cs">
       <DependentUpon>NewTransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlReceipt.Designer.cs">
+      <DependentUpon>UserControlReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlStudentEnrollment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlStudentEnrollment.Designer.cs">
+      <DependentUpon>UserControlStudentEnrollment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlSubjectLibrary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlSubjectLibrary.Designer.cs">
+      <DependentUpon>UserControlSubjectLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlTransactionBilling.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlTransactionBilling.Designer.cs">
+      <DependentUpon>UserControlTransactionBilling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlTutorLedger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlTutorLedger.Designer.cs">
+      <DependentUpon>UserControlTutorLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlTutorRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlTutorRegistration.Designer.cs">
+      <DependentUpon>UserControlTutorRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlTransactionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlTransactionList.Designer.cs">
+      <DependentUpon>UserControlTransactionList.cs</DependentUpon>
     </Compile>
     <Compile Include="TransacItemFetcherDataSet.cs">
       <DependentUpon>TransacItemFetcherDataSet.xsd</DependentUpon>
@@ -239,6 +283,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="D2.View\D2.MainFormV\NewTransactionForm.resx">
       <DependentUpon>NewTransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlReceipt.resx">
+      <DependentUpon>UserControlReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlStudentEnrollment.resx">
+      <DependentUpon>UserControlStudentEnrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlSubjectLibrary.resx">
+      <DependentUpon>UserControlSubjectLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlTransactionBilling.resx">
+      <DependentUpon>UserControlTransactionBilling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlTutorLedger.resx">
+      <DependentUpon>UserControlTutorLedger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlTutorRegistration.resx">
+      <DependentUpon>UserControlTutorRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlTransactionList.resx">
+      <DependentUpon>UserControlTransactionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

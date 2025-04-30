@@ -43,6 +43,7 @@ namespace _3_13_25.D2.Classes
                         command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
                         command.Parameters.AddWithValue("@Modified_Date", DateTime.Now);
                         command.Parameters.AddWithValue("@Status", State);
+                        command.ExecuteNonQuery();
                     }
                 }
             }
@@ -65,18 +66,31 @@ namespace _3_13_25.D2.Classes
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand(Queries.RegisterTransactionInformation, connection))
+                if (!IsTransactionExist())
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
-                    command.Parameters.AddWithValue("@Subject", Enrollment.Subject);
-                    command.Parameters.AddWithValue("@Tutor", Enrollment.TutorName);
-                    command.Parameters.AddWithValue("@Per_Hour_Rate", Enrollment.HourlyRate);
-                    command.Parameters.AddWithValue("@Time_Period_Begin", Enrollment.StartSchedule);
-                    command.Parameters.AddWithValue("@Time_Period_End", Enrollment.EndSchedule);
-                    command.Parameters.AddWithValue("@Date_Schedule", Enrollment.SessionScheduleDate);
-                    command.Parameters.AddWithValue("@State", State);
-                    command.ExecuteNonQuery();
+                    using (SqlCommand command = new SqlCommand(Queries.RegisterTransactionInformation, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
+                        command.Parameters.AddWithValue("@Subject", Enrollment.Subject);
+                        command.Parameters.AddWithValue("@Tutor", Enrollment.TutorName);
+                        command.Parameters.AddWithValue("@Per_Hour_Rate", Enrollment.HourlyRate);
+                        command.Parameters.AddWithValue("@Time_Period_Begin", Enrollment.StartSchedule);
+                        command.Parameters.AddWithValue("@Time_Period_End", Enrollment.EndSchedule);
+                        command.Parameters.AddWithValue("@Date_Schedule", Enrollment.SessionScheduleDate);
+                        command.Parameters.AddWithValue("@State", State);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    using (SqlCommand command = new SqlCommand(Queries.UpdateTransactionInformation, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
+                        command.Parameters.AddWithValue("@State", State);
+                        command.ExecuteNonQuery();
+                    }
                 }
             }
         }
@@ -85,13 +99,16 @@ namespace _3_13_25.D2.Classes
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand(Queries.RegisterTransactionBilling, connection))
+                if (!IsTransactionExist())
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
-                    command.Parameters.AddWithValue("@Total_Value", Enrollment.TotalFee);
-                    command.Parameters.AddWithValue("@Payment_Amount", 0);
-                    command.ExecuteNonQuery();
+                    using (SqlCommand command = new SqlCommand(Queries.RegisterTransactionBilling, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
+                        command.Parameters.AddWithValue("@Total_Value", Enrollment.TotalFee);
+                        command.Parameters.AddWithValue("@Payment_Amount", 0);
+                        command.ExecuteNonQuery();
+                    }
                 }
             }
         }

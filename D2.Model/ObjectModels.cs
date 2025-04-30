@@ -1,8 +1,10 @@
-﻿using System;
+﻿using _3_13_25.D2.DataModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace BienvenidoOnlineTutorServices.D2.Objects
 {
@@ -72,6 +74,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
         {
             public static List<PreferredSubject> SubjectList = new List<PreferredSubject>();
             public static long TransactionId { get; set; }
+            public static string Status { get; set; }
             public static string StudentName { get; set; }
             public static long StudentId { get; set; }
             public static string StudentEmail { get; set; }
@@ -93,6 +96,34 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public static string PaymentStatus { get; set; }
             public static TimeSpan InTime { get; set; }
             public static TimeSpan OutTime { get; set; }
+
+            public static void Clear()
+            {
+                SubjectList.Clear();
+                TransactionId = 0;
+                Status = null;
+                StudentName = null;
+                StudentId = 0;
+                StudentEmail = null;
+                TutorName = null;
+                TutorId = 0;
+                TutorEmail = null;
+                Subject = null;
+                SubjectId = 0;
+                SessionScheduleDate = default;
+                SessionScheduleTime = default;
+                SessionDuration = 0;
+                SessionEndSchedule = default;
+                HourlyRate = 0;
+                SessionTotal = 0;
+                TotalFee = 0;
+                OverallTotalFee = 0;
+                PaymentFee = 0;
+                RemainingFee = 0;
+                PaymentStatus = null;
+                InTime = default;
+                OutTime = default;
+            }
         }
         public class TransacObj
         {
@@ -155,120 +186,120 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
         public class QueuedItems : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
-            protected void OnPropertyChanged(string propertyName)
+            protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
 
-            private long _TransactionId;
-            private string _Subject;
-            private string _Tutor;
-            private decimal _HourlyRate;
-            private DateTime _SessionScheduleDate;
-            private TimeSpan _StartSchedule;
-            private TimeSpan _EndSchedule;
-            private string _Status;
+            private long _transactionId;
+            private string _subject;
+            private string _tutor;
+            private decimal _hourlyRate;
+            private DateTime _sessionScheduleDate;
+            private TimeSpan _startSchedule;
+            private TimeSpan _endSchedule;
+            private string _status;
 
             public long TransactionId
             {
-                get => _TransactionId;
+                get => _transactionId;
                 set
                 {
-                    if (_TransactionId != value)
+                    if (_transactionId != value)
                     {
-                        _TransactionId = value;
-                        OnPropertyChanged(nameof(TransactionId));
+                        _transactionId = value;
+                        OnPropertyChanged();
                     }
                 }
             }
 
             public string Subject
             {
-                get => _Subject;
+                get => _subject;
                 set
                 {
-                    if (_Subject != value)
+                    if (_subject != value)
                     {
-                        _Subject = value;
-                        OnPropertyChanged(nameof(Subject));
+                        _subject = value;
+                        OnPropertyChanged();
                     }
                 }
             }
 
             public string Tutor
             {
-                get => _Tutor;
+                get => _tutor;
                 set
                 {
-                    if (_Tutor != value)
+                    if (_tutor != value)
                     {
-                        _Tutor = value;
-                        OnPropertyChanged(nameof(Tutor));
+                        _tutor = value;
+                        OnPropertyChanged();
                     }
                 }
             }
 
             public decimal HourlyRate
             {
-                get => _HourlyRate;
+                get => _hourlyRate;
                 set
                 {
-                    if (_HourlyRate != value)
+                    if (_hourlyRate != value)
                     {
-                        _HourlyRate = value;
-                        OnPropertyChanged(nameof(HourlyRate));
+                        _hourlyRate = value;
+                        OnPropertyChanged();
                     }
                 }
             }
 
             public DateTime SessionScheduleDate
             {
-                get => _SessionScheduleDate;
+                get => _sessionScheduleDate;
                 set
                 {
-                    if (_SessionScheduleDate != value)
+                    if (_sessionScheduleDate != value)
                     {
-                        _SessionScheduleDate = value;
-                        OnPropertyChanged(nameof(SessionScheduleDate));
+                        _sessionScheduleDate = value;
+                        OnPropertyChanged();
                     }
                 }
             }
 
             public TimeSpan StartSchedule
             {
-                get => _StartSchedule;
+                get => _startSchedule;
                 set
                 {
-                    if (_StartSchedule != value)
+                    if (_startSchedule != value)
                     {
-                        _StartSchedule = value;
-                        OnPropertyChanged(nameof(StartSchedule));
+                        _startSchedule = value;
+                        OnPropertyChanged();
                     }
                 }
             }
 
             public TimeSpan EndSchedule
             {
-                get => _EndSchedule;
+                get => _endSchedule;
                 set
                 {
-                    if (_EndSchedule != value)
+                    if (_endSchedule != value)
                     {
-                        _EndSchedule = value;
-                        OnPropertyChanged(nameof(EndSchedule));
+                        _endSchedule = value;
+                        OnPropertyChanged();
                     }
                 }
             }
 
-            public String Status
+            public string Status
             {
-                get => _Status;
+                get => _status;
                 set
                 {
-                    if (_Status != value)
+                    if (_status != value)
                     {
-                        _Status = value;
-                        OnPropertyChanged(nameof(Status));
+                        _status = value;
+                        OnPropertyChanged();
                     }
                 }
             }
@@ -316,7 +347,6 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
 
             public static BindingList<QueuedItems> QueuedItemsBindingList = new BindingList<QueuedItems>();
 
-
             public static Dictionary<long, BindingList<QueuedItems>> TransactionQueues = new();
             public static BindingList<QueuedItems>GetQueueForDate(long Transaction_Id)
             {
@@ -326,15 +356,6 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
                 }
                 return TransactionQueues[Transaction_Id];
             }
-
-            public static long TransactionId { get; set; }
-            public static string Subject { get; set; }
-            public static string Tutor { get; set; }
-            public static decimal HourlyRate { get; set; }
-            public static decimal SessionTotal { get; set; }
-            public static string TimeSchedule { get; set; }
-            public static DateTime SessionSchedule { get; set; }
-            public static string Status { get; set; }
         }
 
         #region editModels

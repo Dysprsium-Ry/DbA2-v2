@@ -2,6 +2,7 @@
 using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.SqlClient;
 using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
@@ -15,7 +16,7 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
 
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand(Queries.TransactionIdExisting, connection))
+                using (SqlCommand command = new SqlCommand(Queries.MaxTransactionIdPerStud, connection))
                 {
                     command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
 
@@ -33,7 +34,6 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
                     }
                 }
             }
-
             return value;
         }
 
@@ -55,6 +55,73 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             }
         }
 
+        public static long MaxDraftIdFetcher()
+        {
+            long value = 0;
+
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.MaxDraftIdPerStud, connection))
+                {
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            value = reader.IsDBNull(0) ? 0 : reader.GetInt64(0);
+
+                            if (value == 0)
+                            {
+                                value = NewTransactionIdFetcher();
+                            }
+                        }
+                    }
+                }
+            }
+            return value;
+        }
+
+        public static bool IsDraftExist(string Name)
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.MaxDraftId, connection))
+                {
+                    command.Parameters.AddWithValue("@Student", Name);
+
+                    return command.ExecuteScalar() is int value && value > 0;
+                }
+            }
+        }
+
+        public static long TransactionIdFetcher()
+        {
+            long value = 0;
+
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.MaxTransactionIdPerStud, connection))
+                {
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            value = reader.IsDBNull(0) ? 0 : reader.GetInt64(0);
+
+                            if (value == 0)
+                            {
+                                value = NewTransactionIdFetcher();
+                            }
+                        }
+                    }
+                }
+            }
+
+            return value;
+        }
 
         public static string StudentEmailFetcher(string StudUsername)
         {

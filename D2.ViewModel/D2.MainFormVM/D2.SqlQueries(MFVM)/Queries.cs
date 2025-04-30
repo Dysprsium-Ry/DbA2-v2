@@ -60,7 +60,7 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string TransacListDisp
         {
-            get => "SELECT * FROM D2.TransactionList";
+            get => "SELECT * FROM D2.TransactionList ORDER BY [Created Date]";
             set { }
         }
 
@@ -68,7 +68,7 @@ namespace _3_13_25.D2.QueryStorage
 
         #region NewTransactionsQuery
 
-        public static string TransactionIdExisting
+        public static string MaxTransactionIdPerStud
         {
             get => "SELECT MAX(Transaction_Id) FROM D2.Transactions WHERE Student_Name = @Student";
             set { }
@@ -78,6 +78,16 @@ namespace _3_13_25.D2.QueryStorage
         {
             get => "SELECT MAX(Transaction_Id) FROM D2.Transactions";
             set { }
+        }
+
+        public static string MaxDraftIdPerStud
+        {
+            get => "SELECT MAX(Transaction_Id) FROM D2.Transactions WHERE Student_Name = @Student AND Status = 'Draft'";
+        }
+
+        public static string MaxDraftId
+        {
+            get => "SELECT COUNT(1) AS Count FROM D2.Transactions WHERE Student_Name = @Student AND Status = 'Draft'";
         }
 
         public static string StudentEmail
@@ -120,6 +130,12 @@ namespace _3_13_25.D2.QueryStorage
             set { }
         }
 
+        public static string UpdateTransactionInformation
+        {
+            get => "D2.UpdateTransactionInformation";
+            set { }
+        }
+
         public static string RegisterTransactionBilling
         {
             get => "D2.RegisterTransactionBilling";
@@ -148,5 +164,19 @@ namespace _3_13_25.D2.QueryStorage
             get => "SELECT COUNT(1) FROM D2.Students WHERE StudUsername = @name";
             set { }
         }
+
+        #region Logics
+
+        public static string IsTutorAvailable
+        {
+            get => "SELECT COUNT(1) AS Count FROM D2.TransactionInformation WHERE Tutor = @Tutor AND Time_Period_Begin = @inTime AND Time_Period_End = @outTime AND Date_Schedule = @date AND Transaction_State = 'Active'";
+        }
+
+        public static string IsTransactionIdExist
+        {
+            get => "SELECT COUNT(1) FROM D2.Transactions WHERE Transaction_Id = @Id";
+            set { }
+        }
+        #endregion
     }
 }

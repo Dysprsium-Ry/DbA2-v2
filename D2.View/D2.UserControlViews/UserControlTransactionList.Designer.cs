@@ -1,0 +1,111 @@
+﻿namespace _3_13_25.D2.View.D2.UserControlViews
+{
+    partial class UserControlTransactionList
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.textBoxSearchBar = new System.Windows.Forms.TextBox();
+            this.DataGridViewTransactionList = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTransactionList)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonNew.BackColor = System.Drawing.Color.CadetBlue;
+            this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.buttonNew.ForeColor = System.Drawing.Color.White;
+            this.buttonNew.Location = new System.Drawing.Point(18, 66);
+            this.buttonNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(152, 31);
+            this.buttonNew.TabIndex = 3;
+            this.buttonNew.Text = "New";
+            this.buttonNew.UseVisualStyleBackColor = false;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            // 
+            // textBoxSearchBar
+            // 
+            this.textBoxSearchBar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.textBoxSearchBar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBoxSearchBar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxSearchBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchBar.Location = new System.Drawing.Point(284, 66);
+            this.textBoxSearchBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxSearchBar.Name = "textBoxSearchBar";
+            this.textBoxSearchBar.Size = new System.Drawing.Size(580, 29);
+            this.textBoxSearchBar.TabIndex = 4;
+            // 
+            // DataGridViewTransactionList
+            // 
+            this.DataGridViewTransactionList.AllowUserToAddRows = false;
+            this.DataGridViewTransactionList.AllowUserToDeleteRows = false;
+            this.DataGridViewTransactionList.AllowUserToResizeColumns = false;
+            this.DataGridViewTransactionList.AllowUserToResizeRows = false;
+            this.DataGridViewTransactionList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataGridViewTransactionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGridViewTransactionList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DataGridViewTransactionList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewTransactionList.Location = new System.Drawing.Point(18, 107);
+            this.DataGridViewTransactionList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DataGridViewTransactionList.Name = "DataGridViewTransactionList";
+            this.DataGridViewTransactionList.ReadOnly = true;
+            this.DataGridViewTransactionList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.DataGridViewTransactionList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewTransactionList.Size = new System.Drawing.Size(846, 412);
+            this.DataGridViewTransactionList.TabIndex = 5;
+            this.DataGridViewTransactionList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTransactionList_CellDoubleClick);
+            // 
+            // UserControlTransactionList
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonNew);
+            this.Controls.Add(this.textBoxSearchBar);
+            this.Controls.Add(this.DataGridViewTransactionList);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "UserControlTransactionList";
+            this.Size = new System.Drawing.Size(882, 568);
+            this.Load += new System.EventHandler(this.UserControlTransactionList_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTransactionList)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button buttonNew;
+        private System.Windows.Forms.TextBox textBoxSearchBar;
+        private System.Windows.Forms.DataGridView DataGridViewTransactionList;
+    }
+}
