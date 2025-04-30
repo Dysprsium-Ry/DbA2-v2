@@ -183,13 +183,12 @@
     <Compile Include="D2.Model\BindingListExtensionsBase.cs" />
     <Compile Include="D2.ViewModel\D2.AutomotiveExecQuery\DbItemFetcher.cs" />
     <Compile Include="D2.ViewModel\D2.BusinessLogics\Logics.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\BillingClass.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\EditClass.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\OpsAndCalcs.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\ReceiptReportClass.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\EnrollmentClass.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\SubjectClass.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.BusinessLogics%28MFVM%29\TutorClass.cs" />
+    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\BillingClass.cs" />
+    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\EditClass.cs" />
+    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\OpsAndCalcs.cs" />
+    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\ReceiptReportClass.cs" />
+    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\SubjectClass.cs" />
+    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\TutorClass.cs" />
     <Compile Include="D2.dbEstablisher\Database.cs" />
     <Compile Include="D2.View\D2.MainFormV\BOTS.cs">
       <SubType>Form</SubType>

@@ -18,7 +18,7 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             {
                 using (SqlCommand command = new SqlCommand(Queries.MaxTransactionIdPerStud, connection))
                 {
-                    command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentLUserN);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -63,7 +63,7 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             {
                 using (SqlCommand command = new SqlCommand(Queries.MaxDraftIdPerStud, connection))
                 {
-                    command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentLUserN);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -103,7 +103,7 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             {
                 using (SqlCommand command = new SqlCommand(Queries.MaxTransactionIdPerStud, connection))
                 {
-                    command.Parameters.AddWithValue("@Student", TemporalData.StudentName);
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentLUserN);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

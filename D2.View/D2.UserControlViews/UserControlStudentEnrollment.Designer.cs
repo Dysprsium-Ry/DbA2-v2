@@ -28,18 +28,205 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxFname = new System.Windows.Forms.TextBox();
+            this.textBoxLname = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.buttonEnroll = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.labelUsername = new System.Windows.Forms.Label();
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.labelLastName = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelLevel = new System.Windows.Forms.Label();
+            this.textBoxLevel = new System.Windows.Forms.TextBox();
+            this.dataGridViewStudentList = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).BeginInit();
             this.SuspendLayout();
+            // 
+            // textBoxUsername
+            // 
+            this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsername.Location = new System.Drawing.Point(140, 387);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(255, 33);
+            this.textBoxUsername.TabIndex = 0;
+            // 
+            // textBoxFname
+            // 
+            this.textBoxFname.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFname.Location = new System.Drawing.Point(140, 426);
+            this.textBoxFname.Name = "textBoxFname";
+            this.textBoxFname.Size = new System.Drawing.Size(255, 33);
+            this.textBoxFname.TabIndex = 1;
+            // 
+            // textBoxLname
+            // 
+            this.textBoxLname.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLname.Location = new System.Drawing.Point(583, 426);
+            this.textBoxLname.Name = "textBoxLname";
+            this.textBoxLname.Size = new System.Drawing.Size(255, 33);
+            this.textBoxLname.TabIndex = 2;
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmail.Location = new System.Drawing.Point(140, 465);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(255, 33);
+            this.textBoxEmail.TabIndex = 3;
+            // 
+            // buttonEnroll
+            // 
+            this.buttonEnroll.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonEnroll.ForeColor = System.Drawing.Color.White;
+            this.buttonEnroll.Location = new System.Drawing.Point(719, 517);
+            this.buttonEnroll.Name = "buttonEnroll";
+            this.buttonEnroll.Size = new System.Drawing.Size(119, 34);
+            this.buttonEnroll.TabIndex = 4;
+            this.buttonEnroll.Text = "Enroll";
+            this.buttonEnroll.UseVisualStyleBackColor = false;
+            this.buttonEnroll.Click += new System.EventHandler(this.buttonEnroll_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonClear.ForeColor = System.Drawing.Color.White;
+            this.buttonClear.Location = new System.Drawing.Point(594, 517);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(119, 34);
+            this.buttonClear.TabIndex = 5;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // labelUsername
+            // 
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.Location = new System.Drawing.Point(46, 393);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelUsername.Size = new System.Drawing.Size(88, 21);
+            this.labelUsername.TabIndex = 6;
+            this.labelUsername.Text = "Username :";
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName.AutoSize = true;
+            this.labelFirstName.Location = new System.Drawing.Point(41, 432);
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelFirstName.Size = new System.Drawing.Size(93, 21);
+            this.labelFirstName.TabIndex = 7;
+            this.labelFirstName.Text = "First Name :";
+            this.labelFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelLastName
+            // 
+            this.labelLastName.AutoSize = true;
+            this.labelLastName.Location = new System.Drawing.Point(486, 432);
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelLastName.Size = new System.Drawing.Size(91, 21);
+            this.labelLastName.TabIndex = 8;
+            this.labelLastName.Text = "Last Name :";
+            this.labelLastName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(79, 471);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelEmail.Size = new System.Drawing.Size(55, 21);
+            this.labelEmail.TabIndex = 9;
+            this.labelEmail.Text = "Email :";
+            this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelLevel
+            // 
+            this.labelLevel.AutoSize = true;
+            this.labelLevel.Location = new System.Drawing.Point(478, 471);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelLevel.Size = new System.Drawing.Size(99, 21);
+            this.labelLevel.TabIndex = 11;
+            this.labelLevel.Text = "Grade Level :";
+            this.labelLevel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxLevel
+            // 
+            this.textBoxLevel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLevel.Location = new System.Drawing.Point(583, 465);
+            this.textBoxLevel.Name = "textBoxLevel";
+            this.textBoxLevel.Size = new System.Drawing.Size(255, 33);
+            this.textBoxLevel.TabIndex = 10;
+            // 
+            // dataGridViewStudentList
+            // 
+            this.dataGridViewStudentList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStudentList.Location = new System.Drawing.Point(45, 24);
+            this.dataGridViewStudentList.Name = "dataGridViewStudentList";
+            this.dataGridViewStudentList.Size = new System.Drawing.Size(793, 348);
+            this.dataGridViewStudentList.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.CadetBlue;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(469, 517);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 34);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Update";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // UserControlStudentEnrollment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridViewStudentList);
+            this.Controls.Add(this.labelLevel);
+            this.Controls.Add(this.textBoxLevel);
+            this.Controls.Add(this.labelEmail);
+            this.Controls.Add(this.labelLastName);
+            this.Controls.Add(this.labelFirstName);
+            this.Controls.Add(this.labelUsername);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonEnroll);
+            this.Controls.Add(this.textBoxEmail);
+            this.Controls.Add(this.textBoxLname);
+            this.Controls.Add(this.textBoxFname);
+            this.Controls.Add(this.textBoxUsername);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlStudentEnrollment";
-            this.Size = new System.Drawing.Size(882, 568);
+            this.Size = new System.Drawing.Size(884, 568);
+            this.Load += new System.EventHandler(this.UserControlStudentEnrollment_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudentList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxFname;
+        private System.Windows.Forms.TextBox textBoxLname;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.Button buttonEnroll;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.Label labelFirstName;
+        private System.Windows.Forms.Label labelLastName;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelLevel;
+        private System.Windows.Forms.TextBox textBoxLevel;
+        private System.Windows.Forms.DataGridView dataGridViewStudentList;
+        private System.Windows.Forms.Button button1;
     }
 }

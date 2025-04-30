@@ -23,9 +23,9 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void NewTransactionForm_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TemporalData.StudentName))
+            if (!string.IsNullOrEmpty(TemporalData.StudentLUserN))
             {
-                textBoxStudentName.Text = TemporalData.StudentName;
+                textBoxStudentName.Text = TemporalData.StudentLUserN;
                 textBoxStudentName.Enabled = false;
             }
 
@@ -69,7 +69,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 }
             }
 
-            TemporalData.StudentName = textBoxStudentName.Text;
+            TemporalData.StudentLUserN = textBoxStudentName.Text;
 
             capsuleForm capsule = new capsuleForm();
             var result = capsule.ShowDialog();
@@ -181,7 +181,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
             TextBoxStudEmail.Text = DbItemFetcher.StudentEmailFetcher(textBoxStudentName.Text);
 
-            TemporalData.StudentName = textBoxStudentName.Text;
+            TemporalData.StudentLUserN = textBoxStudentName.Text;
 
             if (OpsAndCalcs.IsStudentNameExist(textBoxStudentName.Text))
             {
@@ -196,7 +196,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (QueuedItemList.GetQueueForDate(TemporalData.TransactionId).Count > 0)
             {
                 Enrollment.TransactionId = long.Parse(TextBoxTransactionID.Text);
-                Enrollment.StudentName = TemporalData.StudentName;
+                Enrollment.StudentName = TemporalData.StudentLUserN;
                 Enrollment.StudentEmail = TextBoxStudEmail.Text;
 
                 BillingClass.RegisterTransaction(State);
@@ -221,7 +221,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             else if (QueuedItemList.QueuedItemsBindingList.Count > 0)
             {
                 Enrollment.TransactionId = long.Parse(TextBoxTransactionID.Text);
-                Enrollment.StudentName = TemporalData.StudentName;
+                Enrollment.StudentName = TemporalData.StudentLUserN;
                 Enrollment.StudentEmail = TextBoxStudEmail.Text;
 
                 BillingClass.RegisterTransaction(State);

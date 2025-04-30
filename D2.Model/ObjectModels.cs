@@ -75,9 +75,12 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public static List<PreferredSubject> SubjectList = new List<PreferredSubject>();
             public static long TransactionId { get; set; }
             public static string Status { get; set; }
-            public static string StudentName { get; set; }
+            public static string StudentLUserN { get; set; }
+            public static string StudentFirstName { get; set; }
+            public static string StudentLastName { get; set; }
             public static long StudentId { get; set; }
             public static string StudentEmail { get; set; }
+            public static string StudentLevel { get; set; }
             public static string TutorName { get; set; }
             public static long TutorId { get; set; }
             public static string TutorEmail { get; set; }
@@ -102,7 +105,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
                 SubjectList.Clear();
                 TransactionId = 0;
                 Status = null;
-                StudentName = null;
+                StudentLUserN = null;
                 StudentId = 0;
                 StudentEmail = null;
                 TutorName = null;

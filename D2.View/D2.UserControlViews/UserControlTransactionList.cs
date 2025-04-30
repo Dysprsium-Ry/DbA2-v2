@@ -42,7 +42,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             if (DataGridViewTransactionList.SelectedRows.Count > 0)
             {
                 TemporalData.TransactionId = Convert.ToInt64(DataGridViewTransactionList.SelectedRows[0].Cells["Transaction Id"].Value ?? 0);
-                TemporalData.StudentName = Convert.ToString(DataGridViewTransactionList.SelectedRows[0].Cells["Student"].Value ?? string.Empty);
+                TemporalData.StudentLUserN = Convert.ToString(DataGridViewTransactionList.SelectedRows[0].Cells["Student"].Value ?? string.Empty);
                 TemporalData.Status = Convert.ToString(DataGridViewTransactionList.SelectedRows[0].Cells["Status"].Value ?? string.Empty);
             }
 
