@@ -37,7 +37,7 @@ namespace _3_13_25.D2.DbConn
 
         #region TutorClass
 
-        public static void TCDispTut(DataGridView dataGridView)
+        public static void DisplayTutors(DataGridView dataGridView)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {

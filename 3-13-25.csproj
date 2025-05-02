@@ -191,26 +191,38 @@
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\TutorClass.cs" />
     <Compile Include="D2.dbEstablisher\Database.cs" />
     <Compile Include="D2.ViewModel\D2.RegistrationLogics\StudentEnrollment.cs" />
-    <Compile Include="D2.View\D2.MainFormV\BOTS.cs">
+    <Compile Include="D2.View\D2.Forms\BOTS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D2.View\D2.MainFormV\BOTS.Designer.cs">
+    <Compile Include="D2.View\D2.Forms\BOTS.Designer.cs">
       <DependentUpon>BOTS.cs</DependentUpon>
     </Compile>
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.IdFetcher%28MFVM%29\IdFetcher.cs" />
     <Compile Include="D2.Model\ObjectModels.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.SqlQueries%28MFVM%29\Queries.cs" />
-    <Compile Include="D2.View\D2.MainFormV\capsuleForm.cs">
+    <Compile Include="D2.View\D2.Forms\CapsuleBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D2.View\D2.MainFormV\capsuleForm.Designer.cs">
-      <DependentUpon>capsuleForm.cs</DependentUpon>
+    <Compile Include="D2.View\D2.Forms\CapsuleBase.Designer.cs">
+      <DependentUpon>CapsuleBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="D2.View\D2.MainFormV\NewTransactionForm.cs">
+    <Compile Include="D2.View\D2.Forms\CapsuleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="D2.View\D2.MainFormV\NewTransactionForm.Designer.cs">
+    <Compile Include="D2.View\D2.Forms\CapsuleForm.Designer.cs">
+      <DependentUpon>CapsuleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.Forms\NewTransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.Forms\NewTransactionForm.Designer.cs">
       <DependentUpon>NewTransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlAddTutor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlAddTutor.Designer.cs">
+      <DependentUpon>UserControlAddTutor.cs</DependentUpon>
     </Compile>
     <Compile Include="D2.View\D2.UserControlViews\UserControlReceipt.cs">
       <SubType>UserControl</SubType>
@@ -275,14 +287,20 @@
       <DependentUpon>ReceiptItemFetcher.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="bin\Debug\ReceiptReport.rdlc" />
-    <EmbeddedResource Include="D2.View\D2.MainFormV\BOTS.resx">
+    <EmbeddedResource Include="D2.View\D2.Forms\BOTS.resx">
       <DependentUpon>BOTS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D2.View\D2.MainFormV\capsuleForm.resx">
-      <DependentUpon>capsuleForm.cs</DependentUpon>
+    <EmbeddedResource Include="D2.View\D2.Forms\CapsuleBase.resx">
+      <DependentUpon>CapsuleBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D2.View\D2.MainFormV\NewTransactionForm.resx">
+    <EmbeddedResource Include="D2.View\D2.Forms\CapsuleForm.resx">
+      <DependentUpon>CapsuleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.Forms\NewTransactionForm.resx">
       <DependentUpon>NewTransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlCapsules\UserControlAddTutor.resx">
+      <DependentUpon>UserControlAddTutor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlReceipt.resx">
       <DependentUpon>UserControlReceipt.cs</DependentUpon>

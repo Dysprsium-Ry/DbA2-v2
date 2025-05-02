@@ -71,7 +71,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
             TemporalData.StudentUserN = textBoxStudentName.Text;
 
-            capsuleForm capsule = new capsuleForm();
+            CapsuleForm capsule = new CapsuleForm();
             var result = capsule.ShowDialog();
 
             while (true)

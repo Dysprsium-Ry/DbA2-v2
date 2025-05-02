@@ -7,11 +7,11 @@ using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
 namespace _3_13_25.D2.View.D2.MainFormV
 {
-    public partial class capsuleForm : Form
+    public partial class CapsuleForm : Form
     {
         BindingSource TutorDetailsBindingSource = new BindingSource();
 
-        public capsuleForm()
+        public CapsuleForm()
         {
             InitializeComponent();
 

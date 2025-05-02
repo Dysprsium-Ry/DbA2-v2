@@ -1,6 +1,6 @@
 ﻿namespace _3_13_25.D2.View.D2.MainFormV
 {
-    partial class capsuleForm
+    partial class CapsuleForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
-﻿namespace _3_13_25.D2.View.D2.UserControlViews
+﻿namespace _3_13_25.D2.View.D2.UserControlCapsules
 {
-    partial class UserControlTutorRegistration
+    partial class UserControlAddTutor
     {
         /// <summary> 
         /// Required designer variable.
@@ -42,8 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.buttonTutorDelete = new System.Windows.Forms.Button();
             this.buttonRegisterTutor = new System.Windows.Forms.Button();
-            this.dataGridViewTutorManagement = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTutorManagement)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePickerEndTime
@@ -51,32 +49,32 @@
             this.dateTimePickerEndTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePickerEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerEndTime.Location = new System.Drawing.Point(191, 395);
+            this.dateTimePickerEndTime.Location = new System.Drawing.Point(245, 365);
             this.dateTimePickerEndTime.Name = "dateTimePickerEndTime";
             this.dateTimePickerEndTime.ShowUpDown = true;
             this.dateTimePickerEndTime.Size = new System.Drawing.Size(158, 29);
-            this.dateTimePickerEndTime.TabIndex = 20;
+            this.dateTimePickerEndTime.TabIndex = 35;
             // 
             // dateTimePickerBeginTime
             // 
             this.dateTimePickerBeginTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePickerBeginTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerBeginTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerBeginTime.Location = new System.Drawing.Point(33, 395);
+            this.dateTimePickerBeginTime.Location = new System.Drawing.Point(87, 365);
             this.dateTimePickerBeginTime.Name = "dateTimePickerBeginTime";
             this.dateTimePickerBeginTime.ShowUpDown = true;
             this.dateTimePickerBeginTime.Size = new System.Drawing.Size(152, 29);
-            this.dateTimePickerBeginTime.TabIndex = 19;
+            this.dateTimePickerBeginTime.TabIndex = 34;
             // 
             // labelEndTime
             // 
             this.labelEndTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelEndTime.AutoSize = true;
             this.labelEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEndTime.Location = new System.Drawing.Point(187, 367);
+            this.labelEndTime.Location = new System.Drawing.Point(241, 337);
             this.labelEndTime.Name = "labelEndTime";
             this.labelEndTime.Size = new System.Drawing.Size(103, 25);
-            this.labelEndTime.TabIndex = 29;
+            this.labelEndTime.TabIndex = 43;
             this.labelEndTime.Text = "End Time";
             // 
             // labelBeginTime
@@ -84,30 +82,30 @@
             this.labelBeginTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelBeginTime.AutoSize = true;
             this.labelBeginTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBeginTime.Location = new System.Drawing.Point(28, 367);
+            this.labelBeginTime.Location = new System.Drawing.Point(82, 337);
             this.labelBeginTime.Name = "labelBeginTime";
             this.labelBeginTime.Size = new System.Drawing.Size(120, 25);
-            this.labelBeginTime.TabIndex = 28;
+            this.labelBeginTime.TabIndex = 42;
             this.labelBeginTime.Text = "Begin Time";
             // 
             // textBoxTutorEmail
             // 
             this.textBoxTutorEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTutorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTutorEmail.Location = new System.Drawing.Point(33, 178);
+            this.textBoxTutorEmail.Location = new System.Drawing.Point(87, 148);
             this.textBoxTutorEmail.Name = "textBoxTutorEmail";
             this.textBoxTutorEmail.Size = new System.Drawing.Size(316, 31);
-            this.textBoxTutorEmail.TabIndex = 16;
+            this.textBoxTutorEmail.TabIndex = 31;
             // 
             // labelTutorEmail
             // 
             this.labelTutorEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTutorEmail.AutoSize = true;
             this.labelTutorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTutorEmail.Location = new System.Drawing.Point(28, 150);
+            this.labelTutorEmail.Location = new System.Drawing.Point(82, 120);
             this.labelTutorEmail.Name = "labelTutorEmail";
             this.labelTutorEmail.Size = new System.Drawing.Size(65, 25);
-            this.labelTutorEmail.TabIndex = 25;
+            this.labelTutorEmail.TabIndex = 39;
             this.labelTutorEmail.Text = "Email";
             // 
             // comboBoxExpertise
@@ -116,49 +114,49 @@
             this.comboBoxExpertise.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxExpertise.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxExpertise.FormattingEnabled = true;
-            this.comboBoxExpertise.Location = new System.Drawing.Point(33, 248);
+            this.comboBoxExpertise.Location = new System.Drawing.Point(87, 218);
             this.comboBoxExpertise.Name = "comboBoxExpertise";
             this.comboBoxExpertise.Size = new System.Drawing.Size(316, 33);
-            this.comboBoxExpertise.TabIndex = 17;
+            this.comboBoxExpertise.TabIndex = 32;
             // 
             // labelExpertise
             // 
             this.labelExpertise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelExpertise.AutoSize = true;
             this.labelExpertise.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelExpertise.Location = new System.Drawing.Point(28, 220);
+            this.labelExpertise.Location = new System.Drawing.Point(82, 190);
             this.labelExpertise.Name = "labelExpertise";
             this.labelExpertise.Size = new System.Drawing.Size(102, 25);
-            this.labelExpertise.TabIndex = 26;
+            this.labelExpertise.TabIndex = 40;
             this.labelExpertise.Text = "Expertise";
             // 
             // textBoxTutorName
             // 
             this.textBoxTutorName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTutorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTutorName.Location = new System.Drawing.Point(33, 105);
+            this.textBoxTutorName.Location = new System.Drawing.Point(87, 75);
             this.textBoxTutorName.Name = "textBoxTutorName";
             this.textBoxTutorName.Size = new System.Drawing.Size(316, 31);
-            this.textBoxTutorName.TabIndex = 15;
+            this.textBoxTutorName.TabIndex = 30;
             // 
             // textBoxTutorHourlyRate
             // 
             this.textBoxTutorHourlyRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTutorHourlyRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTutorHourlyRate.Location = new System.Drawing.Point(33, 318);
+            this.textBoxTutorHourlyRate.Location = new System.Drawing.Point(87, 288);
             this.textBoxTutorHourlyRate.Name = "textBoxTutorHourlyRate";
             this.textBoxTutorHourlyRate.Size = new System.Drawing.Size(316, 31);
-            this.textBoxTutorHourlyRate.TabIndex = 18;
+            this.textBoxTutorHourlyRate.TabIndex = 33;
             // 
             // labelHourlyRate
             // 
             this.labelHourlyRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.labelHourlyRate.AutoSize = true;
             this.labelHourlyRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHourlyRate.Location = new System.Drawing.Point(28, 290);
+            this.labelHourlyRate.Location = new System.Drawing.Point(82, 260);
             this.labelHourlyRate.Name = "labelHourlyRate";
             this.labelHourlyRate.Size = new System.Drawing.Size(125, 25);
-            this.labelHourlyRate.TabIndex = 27;
+            this.labelHourlyRate.TabIndex = 41;
             this.labelHourlyRate.Text = "Hourly Rate";
             // 
             // label5
@@ -166,10 +164,10 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 77);
+            this.label5.Location = new System.Drawing.Point(82, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 25);
-            this.label5.TabIndex = 24;
+            this.label5.TabIndex = 38;
             this.label5.Text = "Tutor Name";
             // 
             // buttonTutorDelete
@@ -179,13 +177,12 @@
             this.buttonTutorDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTutorDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTutorDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonTutorDelete.Location = new System.Drawing.Point(192, 473);
+            this.buttonTutorDelete.Location = new System.Drawing.Point(87, 440);
             this.buttonTutorDelete.Name = "buttonTutorDelete";
             this.buttonTutorDelete.Size = new System.Drawing.Size(158, 41);
-            this.buttonTutorDelete.TabIndex = 22;
-            this.buttonTutorDelete.Text = "Delete";
+            this.buttonTutorDelete.TabIndex = 37;
+            this.buttonTutorDelete.Text = "Cancel";
             this.buttonTutorDelete.UseVisualStyleBackColor = false;
-            this.buttonTutorDelete.Click += new System.EventHandler(this.buttonTutorDelete_Click);
             // 
             // buttonRegisterTutor
             // 
@@ -194,39 +191,17 @@
             this.buttonRegisterTutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegisterTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegisterTutor.ForeColor = System.Drawing.Color.White;
-            this.buttonRegisterTutor.Location = new System.Drawing.Point(35, 473);
+            this.buttonRegisterTutor.Location = new System.Drawing.Point(251, 440);
             this.buttonRegisterTutor.Name = "buttonRegisterTutor";
             this.buttonRegisterTutor.Size = new System.Drawing.Size(152, 41);
-            this.buttonRegisterTutor.TabIndex = 21;
+            this.buttonRegisterTutor.TabIndex = 36;
             this.buttonRegisterTutor.Text = "Register";
             this.buttonRegisterTutor.UseVisualStyleBackColor = false;
             this.buttonRegisterTutor.Click += new System.EventHandler(this.buttonRegisterTutor_Click);
             // 
-            // dataGridViewTutorManagement
+            // UserControlAddTutor
             // 
-            this.dataGridViewTutorManagement.AllowUserToAddRows = false;
-            this.dataGridViewTutorManagement.AllowUserToDeleteRows = false;
-            this.dataGridViewTutorManagement.AllowUserToResizeColumns = false;
-            this.dataGridViewTutorManagement.AllowUserToResizeRows = false;
-            this.dataGridViewTutorManagement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewTutorManagement.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewTutorManagement.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewTutorManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTutorManagement.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewTutorManagement.Location = new System.Drawing.Point(382, 54);
-            this.dataGridViewTutorManagement.Name = "dataGridViewTutorManagement";
-            this.dataGridViewTutorManagement.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewTutorManagement.RowHeadersVisible = false;
-            this.dataGridViewTutorManagement.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridViewTutorManagement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTutorManagement.ShowEditingIcon = false;
-            this.dataGridViewTutorManagement.ShowRowErrors = false;
-            this.dataGridViewTutorManagement.Size = new System.Drawing.Size(464, 460);
-            this.dataGridViewTutorManagement.TabIndex = 23;
-            // 
-            // UserControlTutorRegistration
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dateTimePickerEndTime);
             this.Controls.Add(this.dateTimePickerBeginTime);
@@ -242,11 +217,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonTutorDelete);
             this.Controls.Add(this.buttonRegisterTutor);
-            this.Controls.Add(this.dataGridViewTutorManagement);
-            this.Name = "UserControlTutorRegistration";
-            this.Size = new System.Drawing.Size(882, 568);
-            this.Load += new System.EventHandler(this.UserControlTutorRegistration_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTutorManagement)).EndInit();
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "UserControlAddTutor";
+            this.Size = new System.Drawing.Size(487, 531);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,6 +242,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonTutorDelete;
         private System.Windows.Forms.Button buttonRegisterTutor;
-        private System.Windows.Forms.DataGridView dataGridViewTutorManagement;
     }
 }

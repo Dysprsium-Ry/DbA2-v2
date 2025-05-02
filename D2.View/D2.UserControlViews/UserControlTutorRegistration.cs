@@ -15,7 +15,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 
         private void UserControlTutorRegistration_Load(object sender, EventArgs e)
         {
-            DataLoadCast.TCDispTut(dataGridViewTutorManagement);
+            DataLoadCast.DisplayTutors(dataGridViewTutorManagement);
         }
 
         private void buttonRegisterTutor_Click(object sender, EventArgs e)
@@ -24,7 +24,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             {
                 if (control is TextBox textBox && string.IsNullOrWhiteSpace(textBox.Text))
                 {
-                    MessageBox.Show("Field cannot be empty", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Empty Field/s", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -43,7 +43,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             }
 
             TutorClass.ManageTutor();
-            DataLoadCast.TCDispTut(dataGridViewTutorManagement);
+            DataLoadCast.DisplayTutors(dataGridViewTutorManagement);
         }
 
         private void buttonTutorDelete_Click(object sender, EventArgs e)
