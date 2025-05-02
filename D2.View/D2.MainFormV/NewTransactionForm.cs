@@ -23,9 +23,9 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void NewTransactionForm_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TemporalData.StudentLUserN))
+            if (!string.IsNullOrEmpty(TemporalData.StudentUserN))
             {
-                textBoxStudentName.Text = TemporalData.StudentLUserN;
+                textBoxStudentName.Text = TemporalData.StudentUserN;
                 textBoxStudentName.Enabled = false;
             }
 
@@ -69,7 +69,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 }
             }
 
-            TemporalData.StudentLUserN = textBoxStudentName.Text;
+            TemporalData.StudentUserN = textBoxStudentName.Text;
 
             capsuleForm capsule = new capsuleForm();
             var result = capsule.ShowDialog();
@@ -105,14 +105,14 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (binding is not BindingList<QueuedItems> list) return;
 
 
-            DataGridViewItemLists.CellFormatting -= DataGridViewQueuedItems_CellFormatting;
+            DataGridViewItemLists.CellFormatting -= DataGridView_CellFormatting;
 
             DataGridViewItemLists.DataSource = null;
             DataGridViewItemLists.DataSource = list;
 
             SetColumnHeaders(DataGridViewItemLists);
 
-            DataGridViewItemLists.CellFormatting += DataGridViewQueuedItems_CellFormatting;
+            DataGridViewItemLists.CellFormatting += DataGridView_CellFormatting;
         }
 
         private void SetColumnHeaders(DataGridView dgv)
@@ -148,7 +148,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 dgv.Columns["SessionScheduleDate"].HeaderText = "Schedule";
         }
 
-        private void DataGridViewQueuedItems_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void DataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (DataGridViewItemLists.Columns[e.ColumnIndex].Name == "QueuedStartTime" ||
             DataGridViewItemLists.Columns[e.ColumnIndex].Name == "QueuedEndTime")
@@ -181,7 +181,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
             TextBoxStudEmail.Text = DbItemFetcher.StudentEmailFetcher(textBoxStudentName.Text);
 
-            TemporalData.StudentLUserN = textBoxStudentName.Text;
+            TemporalData.StudentUserN = textBoxStudentName.Text;
 
             if (OpsAndCalcs.IsStudentNameExist(textBoxStudentName.Text))
             {
@@ -196,7 +196,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (QueuedItemList.GetQueueForDate(TemporalData.TransactionId).Count > 0)
             {
                 Enrollment.TransactionId = long.Parse(TextBoxTransactionID.Text);
-                Enrollment.StudentName = TemporalData.StudentLUserN;
+                Enrollment.StudentName = TemporalData.StudentUserN;
                 Enrollment.StudentEmail = TextBoxStudEmail.Text;
 
                 BillingClass.RegisterTransaction(State);
@@ -221,7 +221,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             else if (QueuedItemList.QueuedItemsBindingList.Count > 0)
             {
                 Enrollment.TransactionId = long.Parse(TextBoxTransactionID.Text);
-                Enrollment.StudentName = TemporalData.StudentLUserN;
+                Enrollment.StudentName = TemporalData.StudentUserN;
                 Enrollment.StudentEmail = TextBoxStudEmail.Text;
 
                 BillingClass.RegisterTransaction(State);

@@ -2,6 +2,7 @@
 using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.SqlClient;
 using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
@@ -18,7 +19,7 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             {
                 using (SqlCommand command = new SqlCommand(Queries.MaxTransactionIdPerStud, connection))
                 {
-                    command.Parameters.AddWithValue("@Student", TemporalData.StudentLUserN);
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentUserN);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -63,7 +64,7 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             {
                 using (SqlCommand command = new SqlCommand(Queries.MaxDraftIdPerStud, connection))
                 {
-                    command.Parameters.AddWithValue("@Student", TemporalData.StudentLUserN);
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentUserN);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -103,7 +104,7 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             {
                 using (SqlCommand command = new SqlCommand(Queries.MaxTransactionIdPerStud, connection))
                 {
-                    command.Parameters.AddWithValue("@Student", TemporalData.StudentLUserN);
+                    command.Parameters.AddWithValue("@Student", TemporalData.StudentUserN);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -129,7 +130,7 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             {
                 using (SqlCommand command = new SqlCommand(Queries.StudentEmail, connection))
                 {
-                    command.Parameters.AddWithValue("@StudUsername", StudUsername);
+                    command.Parameters.AddWithValue("@Username", StudUsername);
                     SqlDataReader reader = command.ExecuteReader();
 
                     if (reader.Read())

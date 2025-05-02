@@ -15,25 +15,22 @@ namespace _3_13_25.D2.DbConn
 {
     public class DataLoadCast
     {
-        #region EnrollmentClass
+        #region StudentEnrollmentFetcher
 
-        public static void ECDispTut(DataGridView dataGridView, string query, string param)
+        public static DataTable StudentsList()
         {
+            DataTable list = new DataTable();
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM D2.Students", connection))
                 {
-                    command.Parameters.AddWithValue("@item", param);
-
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        DataTable table = new DataTable();
-                        adapter.Fill(table);
-                        dataGridView.AutoGenerateColumns = true;
-                        dataGridView.DataSource = table;
+                        adapter.Fill(list);
                     }
                 }
             }
+            return list;
         }
 
         #endregion

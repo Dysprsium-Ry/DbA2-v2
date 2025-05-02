@@ -44,7 +44,7 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string studentList
         {
-            get => "SELECT StudUsername FROM D2.Students";
+            get => "SELECT Username FROM D2.Students";
             set { }
         }
 
@@ -92,7 +92,7 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string StudentEmail
         {
-            get => "SELECT StudentEmail FROM D2.Students WHERE StudUsername = @StudUsername";
+            get => "SELECT Email FROM D2.Students WHERE Username = @Username";
             set { }
         }
 
@@ -161,7 +161,7 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string IsStudentNameExist
         {
-            get => "SELECT COUNT(1) FROM D2.Students WHERE StudUsername = @name";
+            get => "SELECT COUNT(1) FROM D2.Students WHERE Username = @name";
             set { }
         }
 

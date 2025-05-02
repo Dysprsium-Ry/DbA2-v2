@@ -1,5 +1,4 @@
-﻿using _3_13_25.D2.DataModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlTypes;
@@ -75,7 +74,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public static List<PreferredSubject> SubjectList = new List<PreferredSubject>();
             public static long TransactionId { get; set; }
             public static string Status { get; set; }
-            public static string StudentLUserN { get; set; }
+            public static string StudentUserN { get; set; }
             public static string StudentFirstName { get; set; }
             public static string StudentLastName { get; set; }
             public static long StudentId { get; set; }
@@ -105,7 +104,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
                 SubjectList.Clear();
                 TransactionId = 0;
                 Status = null;
-                StudentLUserN = null;
+                StudentUserN = null;
                 StudentId = 0;
                 StudentEmail = null;
                 TutorName = null;
@@ -351,7 +350,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public static BindingList<QueuedItems> QueuedItemsBindingList = new BindingList<QueuedItems>();
 
             public static Dictionary<long, BindingList<QueuedItems>> TransactionQueues = new();
-            public static BindingList<QueuedItems>GetQueueForDate(long Transaction_Id)
+            public static BindingList<QueuedItems> GetQueueForDate(long Transaction_Id)
             {
                 if (!TransactionQueues.ContainsKey(Transaction_Id))
                 {

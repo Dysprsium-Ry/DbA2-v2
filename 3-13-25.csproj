@@ -190,6 +190,7 @@
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\SubjectClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\TutorClass.cs" />
     <Compile Include="D2.dbEstablisher\Database.cs" />
+    <Compile Include="D2.ViewModel\D2.RegistrationLogics\StudentEnrollment.cs" />
     <Compile Include="D2.View\D2.MainFormV\BOTS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,13 +379,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="D2.Model\D2.FrontPageM\" />
-    <Folder Include="D2.Model\D2.MainFormM\" />
-    <Folder Include="D2.Model\D2.RegistrationM\" />
-    <Folder Include="D2.ViewModel\D2.FrontPageVM\" />
-    <Folder Include="D2.ViewModel\D2.RegistrationVM\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="D2.DataModels\StudentModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

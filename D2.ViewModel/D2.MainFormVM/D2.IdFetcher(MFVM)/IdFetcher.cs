@@ -17,7 +17,7 @@ namespace _3_13_25.D2.IdFetcherClasses
             {
                 using (SqlCommand command = new SqlCommand("SELECT StudId FROM D2.Students WHERE StudUsername = @name", connection))
                 {
-                    command.Parameters.AddWithValue("@name", TemporalData.StudentLUserN);
+                    command.Parameters.AddWithValue("@name", TemporalData.StudentUserN);
                     object result = command.ExecuteScalar();
                     return (result != null) ? Convert.ToInt64(result) : 0;
                 }

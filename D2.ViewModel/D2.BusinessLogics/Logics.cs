@@ -42,7 +42,7 @@ namespace _3_13_25.D2.ViewModel.D2.BusinessLogics
             {
                 using (SqlCommand command = new SqlCommand("SELECT COUNT(*) AS Count FROM D2.Students WHERE StudUsername = @User", connection))
                 {
-                    command.Parameters.AddWithValue("@User", TemporalData.StudentLUserN);
+                    command.Parameters.AddWithValue("@User", TemporalData.StudentUserN);
 
                     return Convert.ToInt32(command.ExecuteScalar()) > 0;
                 }
