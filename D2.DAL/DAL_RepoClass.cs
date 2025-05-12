@@ -8,7 +8,7 @@ namespace _3_13_25.D2.DAL
 {
     public class DAL_RepoClass
     {
-        public void Save(QueuedItems item)
+        public void Save(TransactionItems item)
         {
             using (SqlConnection conn = DatabaseConnection.Establish())
             {
@@ -49,9 +49,9 @@ namespace _3_13_25.D2.DAL
             }
         }
 
-        public List<QueuedItems> GetAllByTransactionId(long transactionId)
+        public List<TransactionItems> GetAllByTransactionId(long transactionId)
         {
-            List<QueuedItems> items = new List<QueuedItems>();
+            List<TransactionItems> items = new List<TransactionItems>();
 
             using (SqlConnection conn = DatabaseConnection.Establish())
             {
@@ -62,7 +62,7 @@ namespace _3_13_25.D2.DAL
                     {
                         while (reader.Read())
                         {
-                            items.Add(new QueuedItems
+                            items.Add(new TransactionItems
                             {
                                 TransactionId = Convert.ToInt64(reader["TransactionId"]),
                                 Subject = reader["Subject"].ToString(),

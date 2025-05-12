@@ -15,6 +15,8 @@ namespace _3_13_25.D2.View.D2.Forms
         public CapsuleBase()
         {
             InitializeComponent();
+
+            this.FormClosing += (s, e) => { this.Controls.Clear(); };
         }
     }
 }

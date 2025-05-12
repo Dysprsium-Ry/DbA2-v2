@@ -12,9 +12,9 @@ namespace _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_
 {
     public class EditClass
     {
-        public static List<QueuedItems> FetchClientData()
+        public static List<TransactionItems> FetchClientData()
         {
-            List<QueuedItems> ClientItemList = new List<QueuedItems>();
+            List<TransactionItems> ClientItemList = new List<TransactionItems>();
 
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
@@ -26,7 +26,7 @@ namespace _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_
                     {
                         while (reader.Read())
                         {
-                            var itemsList = new QueuedItems()
+                            var itemsList = new TransactionItems()
                             {
                                 TransactionId = reader["Transaction_Id"] != DBNull.Value ? (long)reader["Transaction_Id"] : 0,
                                 Subject = reader["Subject"] != DBNull.Value ? (string)reader["Subject"] : string.Empty,
@@ -45,6 +45,56 @@ namespace _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_
             }
 
             return ClientItemList;
+        }
+
+        public static decimal FetchTransactionTotal()
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.FetchTransactionTotal, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", TemporalData.TransactionId);
+
+                    return Convert.ToDecimal(command.ExecuteScalar());
+                }
+            }
+        }
+
+        public static void RemoveItem()
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.DropItem, connection))
+                {
+                    long id = TemporalData.TransactionId;
+                    string subject = TemporalData.Subject;
+                    string tutor = TemporalData.TutorName;
+                    DateTime date = TemporalData.SessionScheduleDate;
+
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.Parameters.AddWithValue("@Subject", subject);
+                    command.Parameters.AddWithValue("@Tutor", tutor);
+                    command.Parameters.AddWithValue("@Date", date);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static bool IsItemExist()
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.IsTransactionItemExist, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", TemporalData.TransactionId);
+                    command.Parameters.AddWithValue("@Subject", TemporalData.Subject);
+                    command.Parameters.AddWithValue("@Tutor", TemporalData.TutorName);
+                    command.Parameters.AddWithValue("@Date", TemporalData.SessionScheduleDate);
+                    
+                    var result = Convert.ToInt32(command.ExecuteScalar());
+                    return result > 0;
+                }
+            }
         }
     }
 }

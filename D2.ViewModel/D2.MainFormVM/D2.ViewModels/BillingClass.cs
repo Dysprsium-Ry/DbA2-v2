@@ -2,9 +2,8 @@
 using BOTS.Database_Connection;
 using System;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
-using System.Globalization;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
 using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
@@ -14,118 +13,6 @@ namespace _3_13_25.D2.Classes
     {
         #region function
 
-        public static void RegisterTransaction(string State)
-        {
-            if (!IsTransactionExist())
-            {
-                using (SqlConnection connection = DatabaseConnection.Establish())
-                {
-                    using (SqlCommand command = new SqlCommand(Queries.RegisterTransactions, connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
-                        command.Parameters.AddWithValue("@Student", Enrollment.StudentName);
-                        command.Parameters.AddWithValue("@Email", Enrollment.StudentEmail);
-                        command.Parameters.AddWithValue("@Created", DateTime.Now);
-                        command.Parameters.AddWithValue("@Modified", DateTime.Now);
-                        command.Parameters.AddWithValue("@Status", State);
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-            else
-            {
-                using (SqlConnection connection = DatabaseConnection.Establish())
-                {
-                    using (SqlCommand command = new SqlCommand(Queries.UpdateTransactions, connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
-                        command.Parameters.AddWithValue("@Modified_Date", DateTime.Now);
-                        command.Parameters.AddWithValue("@Status", State);
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-        }
-
-        public static bool IsTransactionExist()
-        {
-            using (SqlConnection connection = DatabaseConnection.Establish())
-            {
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(1) FROM D2.Transactions WHERE Transaction_Id = @id", connection))
-                {
-                    command.Parameters.AddWithValue("@id", Enrollment.TransactionId);
-
-                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
-                }
-            }
-        }
-
-        public static void RegisterTransactionInformation(string State)
-        {
-            using (SqlConnection connection = DatabaseConnection.Establish())
-            {
-                if (!IsTransactionExist())
-                {
-                    using (SqlCommand command = new SqlCommand(Queries.RegisterTransactionInformation, connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
-                        command.Parameters.AddWithValue("@Subject", Enrollment.Subject);
-                        command.Parameters.AddWithValue("@Tutor", Enrollment.TutorName);
-                        command.Parameters.AddWithValue("@Per_Hour_Rate", Enrollment.HourlyRate);
-                        command.Parameters.AddWithValue("@Time_Period_Begin", Enrollment.StartSchedule);
-                        command.Parameters.AddWithValue("@Time_Period_End", Enrollment.EndSchedule);
-                        command.Parameters.AddWithValue("@Date_Schedule", Enrollment.SessionScheduleDate);
-                        command.Parameters.AddWithValue("@State", State);
-                        command.ExecuteNonQuery();
-                    }
-                }
-                else
-                {
-                    using (SqlCommand command = new SqlCommand(Queries.UpdateTransactionInformation, connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
-                        command.Parameters.AddWithValue("@State", State);
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-        }
-
-        public static void RegisterTransactionBilling()
-        {
-            using (SqlConnection connection = DatabaseConnection.Establish())
-            {
-                if (!IsTransactionExist())
-                {
-                    using (SqlCommand command = new SqlCommand(Queries.RegisterTransactionBilling, connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
-                        command.Parameters.AddWithValue("@Total_Value", Enrollment.TotalFee);
-                        command.Parameters.AddWithValue("@Payment_Amount", 0);
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-        }
-
-        public static void UpdatePayment()
-        {
-            using (SqlConnection connection = DatabaseConnection.Establish())
-            {
-                using (SqlCommand command = new SqlCommand("UPDATE D2.TransactionBilling SET PaidAmount = @paidAmount, PaymentStatus = @paymentStatus WHERE TransactionId = @transactionId", connection))
-                {
-                    command.Parameters.AddWithValue("@transactionId", BillingObj.TransactionId);
-                    command.Parameters.AddWithValue("@paidAmount", OpsAndCalcs.SumPaidFee(BillingObj.PayFee, BillingObj.Pay));
-                    command.Parameters.AddWithValue("@paymentStatus", OpsAndCalcs.PaymentStatus(OpsAndCalcs.SumPaidFee(BillingObj.PayFee, BillingObj.Pay), BillingObj.TotalFee));
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
         #endregion
 
         #region BillingDtGV
@@ -135,7 +22,7 @@ namespace _3_13_25.D2.Classes
 
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand(query, connection))   
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {

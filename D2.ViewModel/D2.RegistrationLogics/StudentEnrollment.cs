@@ -1,10 +1,12 @@
-﻿using Azure.Core;
+﻿using _3_13_25.D2.Classes;
+using Azure.Core;
 using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
@@ -105,6 +107,5 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
 
             return existingUsernames.Any(u => u.Equals(newUsername, StringComparison.OrdinalIgnoreCase));
         }
-
     }
 }

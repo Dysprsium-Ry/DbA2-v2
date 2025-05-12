@@ -1,6 +1,8 @@
 ﻿using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
 using _3_13_25.D2.ViewModel.D2.BusinessLogics;
+using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using System;
+using System.CodeDom;
 using System.Linq;
 using System.Windows.Forms;
 using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
@@ -38,12 +40,11 @@ namespace _3_13_25.D2.View.D2.MainFormV
             TemporalData.HourlyRate = Convert.ToDecimal(textBoxHourlyRate.Text);
             TemporalData.SessionScheduleDate = DateTimePickerDateSelection.Value.Date;
 
-            var Transaction_Id = TemporalData.TransactionId;
-            var queue = QueuedItemList.GetQueueForDate(Transaction_Id);
+            TransactionItemList.DictionaryList(TemporalData.TransactionId);
 
-            var newItem = new QueuedItems
+            var newItem = new TransactionItems
             {
-                TransactionId = Transaction_Id,
+                TransactionId = TemporalData.TransactionId,
                 Subject = TemporalData.Subject,
                 Tutor = TemporalData.TutorName,
                 HourlyRate = TemporalData.HourlyRate,
@@ -52,28 +53,26 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 EndSchedule = TemporalData.OutTime
             };
 
-            bool isOverlapping = QueuedItemList.TransactionQueues.SelectMany(kvp => kvp.Value).Any(item => item.Tutor == newItem.Tutor && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
-            bool isAlreadyExist = QueuedItemList.QueuedItemsBindingList.Any(item => item.Tutor == newItem.Tutor && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
+            bool isOverlapping = TransactionItemList.TransactionQueues.SelectMany(kvp => kvp.Value).Any(item => item.Tutor == newItem.Tutor && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
+            bool isAlreadyExist = TransactionItemList.BindingList.Any(item => item.Tutor == newItem.Tutor && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
 
-            bool isStudentAvailable = QueuedItemList.QueuedItemsBindingList.Any(id => id.TransactionId == newItem.TransactionId && id.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < id.EndSchedule && newItem.EndSchedule > id.StartSchedule);
-            bool isStudentOverlapping = QueuedItemList.TransactionQueues.SelectMany(sv => sv.Value).Any(item => item.TransactionId == newItem.TransactionId && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
 
-            if (!QueuedItemList.TransactionQueues[Transaction_Id].Contains(newItem))
+            bool isStudentAvailable = TransactionItemList.BindingList.Any(id => id.TransactionId == newItem.TransactionId && id.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < id.EndSchedule && newItem.EndSchedule > id.StartSchedule);
+            bool isStudentOverlapping = TransactionItemList.TransactionQueues.SelectMany(sv => sv.Value).Any(item => item.TransactionId == newItem.TransactionId && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
+
+            if (!TransactionItemList.BindingList.Contains(newItem))
             {
                 if (isAlreadyExist || isOverlapping || isStudentAvailable || isStudentOverlapping)
                 {
                     DateTimePickerDateSelection.Focus();
-                    var result = MessageBox.Show("Date already exist.", "Schedule Unavailable", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
-
-                    if (result != DialogResult.Retry)
+                    if (MessageBox.Show("Date already occupied.", "Schedule Unavailable", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning) == DialogResult.Retry)
                     {
-                        Cancel();
+                        return;
                     }
-                    else { return; }
+                    else { this.Close(); return; }
                 }
 
-                queue.Add(newItem);
-                QueuedItemList.TransactionQueues[Transaction_Id] = queue;
+                TransactionItemList.BindingList.Add(newItem);
                 DialogResult = DialogResult.Yes;
                 this.Close();
             }

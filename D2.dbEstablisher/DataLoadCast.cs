@@ -41,7 +41,7 @@ namespace _3_13_25.D2.DbConn
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand("SELECT TutorName, Expertise, HourlyRate, InTime, OutTime FROM D2.Tutor", connection))
+                using (SqlCommand command = new SqlCommand("SELECT TutorId, TutorName, Expertise, HourlyRate, InTime, OutTime FROM D2.Tutor", connection))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
@@ -57,6 +57,24 @@ namespace _3_13_25.D2.DbConn
         #endregion
 
         #region SubjectClass
+
+        public static DataTable fetchSubject()
+        {
+            DataTable table = new DataTable();
+
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT Subject FROM D2.Subject", connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+                }
+            }
+
+            return table;
+        }
 
         #endregion
 

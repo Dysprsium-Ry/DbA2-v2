@@ -56,13 +56,13 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             }
         }
 
-        public static long MaxDraftIdFetcher()
+        public static long MinDraftIdFetcher()
         {
             long value = 0;
 
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand(Queries.MaxDraftIdPerStud, connection))
+                using (SqlCommand command = new SqlCommand(Queries.MinDraftIdPerStud, connection))
                 {
                     command.Parameters.AddWithValue("@Student", TemporalData.StudentUserN);
 
@@ -71,11 +71,6 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
                         if (reader.Read())
                         {
                             value = reader.IsDBNull(0) ? 0 : reader.GetInt64(0);
-
-                            if (value == 0)
-                            {
-                                value = NewTransactionIdFetcher();
-                            }
                         }
                     }
                 }

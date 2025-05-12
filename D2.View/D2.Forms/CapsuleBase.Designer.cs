@@ -28,25 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BasePanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // BasePanel
-            // 
-            this.BasePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BasePanel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BasePanel.Location = new System.Drawing.Point(0, 0);
-            this.BasePanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BasePanel.Name = "BasePanel";
-            this.BasePanel.Size = new System.Drawing.Size(487, 531);
-            this.BasePanel.TabIndex = 0;
             // 
             // CapsuleBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 531);
-            this.Controls.Add(this.BasePanel);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -58,7 +46,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel BasePanel;
     }
 }

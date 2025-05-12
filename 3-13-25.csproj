@@ -190,6 +190,7 @@
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\SubjectClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\TutorClass.cs" />
     <Compile Include="D2.dbEstablisher\Database.cs" />
+    <Compile Include="D2.ViewModel\D2.RegistrationLogics\BookingLogics.cs" />
     <Compile Include="D2.ViewModel\D2.RegistrationLogics\StudentEnrollment.cs" />
     <Compile Include="D2.View\D2.Forms\BOTS.cs">
       <SubType>Form</SubType>

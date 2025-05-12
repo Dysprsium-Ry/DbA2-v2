@@ -44,10 +44,11 @@ namespace _3_13_25.D2.View.D2.UserControlViews
                 TemporalData.TransactionId = Convert.ToInt64(DataGridViewTransactionList.SelectedRows[0].Cells["Transaction Id"].Value ?? 0);
                 TemporalData.StudentUserN = Convert.ToString(DataGridViewTransactionList.SelectedRows[0].Cells["Student"].Value ?? string.Empty);
                 TemporalData.Status = Convert.ToString(DataGridViewTransactionList.SelectedRows[0].Cells["Status"].Value ?? string.Empty);
+                TemporalData.TotalFee = Convert.ToDecimal(DataGridViewTransactionList.SelectedRows[0].Cells["Total"].Value ?? 0);
             }
 
             var editItemList = EditClass.FetchClientData();
-            QueuedItemList.QueuedItemsBindingList.AddRange(editItemList);
+            TransactionItemList.BindingList.AddRange(editItemList);
             form.ShowDialog();
         }
     }

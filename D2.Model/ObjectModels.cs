@@ -185,7 +185,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public static string Status { get; set; }
         }
 
-        public class QueuedItems : INotifyPropertyChanged
+        public class TransactionItems : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
             protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -201,6 +201,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             private TimeSpan _startSchedule;
             private TimeSpan _endSchedule;
             private string _status;
+            private decimal _totalFee;
 
             public long TransactionId
             {
@@ -306,9 +307,22 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
                 }
             }
 
+            public decimal TotalFee
+            {
+                get => _totalFee;
+                set
+                {
+                    if (_totalFee != value)
+                    {
+                        _totalFee = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
             public override bool Equals(object obj)
             {
-                if (obj is not QueuedItems other)
+                if (obj is not TransactionItems other)
                     return false;
 
                 return TransactionId == other.TransactionId &&
@@ -339,7 +353,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             }
         }
 
-        public class QueuedItemList : INotifyPropertyChanged
+        public class TransactionItemList : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
             protected void OnPropertyChanged(string propertyName)
@@ -347,14 +361,14 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
 
-            public static BindingList<QueuedItems> QueuedItemsBindingList = new BindingList<QueuedItems>();
+            public static BindingList<TransactionItems> BindingList = new BindingList<TransactionItems>();
 
-            public static Dictionary<long, BindingList<QueuedItems>> TransactionQueues = new();
-            public static BindingList<QueuedItems> GetQueueForDate(long Transaction_Id)
+            public static Dictionary<long, BindingList<TransactionItems>> TransactionQueues = new();
+            public static BindingList<TransactionItems> DictionaryList(long Transaction_Id)
             {
                 if (!TransactionQueues.ContainsKey(Transaction_Id))
                 {
-                    TransactionQueues[Transaction_Id] = new BindingList<QueuedItems>();
+                    TransactionQueues[Transaction_Id] = new BindingList<TransactionItems>();
                 }
                 return TransactionQueues[Transaction_Id];
             }

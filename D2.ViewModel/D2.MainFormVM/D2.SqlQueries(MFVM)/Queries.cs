@@ -9,7 +9,6 @@ namespace _3_13_25.D2.QueryStorage
 {
     public class Queries
     {
-
         #region SearchBarFunction
 
         public static string studListSbar
@@ -50,7 +49,7 @@ namespace _3_13_25.D2.QueryStorage
 
         #endregion
 
-        #region DataGridView
+        #region DataProvider
 
         public static string ECDispTut
         {
@@ -66,7 +65,7 @@ namespace _3_13_25.D2.QueryStorage
 
         #endregion
 
-        #region NewTransactionsQuery
+        #region Transactions
 
         public static string MaxTransactionIdPerStud
         {
@@ -80,9 +79,9 @@ namespace _3_13_25.D2.QueryStorage
             set { }
         }
 
-        public static string MaxDraftIdPerStud
+        public static string MinDraftIdPerStud
         {
-            get => "SELECT MAX(Transaction_Id) FROM D2.Transactions WHERE Student_Name = @Student AND Status = 'Draft'";
+            get => "SELECT MIN(Transaction_Id) FROM D2.Transactions WHERE Student_Name = @Student AND Status = 'Draft'";
         }
 
         public static string MaxDraftId
@@ -153,17 +152,28 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string FetchTransactionInformation
         {
-            get => "SELECT DISTINCT * FROM D2.TransactionInformation WHERE Transaction_Id = @Id";
+            get => "SELECT * FROM D2.TransactionInformation WHERE Transaction_Id = @Id";
             set { }
         }
 
-        #endregion
-
-        public static string IsStudentNameExist
+        public static string FetchTransactionTotal
         {
-            get => "SELECT COUNT(1) FROM D2.Students WHERE Username = @name";
+            get => "SELECT Total_Value FROM D2.TransactionBilling WHERE Transaction_Id = @Id";
             set { }
         }
+
+        public static string DropItem
+        {
+            get => "DELETE FROM D2.TransactionInformation where Transaction_Id = @Id AND Subject = @Subject AND Tutor = @Tutor AND Date_Schedule = @Date";
+            set { }
+        }
+
+        public static string IsTransactionItemExist
+        {
+            get => "SELECT COUNT(1) FROM D2.TransactionInformation WHERE Transaction_Id = @Id AND Subject = @Subject AND Tutor = @Tutor AND Date_Schedule = @Date";
+            set { }
+        }
+        #endregion
 
         #region Logics
 
@@ -175,6 +185,11 @@ namespace _3_13_25.D2.QueryStorage
         public static string IsTransactionIdExist
         {
             get => "SELECT COUNT(1) FROM D2.Transactions WHERE Transaction_Id = @Id";
+            set { }
+        }
+        public static string IsStudentNameExist
+        {
+            get => "SELECT COUNT(1) FROM D2.Students WHERE Username = @name";
             set { }
         }
         #endregion

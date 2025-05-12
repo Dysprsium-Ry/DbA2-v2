@@ -1,6 +1,5 @@
 ﻿using _3_13_25.D2.IdFetcherClasses;
 using _3_13_25.D2.QueryStorage;
-using BienvenidoOnlineTutorServices.D2.Classes;
 using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
@@ -28,16 +27,6 @@ namespace _3_13_25.D2.Classes
         public static decimal SumPaidFee(decimal PaidFee, decimal PayFee)
         {
             return PaidFee + PayFee;
-        }
-        public static string PaymentStatus(decimal payfee, decimal remainingfee)
-        {
-            if (payfee == 0 && remainingfee == 0) { return "Pending"; }
-
-            decimal result = payfee - remainingfee;
-
-            if (result == 0) { return "Paid"; }
-            else if (result != 0 ) { return "Partial"; }
-            else { return "Pending"; }
         }
         public static bool IfScheduleExist(DateTime date, TimeSpan time)
         {

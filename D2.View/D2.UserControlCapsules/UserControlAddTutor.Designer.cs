@@ -47,23 +47,23 @@
             // dateTimePickerEndTime
             // 
             this.dateTimePickerEndTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePickerEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerEndTime.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerEndTime.Location = new System.Drawing.Point(245, 365);
             this.dateTimePickerEndTime.Name = "dateTimePickerEndTime";
             this.dateTimePickerEndTime.ShowUpDown = true;
-            this.dateTimePickerEndTime.Size = new System.Drawing.Size(158, 29);
+            this.dateTimePickerEndTime.Size = new System.Drawing.Size(158, 33);
             this.dateTimePickerEndTime.TabIndex = 35;
             // 
             // dateTimePickerBeginTime
             // 
             this.dateTimePickerBeginTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePickerBeginTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerBeginTime.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerBeginTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerBeginTime.Location = new System.Drawing.Point(87, 365);
             this.dateTimePickerBeginTime.Name = "dateTimePickerBeginTime";
             this.dateTimePickerBeginTime.ShowUpDown = true;
-            this.dateTimePickerBeginTime.Size = new System.Drawing.Size(152, 29);
+            this.dateTimePickerBeginTime.Size = new System.Drawing.Size(152, 33);
             this.dateTimePickerBeginTime.TabIndex = 34;
             // 
             // labelEndTime
@@ -91,10 +91,10 @@
             // textBoxTutorEmail
             // 
             this.textBoxTutorEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTutorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTutorEmail.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTutorEmail.Location = new System.Drawing.Point(87, 148);
             this.textBoxTutorEmail.Name = "textBoxTutorEmail";
-            this.textBoxTutorEmail.Size = new System.Drawing.Size(316, 31);
+            this.textBoxTutorEmail.Size = new System.Drawing.Size(316, 35);
             this.textBoxTutorEmail.TabIndex = 31;
             // 
             // labelTutorEmail
@@ -133,19 +133,19 @@
             // textBoxTutorName
             // 
             this.textBoxTutorName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTutorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTutorName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTutorName.Location = new System.Drawing.Point(87, 75);
             this.textBoxTutorName.Name = "textBoxTutorName";
-            this.textBoxTutorName.Size = new System.Drawing.Size(316, 31);
+            this.textBoxTutorName.Size = new System.Drawing.Size(316, 35);
             this.textBoxTutorName.TabIndex = 30;
             // 
             // textBoxTutorHourlyRate
             // 
             this.textBoxTutorHourlyRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTutorHourlyRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTutorHourlyRate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTutorHourlyRate.Location = new System.Drawing.Point(87, 288);
             this.textBoxTutorHourlyRate.Name = "textBoxTutorHourlyRate";
-            this.textBoxTutorHourlyRate.Size = new System.Drawing.Size(316, 31);
+            this.textBoxTutorHourlyRate.Size = new System.Drawing.Size(316, 35);
             this.textBoxTutorHourlyRate.TabIndex = 33;
             // 
             // labelHourlyRate
@@ -175,25 +175,26 @@
             this.buttonTutorDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonTutorDelete.BackColor = System.Drawing.Color.Firebrick;
             this.buttonTutorDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTutorDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTutorDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTutorDelete.ForeColor = System.Drawing.Color.White;
             this.buttonTutorDelete.Location = new System.Drawing.Point(87, 440);
             this.buttonTutorDelete.Name = "buttonTutorDelete";
-            this.buttonTutorDelete.Size = new System.Drawing.Size(158, 41);
+            this.buttonTutorDelete.Size = new System.Drawing.Size(152, 41);
             this.buttonTutorDelete.TabIndex = 37;
             this.buttonTutorDelete.Text = "Cancel";
             this.buttonTutorDelete.UseVisualStyleBackColor = false;
+            this.buttonTutorDelete.Click += new System.EventHandler(this.buttonTutorDelete_Click);
             // 
             // buttonRegisterTutor
             // 
             this.buttonRegisterTutor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRegisterTutor.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.buttonRegisterTutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegisterTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegisterTutor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegisterTutor.ForeColor = System.Drawing.Color.White;
-            this.buttonRegisterTutor.Location = new System.Drawing.Point(251, 440);
+            this.buttonRegisterTutor.Location = new System.Drawing.Point(245, 440);
             this.buttonRegisterTutor.Name = "buttonRegisterTutor";
-            this.buttonRegisterTutor.Size = new System.Drawing.Size(152, 41);
+            this.buttonRegisterTutor.Size = new System.Drawing.Size(158, 41);
             this.buttonRegisterTutor.TabIndex = 36;
             this.buttonRegisterTutor.Text = "Register";
             this.buttonRegisterTutor.UseVisualStyleBackColor = false;
@@ -221,6 +222,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UserControlAddTutor";
             this.Size = new System.Drawing.Size(487, 531);
+            this.Load += new System.EventHandler(this.UserControlAddTutor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -40,7 +40,7 @@ namespace _3_13_25.D2.ViewModel.D2.BusinessLogics
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) AS Count FROM D2.Students WHERE StudUsername = @User", connection))
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) AS Count FROM D2.Students WHERE Username = @User", connection))
                 {
                     command.Parameters.AddWithValue("@User", TemporalData.StudentUserN);
 
