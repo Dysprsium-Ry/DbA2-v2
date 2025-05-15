@@ -168,7 +168,7 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
                     buttonTutorRegistrationPage.BackColor = Color.DarkTurquoise;
                     break;
                 case UserControlTutorLedger:
-                    buttonTutorProfileLedgerPage.BackColor = Color.DarkTurquoise;
+                    //buttonTutorProfileLedgerPage.BackColor = Color.DarkTurquoise;
                     break;
                 case UserControlSubjectLibrary:
                     buttonSubjectLibraryPage.BackColor = Color.DarkTurquoise;

@@ -2,6 +2,7 @@
 using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -83,6 +84,42 @@ namespace _3_13_25.D2.ViewModel.D2.BusinessLogics
                 {
                     command.Parameters.AddWithValue("@oldSubject", oldSubject);
                     command.Parameters.AddWithValue("@newSubject", newSubject);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+    }
+
+    public class BillingLogics
+    {
+        public static void FetchBillingInformation(long transactionId)
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT Student_Name, Status, Transaction_Created FROM D2.Transactions WHERE Transaction_Id = @Id", connection))
+                {
+                    command.Parameters.AddWithValue("@id", transactionId);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            TemporalData.StudentUserN = reader.GetString(0);
+                            TemporalData.Status = reader.GetString(1);
+                            TemporalData.SessionScheduleDate = reader.GetDateTime(2);
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void PaymentRegistration(long id, decimal pay)
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand("UPDATE D2.TransactionBilling SET Payment_Amount = @pay WHERE Transaction_Id = @id", connection))
+                {
+                    command.Parameters.AddWithValue("@pay", pay);
+                    command.Parameters.AddWithValue("@id", id);
                     command.ExecuteNonQuery();
                 }
             }

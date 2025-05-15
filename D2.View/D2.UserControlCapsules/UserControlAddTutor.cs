@@ -44,7 +44,7 @@ namespace _3_13_25.D2.View.D2.UserControlCapsules
             TemporalData.TutorName = textBoxTutorName.Text;
             TemporalData.TutorEmail = textBoxTutorEmail.Text;
             TemporalData.Subject = comboBoxExpertise.Text;
-            TemporalData.HourlyRate = int.Parse(textBoxTutorHourlyRate.Text);
+            TemporalData.HourlyRate = numericUpDownHourlyRate.Value;
             TemporalData.InTime = dateTimePickerBeginTime.Value.TimeOfDay;
             TemporalData.OutTime = dateTimePickerEndTime.Value.TimeOfDay;
 

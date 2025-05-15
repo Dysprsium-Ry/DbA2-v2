@@ -32,7 +32,6 @@
             this.buttonReceiptPage = new System.Windows.Forms.Button();
             this.buttonTransactionBillingPage = new System.Windows.Forms.Button();
             this.buttonSubjectLibraryPage = new System.Windows.Forms.Button();
-            this.buttonTutorProfileLedgerPage = new System.Windows.Forms.Button();
             this.buttonTutorRegistrationPage = new System.Windows.Forms.Button();
             this.buttonStudentEnrollmentPage = new System.Windows.Forms.Button();
             this.buttonTransactionListPage = new System.Windows.Forms.Button();
@@ -45,7 +44,6 @@
             this.SidePanel.Controls.Add(this.buttonReceiptPage);
             this.SidePanel.Controls.Add(this.buttonTransactionBillingPage);
             this.SidePanel.Controls.Add(this.buttonSubjectLibraryPage);
-            this.SidePanel.Controls.Add(this.buttonTutorProfileLedgerPage);
             this.SidePanel.Controls.Add(this.buttonTutorRegistrationPage);
             this.SidePanel.Controls.Add(this.buttonStudentEnrollmentPage);
             this.SidePanel.Controls.Add(this.buttonTransactionListPage);
@@ -64,7 +62,7 @@
             this.buttonReceiptPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReceiptPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReceiptPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonReceiptPage.Location = new System.Drawing.Point(8, 434);
+            this.buttonReceiptPage.Location = new System.Drawing.Point(8, 388);
             this.buttonReceiptPage.Name = "buttonReceiptPage";
             this.buttonReceiptPage.Size = new System.Drawing.Size(211, 40);
             this.buttonReceiptPage.TabIndex = 6;
@@ -81,7 +79,7 @@
             this.buttonTransactionBillingPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTransactionBillingPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTransactionBillingPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonTransactionBillingPage.Location = new System.Drawing.Point(8, 388);
+            this.buttonTransactionBillingPage.Location = new System.Drawing.Point(9, 342);
             this.buttonTransactionBillingPage.Name = "buttonTransactionBillingPage";
             this.buttonTransactionBillingPage.Size = new System.Drawing.Size(211, 40);
             this.buttonTransactionBillingPage.TabIndex = 5;
@@ -98,30 +96,13 @@
             this.buttonSubjectLibraryPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSubjectLibraryPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSubjectLibraryPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonSubjectLibraryPage.Location = new System.Drawing.Point(8, 342);
+            this.buttonSubjectLibraryPage.Location = new System.Drawing.Point(8, 296);
             this.buttonSubjectLibraryPage.Name = "buttonSubjectLibraryPage";
             this.buttonSubjectLibraryPage.Size = new System.Drawing.Size(211, 40);
             this.buttonSubjectLibraryPage.TabIndex = 4;
             this.buttonSubjectLibraryPage.Text = "Subject Library";
             this.buttonSubjectLibraryPage.UseVisualStyleBackColor = false;
             this.buttonSubjectLibraryPage.Click += new System.EventHandler(this.buttonSubjectLibraryPage_Click);
-            // 
-            // buttonTutorProfileLedgerPage
-            // 
-            this.buttonTutorProfileLedgerPage.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.buttonTutorProfileLedgerPage.FlatAppearance.BorderSize = 0;
-            this.buttonTutorProfileLedgerPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonTutorProfileLedgerPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.buttonTutorProfileLedgerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTutorProfileLedgerPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTutorProfileLedgerPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonTutorProfileLedgerPage.Location = new System.Drawing.Point(8, 296);
-            this.buttonTutorProfileLedgerPage.Name = "buttonTutorProfileLedgerPage";
-            this.buttonTutorProfileLedgerPage.Size = new System.Drawing.Size(211, 40);
-            this.buttonTutorProfileLedgerPage.TabIndex = 3;
-            this.buttonTutorProfileLedgerPage.Text = "Tutor Profile Ledger";
-            this.buttonTutorProfileLedgerPage.UseVisualStyleBackColor = false;
-            this.buttonTutorProfileLedgerPage.Click += new System.EventHandler(this.buttonTutorProfileLedgerPage_Click);
             // 
             // buttonTutorRegistrationPage
             // 
@@ -201,7 +182,6 @@
 
         #endregion
         private System.Windows.Forms.Panel SidePanel;
-        private System.Windows.Forms.Button buttonTutorProfileLedgerPage;
         private System.Windows.Forms.Button buttonTutorRegistrationPage;
         private System.Windows.Forms.Button buttonStudentEnrollmentPage;
         private System.Windows.Forms.Button buttonTransactionListPage;

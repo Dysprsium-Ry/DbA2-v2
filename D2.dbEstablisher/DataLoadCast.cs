@@ -161,5 +161,26 @@ namespace _3_13_25.D2.DbConn
             return collection;
         }
         #endregion
+
+        #region Billing
+
+        public static DataTable FetchBillingRecord()
+        {
+            DataTable table = new DataTable();
+
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT Transaction_Id, Total_Value, Payment_Amount, Bill_Status FROM D2.TransactionBilling WHERE Bill_Status != 'Paid' ORDER BY Transaction_Id", connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+                }
+            }
+            return table;
+        }
+
+        #endregion
     }
 }

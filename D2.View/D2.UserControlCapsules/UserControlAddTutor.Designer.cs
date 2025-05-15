@@ -37,11 +37,12 @@
             this.comboBoxExpertise = new System.Windows.Forms.ComboBox();
             this.labelExpertise = new System.Windows.Forms.Label();
             this.textBoxTutorName = new System.Windows.Forms.TextBox();
-            this.textBoxTutorHourlyRate = new System.Windows.Forms.TextBox();
             this.labelHourlyRate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonTutorDelete = new System.Windows.Forms.Button();
             this.buttonRegisterTutor = new System.Windows.Forms.Button();
+            this.numericUpDownHourlyRate = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHourlyRate)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePickerEndTime
@@ -139,15 +140,6 @@
             this.textBoxTutorName.Size = new System.Drawing.Size(316, 35);
             this.textBoxTutorName.TabIndex = 30;
             // 
-            // textBoxTutorHourlyRate
-            // 
-            this.textBoxTutorHourlyRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTutorHourlyRate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTutorHourlyRate.Location = new System.Drawing.Point(87, 288);
-            this.textBoxTutorHourlyRate.Name = "textBoxTutorHourlyRate";
-            this.textBoxTutorHourlyRate.Size = new System.Drawing.Size(316, 35);
-            this.textBoxTutorHourlyRate.TabIndex = 33;
-            // 
             // labelHourlyRate
             // 
             this.labelHourlyRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -200,10 +192,35 @@
             this.buttonRegisterTutor.UseVisualStyleBackColor = false;
             this.buttonRegisterTutor.Click += new System.EventHandler(this.buttonRegisterTutor_Click);
             // 
+            // numericUpDownHourlyRate
+            // 
+            this.numericUpDownHourlyRate.DecimalPlaces = 2;
+            this.numericUpDownHourlyRate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownHourlyRate.Location = new System.Drawing.Point(87, 288);
+            this.numericUpDownHourlyRate.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.numericUpDownHourlyRate.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownHourlyRate.Name = "numericUpDownHourlyRate";
+            this.numericUpDownHourlyRate.Size = new System.Drawing.Size(316, 35);
+            this.numericUpDownHourlyRate.TabIndex = 44;
+            this.numericUpDownHourlyRate.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
             // UserControlAddTutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.numericUpDownHourlyRate);
             this.Controls.Add(this.dateTimePickerEndTime);
             this.Controls.Add(this.dateTimePickerBeginTime);
             this.Controls.Add(this.labelEndTime);
@@ -213,7 +230,6 @@
             this.Controls.Add(this.comboBoxExpertise);
             this.Controls.Add(this.labelExpertise);
             this.Controls.Add(this.textBoxTutorName);
-            this.Controls.Add(this.textBoxTutorHourlyRate);
             this.Controls.Add(this.labelHourlyRate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonTutorDelete);
@@ -223,6 +239,7 @@
             this.Name = "UserControlAddTutor";
             this.Size = new System.Drawing.Size(487, 531);
             this.Load += new System.EventHandler(this.UserControlAddTutor_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHourlyRate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,10 +256,10 @@
         private System.Windows.Forms.ComboBox comboBoxExpertise;
         private System.Windows.Forms.Label labelExpertise;
         private System.Windows.Forms.TextBox textBoxTutorName;
-        private System.Windows.Forms.TextBox textBoxTutorHourlyRate;
         private System.Windows.Forms.Label labelHourlyRate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonTutorDelete;
         private System.Windows.Forms.Button buttonRegisterTutor;
+        private System.Windows.Forms.NumericUpDown numericUpDownHourlyRate;
     }
 }
