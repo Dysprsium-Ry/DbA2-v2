@@ -52,7 +52,7 @@
             this.ComboBoxSubjectSelection.FormattingEnabled = true;
             this.ComboBoxSubjectSelection.Location = new System.Drawing.Point(167, 59);
             this.ComboBoxSubjectSelection.Name = "ComboBoxSubjectSelection";
-            this.ComboBoxSubjectSelection.Size = new System.Drawing.Size(291, 31);
+            this.ComboBoxSubjectSelection.Size = new System.Drawing.Size(308, 31);
             this.ComboBoxSubjectSelection.TabIndex = 0;
             this.ComboBoxSubjectSelection.SelectedIndexChanged += new System.EventHandler(this.ComboBoxSubjectSelection_SelectedIndexChanged);
             // 
@@ -63,7 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSubjects.AutoSize = true;
             this.labelSubjects.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubjects.ForeColor = System.Drawing.Color.White;
+            this.labelSubjects.ForeColor = System.Drawing.Color.Black;
             this.labelSubjects.Location = new System.Drawing.Point(91, 62);
             this.labelSubjects.Name = "labelSubjects";
             this.labelSubjects.Size = new System.Drawing.Size(70, 23);
@@ -77,7 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSessionSchedule.AutoSize = true;
             this.labelSessionSchedule.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSessionSchedule.ForeColor = System.Drawing.Color.White;
+            this.labelSessionSchedule.ForeColor = System.Drawing.Color.Black;
             this.labelSessionSchedule.Location = new System.Drawing.Point(17, 268);
             this.labelSessionSchedule.Name = "labelSessionSchedule";
             this.labelSessionSchedule.Size = new System.Drawing.Size(144, 23);
@@ -93,7 +93,7 @@
             this.DateTimePickerDateSelection.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateTimePickerDateSelection.Location = new System.Drawing.Point(167, 265);
             this.DateTimePickerDateSelection.Name = "DateTimePickerDateSelection";
-            this.DateTimePickerDateSelection.Size = new System.Drawing.Size(291, 30);
+            this.DateTimePickerDateSelection.Size = new System.Drawing.Size(308, 30);
             this.DateTimePickerDateSelection.TabIndex = 2;
             // 
             // ComboBoxTutorSelection
@@ -106,7 +106,7 @@
             this.ComboBoxTutorSelection.FormattingEnabled = true;
             this.ComboBoxTutorSelection.Location = new System.Drawing.Point(167, 111);
             this.ComboBoxTutorSelection.Name = "ComboBoxTutorSelection";
-            this.ComboBoxTutorSelection.Size = new System.Drawing.Size(291, 31);
+            this.ComboBoxTutorSelection.Size = new System.Drawing.Size(308, 31);
             this.ComboBoxTutorSelection.TabIndex = 1;
             this.ComboBoxTutorSelection.SelectedIndexChanged += new System.EventHandler(this.ComboBoxTutorSelection_SelectedIndexChanged);
             // 
@@ -117,7 +117,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTutor.AutoSize = true;
             this.labelTutor.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTutor.ForeColor = System.Drawing.Color.White;
+            this.labelTutor.ForeColor = System.Drawing.Color.Black;
             this.labelTutor.Location = new System.Drawing.Point(106, 114);
             this.labelTutor.Name = "labelTutor";
             this.labelTutor.Size = new System.Drawing.Size(55, 23);
@@ -131,7 +131,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelHourlyRate.AutoSize = true;
             this.labelHourlyRate.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHourlyRate.ForeColor = System.Drawing.Color.White;
+            this.labelHourlyRate.ForeColor = System.Drawing.Color.Black;
             this.labelHourlyRate.Location = new System.Drawing.Point(63, 166);
             this.labelHourlyRate.Name = "labelHourlyRate";
             this.labelHourlyRate.Size = new System.Drawing.Size(98, 23);
@@ -145,7 +145,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTimeSchedule.AutoSize = true;
             this.labelTimeSchedule.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimeSchedule.ForeColor = System.Drawing.Color.White;
+            this.labelTimeSchedule.ForeColor = System.Drawing.Color.Black;
             this.labelTimeSchedule.Location = new System.Drawing.Point(36, 217);
             this.labelTimeSchedule.Name = "labelTimeSchedule";
             this.labelTimeSchedule.Size = new System.Drawing.Size(125, 23);
@@ -161,7 +161,7 @@
             this.textBoxHourlyRate.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHourlyRate.Location = new System.Drawing.Point(167, 163);
             this.textBoxHourlyRate.Name = "textBoxHourlyRate";
-            this.textBoxHourlyRate.Size = new System.Drawing.Size(291, 30);
+            this.textBoxHourlyRate.Size = new System.Drawing.Size(308, 30);
             this.textBoxHourlyRate.TabIndex = 10;
             // 
             // textBoxTimeSchedule
@@ -173,7 +173,7 @@
             this.textBoxTimeSchedule.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTimeSchedule.Location = new System.Drawing.Point(167, 214);
             this.textBoxTimeSchedule.Name = "textBoxTimeSchedule";
-            this.textBoxTimeSchedule.Size = new System.Drawing.Size(291, 30);
+            this.textBoxTimeSchedule.Size = new System.Drawing.Size(308, 30);
             this.textBoxTimeSchedule.TabIndex = 11;
             // 
             // buttonCancel
@@ -210,11 +210,11 @@
             this.buttonConfirm.UseVisualStyleBackColor = false;
             this.buttonConfirm.Click += new System.EventHandler(this.buttonConfirm_Click);
             // 
-            // capsuleForm
+            // CapsuleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(526, 379);
             this.Controls.Add(this.buttonConfirm);
             this.Controls.Add(this.buttonCancel);
@@ -231,9 +231,10 @@
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "capsuleForm";
+            this.Name = "CapsuleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "__";
+            this.Load += new System.EventHandler(this.CapsuleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -4,6 +4,7 @@ using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Migrations.Model;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -94,7 +95,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
             }
         }
 
-        public static void UpdateTransactionInformation(string State)
+        public static void UpdateTransactionInformation(string State, string tutor, DateTime date)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
@@ -102,6 +103,8 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
+                    command.Parameters.AddWithValue("@Tutor", tutor);
+                    command.Parameters.AddWithValue("@Date", date);
                     command.Parameters.AddWithValue("@State", State);
                     command.ExecuteNonQuery();
                 }
@@ -158,6 +161,34 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
                 {
                     command.Parameters.AddWithValue("@id", Enrollment.TransactionId);
                     return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
+
+        public static bool IsTutorAvailable(string tutor, DateTime date)
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.IsTutorValid, connection))
+                {
+                    command.Parameters.AddWithValue("@tutor", tutor);
+                    command.Parameters.AddWithValue("@date", date);
+                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
+
+        public static void DropOnUpdate(long id, string subject, string tutor, DateTime date)
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand(Queries.DropOnUpdate, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    command.Parameters.AddWithValue("@Subject", subject);
+                    command.Parameters.AddWithValue("@Tutor", tutor);
+                    command.Parameters.AddWithValue("@Date", date.Date);
+                    command.ExecuteNonQuery();
                 }
             }
         }

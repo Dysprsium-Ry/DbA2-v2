@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TextBoxStudEmail = new System.Windows.Forms.TextBox();
             this.TextBoxTransactionID = new System.Windows.Forms.TextBox();
             this.labelStudentEmail = new System.Windows.Forms.Label();
             this.LabelTransactionID = new System.Windows.Forms.Label();
             this.labelStudentName = new System.Windows.Forms.Label();
             this.DataGridViewItemLists = new System.Windows.Forms.DataGridView();
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.textBoxStudentName = new System.Windows.Forms.TextBox();
-            this.labelNewTransaction = new System.Windows.Forms.Label();
             this.buttonEnroll = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonRemove = new System.Windows.Forms.Button();
             this.labelStatus = new System.Windows.Forms.Label();
             this.TextBoxStatus = new System.Windows.Forms.TextBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemLists)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxStudEmail.Enabled = false;
             this.TextBoxStudEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxStudEmail.Location = new System.Drawing.Point(233, 130);
+            this.TextBoxStudEmail.Location = new System.Drawing.Point(236, 156);
             this.TextBoxStudEmail.Name = "TextBoxStudEmail";
             this.TextBoxStudEmail.Size = new System.Drawing.Size(521, 33);
             this.TextBoxStudEmail.TabIndex = 3;
@@ -68,7 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxTransactionID.Enabled = false;
             this.TextBoxTransactionID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxTransactionID.Location = new System.Drawing.Point(233, 34);
+            this.TextBoxTransactionID.Location = new System.Drawing.Point(236, 60);
             this.TextBoxTransactionID.Name = "TextBoxTransactionID";
             this.TextBoxTransactionID.Size = new System.Drawing.Size(521, 33);
             this.TextBoxTransactionID.TabIndex = 1;
@@ -80,8 +82,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStudentEmail.AutoSize = true;
             this.labelStudentEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentEmail.ForeColor = System.Drawing.Color.White;
-            this.labelStudentEmail.Location = new System.Drawing.Point(156, 134);
+            this.labelStudentEmail.ForeColor = System.Drawing.Color.Black;
+            this.labelStudentEmail.Location = new System.Drawing.Point(159, 160);
             this.labelStudentEmail.Name = "labelStudentEmail";
             this.labelStudentEmail.Size = new System.Drawing.Size(71, 25);
             this.labelStudentEmail.TabIndex = 10;
@@ -94,8 +96,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelTransactionID.AutoSize = true;
             this.LabelTransactionID.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelTransactionID.ForeColor = System.Drawing.Color.White;
-            this.LabelTransactionID.Location = new System.Drawing.Point(92, 38);
+            this.LabelTransactionID.ForeColor = System.Drawing.Color.Black;
+            this.LabelTransactionID.Location = new System.Drawing.Point(95, 64);
             this.LabelTransactionID.Name = "LabelTransactionID";
             this.LabelTransactionID.Size = new System.Drawing.Size(135, 25);
             this.LabelTransactionID.TabIndex = 8;
@@ -108,8 +110,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStudentName.AutoSize = true;
             this.labelStudentName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStudentName.ForeColor = System.Drawing.Color.White;
-            this.labelStudentName.Location = new System.Drawing.Point(92, 86);
+            this.labelStudentName.ForeColor = System.Drawing.Color.Black;
+            this.labelStudentName.Location = new System.Drawing.Point(95, 112);
             this.labelStudentName.Name = "labelStudentName";
             this.labelStudentName.Size = new System.Drawing.Size(135, 25);
             this.labelStudentName.TabIndex = 9;
@@ -126,44 +128,45 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridViewItemLists.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewItemLists.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.DataGridViewItemLists.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.DataGridViewItemLists.BackgroundColor = System.Drawing.Color.Gray;
+            this.DataGridViewItemLists.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewItemLists.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridViewItemLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridViewItemLists.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridViewItemLists.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.DataGridViewItemLists.GridColor = System.Drawing.Color.Black;
             this.DataGridViewItemLists.Location = new System.Drawing.Point(12, 320);
             this.DataGridViewItemLists.Name = "DataGridViewItemLists";
             this.DataGridViewItemLists.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DataGridViewItemLists.RowHeadersVisible = false;
             this.DataGridViewItemLists.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.DataGridViewItemLists.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridViewItemLists.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Black;
             this.DataGridViewItemLists.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataGridViewItemLists.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.DataGridViewItemLists.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DimGray;
+            this.DataGridViewItemLists.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridViewItemLists.Size = new System.Drawing.Size(858, 208);
             this.DataGridViewItemLists.TabIndex = 7;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.BackColor = System.Drawing.Color.CadetBlue;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Location = new System.Drawing.Point(233, 275);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(255, 39);
-            this.buttonAdd.TabIndex = 6;
-            this.buttonAdd.Text = "Add New";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.DataGridViewItemLists.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewItemLists_CellClick);
             // 
             // textBoxTotal
             // 
@@ -172,7 +175,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTotal.Enabled = false;
             this.textBoxTotal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.Location = new System.Drawing.Point(233, 178);
+            this.textBoxTotal.Location = new System.Drawing.Point(236, 204);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.Size = new System.Drawing.Size(521, 33);
             this.textBoxTotal.TabIndex = 4;
@@ -184,8 +187,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.ForeColor = System.Drawing.Color.White;
-            this.labelTotal.Location = new System.Drawing.Point(171, 182);
+            this.labelTotal.ForeColor = System.Drawing.Color.Black;
+            this.labelTotal.Location = new System.Drawing.Point(174, 208);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(56, 25);
             this.labelTotal.TabIndex = 11;
@@ -199,25 +202,12 @@
             this.textBoxStudentName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBoxStudentName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBoxStudentName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStudentName.Location = new System.Drawing.Point(233, 82);
+            this.textBoxStudentName.Location = new System.Drawing.Point(236, 108);
             this.textBoxStudentName.Name = "textBoxStudentName";
             this.textBoxStudentName.Size = new System.Drawing.Size(521, 33);
             this.textBoxStudentName.TabIndex = 2;
             this.textBoxStudentName.TextChanged += new System.EventHandler(this.textBoxStudentName_TextChanged);
-            // 
-            // labelNewTransaction
-            // 
-            this.labelNewTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNewTransaction.AutoSize = true;
-            this.labelNewTransaction.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNewTransaction.ForeColor = System.Drawing.Color.White;
-            this.labelNewTransaction.Location = new System.Drawing.Point(39, 281);
-            this.labelNewTransaction.Name = "labelNewTransaction";
-            this.labelNewTransaction.Size = new System.Drawing.Size(188, 25);
-            this.labelNewTransaction.TabIndex = 12;
-            this.labelNewTransaction.Text = "Transaction Controls:";
+            this.textBoxStudentName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxStudentName_KeyUp);
             // 
             // buttonEnroll
             // 
@@ -253,6 +243,51 @@
             this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // labelStatus
+            // 
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.ForeColor = System.Drawing.Color.Black;
+            this.labelStatus.Location = new System.Drawing.Point(164, 257);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelStatus.Size = new System.Drawing.Size(66, 25);
+            this.labelStatus.TabIndex = 18;
+            this.labelStatus.Text = ":Status";
+            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TextBoxStatus
+            // 
+            this.TextBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxStatus.Enabled = false;
+            this.TextBoxStatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxStatus.Location = new System.Drawing.Point(236, 253);
+            this.TextBoxStatus.Name = "TextBoxStatus";
+            this.TextBoxStatus.Size = new System.Drawing.Size(521, 33);
+            this.TextBoxStatus.TabIndex = 19;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.BackColor = System.Drawing.Color.Teal;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Location = new System.Drawing.Point(12, 534);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(131, 39);
+            this.buttonAdd.TabIndex = 6;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -279,55 +314,44 @@
             this.buttonRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRemove.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
             this.buttonRemove.ForeColor = System.Drawing.Color.White;
-            this.buttonRemove.Location = new System.Drawing.Point(499, 275);
+            this.buttonRemove.Location = new System.Drawing.Point(286, 534);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(255, 39);
+            this.buttonRemove.Size = new System.Drawing.Size(131, 39);
             this.buttonRemove.TabIndex = 16;
             this.buttonRemove.Text = "Remove";
             this.buttonRemove.UseVisualStyleBackColor = false;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
-            // labelStatus
+            // buttonEdit
             // 
-            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStatus.ForeColor = System.Drawing.Color.White;
-            this.labelStatus.Location = new System.Drawing.Point(161, 231);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelStatus.Size = new System.Drawing.Size(66, 25);
-            this.labelStatus.TabIndex = 18;
-            this.labelStatus.Text = ":Status";
-            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // TextBoxStatus
-            // 
-            this.TextBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxStatus.Enabled = false;
-            this.TextBoxStatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxStatus.Location = new System.Drawing.Point(233, 227);
-            this.TextBoxStatus.Name = "TextBoxStatus";
-            this.TextBoxStatus.Size = new System.Drawing.Size(521, 33);
-            this.TextBoxStatus.TabIndex = 19;
+            this.buttonEdit.BackColor = System.Drawing.Color.DimGray;
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEdit.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            this.buttonEdit.ForeColor = System.Drawing.Color.White;
+            this.buttonEdit.Location = new System.Drawing.Point(149, 534);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(131, 39);
+            this.buttonEdit.TabIndex = 20;
+            this.buttonEdit.Text = "Edit";
+            this.buttonEdit.UseVisualStyleBackColor = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // TransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(882, 585);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.TextBoxStatus);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonEnroll);
-            this.Controls.Add(this.labelNewTransaction);
             this.Controls.Add(this.textBoxStudentName);
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelTotal);
@@ -356,16 +380,16 @@
         private System.Windows.Forms.Label LabelTransactionID;
         private System.Windows.Forms.Label labelStudentName;
         private System.Windows.Forms.DataGridView DataGridViewItemLists;
-        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.TextBox textBoxStudentName;
-        private System.Windows.Forms.Label labelNewTransaction;
         private System.Windows.Forms.Button buttonEnroll;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.TextBox TextBoxStatus;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }

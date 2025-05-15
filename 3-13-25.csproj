@@ -187,7 +187,6 @@
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\EditClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\OpsAndCalcs.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\ReceiptReportClass.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\SubjectClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\TutorClass.cs" />
     <Compile Include="D2.dbEstablisher\Database.cs" />
     <Compile Include="D2.ViewModel\D2.RegistrationLogics\BookingLogics.cs" />
@@ -224,6 +223,12 @@
     </Compile>
     <Compile Include="D2.View\D2.UserControlCapsules\UserControlAddTutor.Designer.cs">
       <DependentUpon>UserControlAddTutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlSubjectLibControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlSubjectLibControls.Designer.cs">
+      <DependentUpon>UserControlSubjectLibControls.cs</DependentUpon>
     </Compile>
     <Compile Include="D2.View\D2.UserControlViews\UserControlReceipt.cs">
       <SubType>UserControl</SubType>
@@ -302,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="D2.View\D2.UserControlCapsules\UserControlAddTutor.resx">
       <DependentUpon>UserControlAddTutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlCapsules\UserControlSubjectLibControls.resx">
+      <DependentUpon>UserControlSubjectLibControls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlReceipt.resx">
       <DependentUpon>UserControlReceipt.cs</DependentUpon>

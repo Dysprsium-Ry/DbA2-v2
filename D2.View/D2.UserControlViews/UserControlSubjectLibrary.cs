@@ -1,77 +1,116 @@
-﻿using _3_13_25.D2.Classes;
+﻿using _3_13_25.D2.DbConn;
+using _3_13_25.D2.View.D2.Forms;
+using _3_13_25.D2.ViewModel.D2.BusinessLogics;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
 namespace _3_13_25.D2.View.D2.UserControlViews
 {
     public partial class UserControlSubjectLibrary : UserControl
     {
+        CapsuleBase openBase;
+        UserControlSubjectLibControls openControl;
+
         public UserControlSubjectLibrary()
         {
             InitializeComponent();
-            buttonAddToolInventory.Click += buttonAddISubject_Click;
-            SubjectClass.ShowSubjects(dataGridViewSubjects);
         }
 
         private void UserControlSubjectLibrary_Load(object sender, EventArgs e)
         {
-
+            Load_Data();
+            Load_Data_Tutor(string.Empty);
         }
 
-        private void buttonAddISubject_Click(object sender, EventArgs e)
+        private void Load_Data()
         {
-            if (!string.IsNullOrWhiteSpace(textBoxSubjectLib.Text))
+            dataGridViewSubjects.DataSource = null;
+            dataGridViewSubjects.DataSource = DataLoadCast.fetchSubject();
+            dataGridViewSubjects.AutoGenerateColumns = true;
+            dataGridViewSubjects.Refresh();
+        }
+
+        private void Load_Data_Tutor(string subject)
+        {
+            dataGridViewTutors.DataSource = null;
+            dataGridViewTutors.DataSource = DataLoadCast.fetchSubjectTutor(subject);
+            dataGridViewTutors.AutoGenerateColumns = true;
+            SetColumnHeaders(dataGridViewTutors);
+            dataGridViewTutors.Refresh();
+        }
+
+        private void dataGridViewSubjects_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
-                TemporalData.Subject = textBoxSubjectLib.Text;
-                SubjectClass.AddSub();
-                SubjectClass.ShowSubjects(dataGridViewSubjects);
+                string subject = dataGridViewSubjects.Rows[e.RowIndex].Cells["Subject"].Value.ToString();
+                Load_Data_Tutor(subject);
             }
-            else
-            {
-                MessageBox.Show("Textbox Value is invalid. Action aborted.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+        }
+
+        private void buttonAddToolInventory_Click(object sender, EventArgs e)
+        {
+            openControl = new UserControlSubjectLibControls(UserControlSubjectLibControls.RegistrationType.Save, string.Empty);
+            openBase = new CapsuleBase(openControl);
+            openBase.ShowDialog();
+            Load_Data();
+            Load_Data_Tutor(string.Empty);
         }
 
         private void buttonDeleteToolInventory_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(textBoxSubjectLib.Text))
+            if (dataGridViewSubjects.SelectedRows[0].Index >= 0)
             {
-                TemporalData.Subject = textBoxSubjectLib.Text;
-                SubjectClass.DeleteSub();
-                SubjectClass.ShowSubjects(dataGridViewSubjects);
-            }
-            else
-            {
-                MessageBox.Show("Textbox Value is invalid. Action aborted.", "Invalid Action", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                SubjectLogics.DeleteSubject(dataGridViewSubjects.SelectedRows[0].Cells["Subject"].Value.ToString());
+                Load_Data();
+                Load_Data_Tutor(string.Empty);
             }
         }
 
-        private void dataGridViewSubjects_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dataGridViewSubjects.Rows.Count)
+            if (dataGridViewSubjects.SelectedRows[0].Index >= 0)
             {
-                var Expertise = dataGridViewSubjects.Rows[e.RowIndex].Cells[0].Value;
+                if (!string.IsNullOrEmpty(dataGridViewSubjects.SelectedRows[0].Cells["Subject"].Value.ToString()))
+                {
+                    openControl = new UserControlSubjectLibControls(UserControlSubjectLibControls.RegistrationType.Update, dataGridViewSubjects.SelectedRows[0].Cells["Subject"].Value.ToString());
+                    openBase = new CapsuleBase(openControl);
+                    openBase.ShowDialog();
 
-                if (Expertise != null)
-                {
-                    textBoxSubjectLib.Text = Convert.ToString(Expertise);
-                }
-                else
-                {
-                    MessageBox.Show("Selected row contains invalid data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Load_Data();
+                    Load_Data_Tutor(string.Empty);
                 }
             }
             else
             {
-                MessageBox.Show("Selected row index is out of range.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a subject to update.");
+            }
+        }
+
+        private void SetColumnHeaders(DataGridView dgv)
+        {
+            if (dgv.Columns.Contains("TutorName"))
+            {
+                dgv.Columns["TutorName"].HeaderText = "Name";
+                //dgv.Columns["Status"].Visible = false;
+            }
+
+            if (dgv.Columns.Contains("Email"))
+                dgv.Columns["Email"].HeaderText = "Email";
+
+            if (dgv.Columns.Contains("HourlyRate"))
+                dgv.Columns["HourlyRate"].HeaderText = "Hourly Rate";
+
+            if (dgv.Columns.Contains("InTime"))
+            {
+                dgv.Columns["InTime"].HeaderText = "In Time";
+                //dgv.Columns["InTime"].DefaultCellStyle.Format = @"hh:mm tt";
+            }
+
+            if (dgv.Columns.Contains("OutTime"))
+            {
+                dgv.Columns["OutTime"].HeaderText = "Out Time";
+                //dgv.Columns["OutTime"].DefaultCellStyle.Format = @"hh:mm tt";
             }
         }
     }

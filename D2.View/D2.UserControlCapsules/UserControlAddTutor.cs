@@ -1,5 +1,6 @@
 ﻿using _3_13_25.D2.DbConn;
 using _3_13_25.D2.QueryStorage;
+using _3_13_25.D2.View.D2.Forms;
 using BienvenidoOnlineTutorServices.D2.Classes;
 using BOTS.Database_Connection;
 using System;
@@ -54,6 +55,7 @@ namespace _3_13_25.D2.View.D2.UserControlCapsules
             }
 
             TutorClass.ManageTutor();
+            this.Dispose();
         }
 
         private void buttonTutorDelete_Click(object sender, EventArgs e)

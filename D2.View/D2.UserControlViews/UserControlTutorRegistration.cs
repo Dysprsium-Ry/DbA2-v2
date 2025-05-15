@@ -11,6 +11,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 {
     public partial class UserControlTutorRegistration : UserControl
     {
+
         public UserControlTutorRegistration()
         {
             InitializeComponent();
@@ -23,11 +24,10 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 
         private void buttonRegisterTutor_Click(object sender, EventArgs e)
         {
-            CapsuleBase capsuleBase = new CapsuleBase();
             UserControlAddTutor userControlAddTutor = new UserControlAddTutor();
-            capsuleBase.Controls.Add(userControlAddTutor);
-            userControlAddTutor.Dock = DockStyle.Fill;
+            CapsuleBase capsuleBase = new CapsuleBase(userControlAddTutor);
             capsuleBase.ShowDialog();
+            DataGrid_Load();
         }
 
         private void buttonTutorDelete_Click(object sender, EventArgs e)
@@ -52,6 +52,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             dataGridViewTutorManagement.DataSource = null;
             DataLoadCast.DisplayTutors(dataGridViewTutorManagement);
             SetColumnHeaders(dataGridViewTutorManagement);
+            dataGridViewTutorManagement.Refresh();
         }
 
         private void SetColumnHeaders(DataGridView dgv)

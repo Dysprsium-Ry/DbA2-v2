@@ -353,6 +353,174 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             }
         }
 
+        public class EditItems : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+            protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+
+            private long _transactionId;
+            private string _subject;
+            private string _tutor;
+            private decimal _hourlyRate;
+            private DateTime _sessionScheduleDate;
+            private TimeSpan _startSchedule;
+            private TimeSpan _endSchedule;
+            private string _status;
+            private decimal _totalFee;
+
+            public long TransactionId
+            {
+                get => _transactionId;
+                set
+                {
+                    if (_transactionId != value)
+                    {
+                        _transactionId = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public string Subject
+            {
+                get => _subject;
+                set
+                {
+                    if (_subject != value)
+                    {
+                        _subject = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public string Tutor
+            {
+                get => _tutor;
+                set
+                {
+                    if (_tutor != value)
+                    {
+                        _tutor = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public decimal HourlyRate
+            {
+                get => _hourlyRate;
+                set
+                {
+                    if (_hourlyRate != value)
+                    {
+                        _hourlyRate = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public DateTime SessionScheduleDate
+            {
+                get => _sessionScheduleDate;
+                set
+                {
+                    if (_sessionScheduleDate != value)
+                    {
+                        _sessionScheduleDate = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public TimeSpan StartSchedule
+            {
+                get => _startSchedule;
+                set
+                {
+                    if (_startSchedule != value)
+                    {
+                        _startSchedule = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public TimeSpan EndSchedule
+            {
+                get => _endSchedule;
+                set
+                {
+                    if (_endSchedule != value)
+                    {
+                        _endSchedule = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public string Status
+            {
+                get => _status;
+                set
+                {
+                    if (_status != value)
+                    {
+                        _status = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public decimal TotalFee
+            {
+                get => _totalFee;
+                set
+                {
+                    if (_totalFee != value)
+                    {
+                        _totalFee = value;
+                        OnPropertyChanged();
+                    }
+                }
+            }
+
+            public override bool Equals(object obj)
+            {
+                if (obj is not TransactionItems other)
+                    return false;
+
+                return TransactionId == other.TransactionId &&
+                       Subject == other.Subject &&
+                       Tutor == other.Tutor &&
+                       HourlyRate == other.HourlyRate &&
+                       SessionScheduleDate == other.SessionScheduleDate &&
+                       StartSchedule == other.StartSchedule &&
+                       EndSchedule == other.EndSchedule &&
+                       Status == other.Status;
+            }
+
+            public override int GetHashCode()
+            {
+                unchecked
+                {
+                    int hash = 17;
+                    hash = hash * 23 + TransactionId.GetHashCode();
+                    hash = hash * 23 + (Subject?.GetHashCode() ?? 0);
+                    hash = hash * 23 + (Tutor?.GetHashCode() ?? 0);
+                    hash = hash * 23 + HourlyRate.GetHashCode();
+                    hash = hash * 23 + SessionScheduleDate.GetHashCode();
+                    hash = hash * 23 + StartSchedule.GetHashCode();
+                    hash = hash * 23 + EndSchedule.GetHashCode();
+                    hash = hash * 23 + (Status?.GetHashCode() ?? 0);
+                    return hash;
+                }
+            }
+        }
+
         public class TransactionItemList : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
@@ -364,6 +532,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public static BindingList<TransactionItems> BindingList = new BindingList<TransactionItems>();
 
             public static Dictionary<long, BindingList<TransactionItems>> TransactionQueues = new();
+
             public static BindingList<TransactionItems> DictionaryList(long Transaction_Id)
             {
                 if (!TransactionQueues.ContainsKey(Transaction_Id))
@@ -387,7 +556,7 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
             public DateTime EditScheduleDate { get; set; }
         }
 
-        public class EditItemListCollection
+        public class EditCollection
         {
             public static List<EditItemList> EditItemsList = new List<EditItemList>();
             public static string EditSubject { get; set; }

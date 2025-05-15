@@ -76,6 +76,23 @@ namespace _3_13_25.D2.DbConn
             return table;
         }
 
+        public static DataTable fetchSubjectTutor(string subject)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT TutorName, Email, HourlyRate, InTime, OutTime FROM D2.Tutor WHERE Expertise = @subject", connection))
+                {
+                    command.Parameters.AddWithValue("@subject", subject);
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+                }
+            }
+            return table;
+        }
+
         #endregion
 
         #region TransactionList

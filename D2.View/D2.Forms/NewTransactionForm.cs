@@ -18,9 +18,12 @@ namespace _3_13_25.D2.View.D2.MainFormV
         {
             InitializeComponent();
             textBoxStudentName.AutoCompleteCustomSource = DataLoadCast.studentListFetcher();
-            this.FormClosed += (s, e) => { TemporalData.Clear(); Cancel(TransactionItemList.BindingList); refreshControls(); TransactionItemList.TransactionQueues.Clear(); };
+            this.FormClosed += (s, e) => { TemporalData.Clear(); Cancel(_bindingList); refreshControls(); _bindingList.Clear(); };
             _sumTotal();
         }
+
+        private BindingList<TransactionItems> _bindingList = new BindingList<TransactionItems>();
+        private TransactionItems item;
 
         private void NewTransactionForm_Load(object sender, EventArgs e)
         {
@@ -45,7 +48,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             else { TextBoxStatus.Text = "Draft"; }
 
             TextBoxTransactionID.Text = TemporalData.TransactionId.ToString();
-            DataGrid_Load(TransactionItemList.BindingList);
+            DataGrid_Load(_bindingList);
 
             if (TemporalData.TotalFee == 0)
             {
@@ -56,7 +59,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 textBoxTotal.Text = TemporalData.TotalFee.ToString();
             }
 
-            if(DataGridViewItemLists.Rows.Count < 2) buttonRemove.Visible = false;
+            if (DataGridViewItemLists.Rows.Count < 2) buttonRemove.Visible = false;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -80,9 +83,14 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 }
             }
 
+            if (!OpsAndCalcs.IsStudentNameExist(textBoxStudentName.Text))
+            {
+                return;
+            }
+
             TemporalData.StudentUserN = textBoxStudentName.Text;
 
-            CapsuleForm capsule = new CapsuleForm();
+            CapsuleForm capsule = new CapsuleForm(_bindingList, CapsuleForm.FormMode.New);
             var result = capsule.ShowDialog();
 
             while (true)
@@ -90,7 +98,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 switch (result)
                 {
                     case DialogResult.Yes:
-                        DataGrid_Load(TransactionItemList.BindingList);
+                        //DataGrid_Load(_bindingList);
                         _sumTotal();
                         if (DataGridViewItemLists.Rows.Count > 1) buttonRemove.Visible = true;
                         return;
@@ -107,13 +115,12 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void DataGrid_Load(object binding)
         {
-            if (binding is not BindingList<TransactionItems> list) return;
-
+            //if (binding is not BindingList<TransactionItems> list) return;
 
             DataGridViewItemLists.CellFormatting -= DataGridView_CellFormatting;
 
             DataGridViewItemLists.DataSource = null;
-            DataGridViewItemLists.DataSource = list;
+            DataGridViewItemLists.DataSource = binding;
 
             SetColumnHeaders(DataGridViewItemLists);
 
@@ -151,6 +158,12 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
             if (dgv.Columns.Contains("SessionScheduleDate"))
                 dgv.Columns["SessionScheduleDate"].HeaderText = "Schedule";
+
+            if (dgv.Columns.Contains("TotalFee"))
+            {
+                dgv.Columns["TotalFee"].HeaderText = "Total Fee";
+                dgv.Columns["TotalFee"].Visible = false;
+            }
         }
 
         private void DataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -177,7 +190,8 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void textBoxStudentName_TextChanged(object sender, EventArgs e)
         {
-            DataGridReloader(TransactionItemList.BindingList);
+            DataGridReloader(_bindingList);
+            fetchRecords();
 
             if (string.IsNullOrWhiteSpace(textBoxStudentName.Text))
             {
@@ -187,7 +201,10 @@ namespace _3_13_25.D2.View.D2.MainFormV
             TextBoxStudEmail.Text = DbItemFetcher.StudentEmailFetcher(textBoxStudentName.Text);
 
             TemporalData.StudentUserN = textBoxStudentName.Text;
+        }
 
+        private void textBoxStudentName_KeyUp(object sender, KeyEventArgs e)
+        {
             if (OpsAndCalcs.IsStudentNameExist(textBoxStudentName.Text))
             {
                 TextBoxTransactionID.Text = (DbItemFetcher.MinDraftIdFetcher() != 0 ? DbItemFetcher.MinDraftIdFetcher() : DbItemFetcher.NewTransactionIdFetcher()).ToString();
@@ -212,7 +229,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 BookingLogics.UpdateTransaction(State);
             }
 
-            foreach (var item in TransactionItemList.BindingList)
+            foreach (var item in _bindingList)
             {
                 Enrollment.Subject = item.Subject;
                 Enrollment.TutorName = item.Tutor;
@@ -224,7 +241,11 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
                 if (BookingLogics.isTransactionItemExist())
                 {
-                    BookingLogics.UpdateTransactionInformation(State);
+                    if (!BookingLogics.IsTutorAvailable(item.Tutor, item.SessionScheduleDate.Date))
+                    {
+                        BookingLogics.UpdateTransactionInformation(State, item.Tutor, item.SessionScheduleDate.Date);
+                    }
+                    //else { MessageBox.Show($"Tutor : {item.Tutor} is current unavailable to book.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
                 }
                 else BookingLogics.RegisterTransactionInformation(State);
             }
@@ -235,11 +256,11 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void DataGridReloader(object binding)
         {
-            if (binding is not BindingList<TransactionItems> List) return;
+            //if (binding is not BindingList<TransactionItems> List) return;
 
-            List.Clear();
+            //List.Clear();
             DataGridViewItemLists.DataSource = null;
-            DataGrid_Load(List);
+            DataGrid_Load(binding);
         }
 
         private void Enroll()
@@ -251,11 +272,11 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void Cancel(object binding)
         {
-            if (binding is not BindingList<TransactionItems> List) return;
+            //if (binding is not BindingList<TransactionItems> List) return;
 
-            if (List.Count > 0)
+            if (_bindingList.Count > 0)
             {
-                DataGridReloader(List);
+                DataGridReloader(_bindingList);
             }
             this.Close();
         }
@@ -269,55 +290,46 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void Remove()
         {
-            if (MessageBox.Show("Removing items on a saved draft will automatically save changes\n\nDo you wish to proceed?", "Warning!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel ) { return; }
-
-            if (DataGridViewItemLists.SelectedRows.Count > 0 && (DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value?.ToString() == "Draft" || DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value?.ToString() == "" || DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value?.ToString() == null))
+            if (DataGridViewItemLists.SelectedRows.Count == 1 && (DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value?.ToString() == "Draft" || DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value?.ToString() == "" || DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value?.ToString() == null))
             {
+                if (MessageBox.Show("Removing items on a saved draft will automatically save changes\n\nDo you wish to proceed?", "Warning!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel) { return; }
+
                 TemporalData.Subject = Convert.ToString(DataGridViewItemLists.SelectedRows[0].Cells["Subject"].Value ?? string.Empty);
                 TemporalData.TutorName = Convert.ToString(DataGridViewItemLists.SelectedRows[0].Cells["Tutor"].Value ?? string.Empty);
                 TemporalData.SessionScheduleDate = Convert.ToDateTime(DataGridViewItemLists.SelectedRows[0].Cells["SessionScheduleDate"].Value ?? DateTime.MinValue);
 
-                if (DataGridViewItemLists.SelectedRows.Count > 0 && DataGridViewItemLists.DataSource == TransactionItemList.BindingList)
+                if (DataGridViewItemLists.SelectedRows.Count > 0 && DataGridViewItemLists.DataSource == _bindingList)
                 {
-                    if (EditClass.IsItemExist() && DataGridViewItemLists.Rows.Count > 1) 
-                    { 
+                    if (EditClass.IsItemExist() && DataGridViewItemLists.Rows.Count > 1)
+                    {
                         EditClass.RemoveItem();
                         _subtractTotal();
-                        TransactionItemList.BindingList.RemoveAt(DataGridViewItemLists.SelectedRows[0].Index);
+                        _bindingList.RemoveAt(DataGridViewItemLists.SelectedRows[0].Index);
                         Register("Draft");
                     }
                     foreach (DataGridViewRow row in DataGridViewItemLists.SelectedRows)
                     {
-                        TransactionItemList.BindingList.RemoveAt(row.Index);
+                        _bindingList.RemoveAt(row.Index);
                     }
                 }
                 if (DataGridViewItemLists.Rows.Count < 2) { buttonRemove.Visible = false; }
-                DataGrid_Load(TransactionItemList.BindingList);
+                DataGrid_Load(_bindingList);
             }
         }
 
         private void Edit()
         {
-            if (DataGridViewItemLists.SelectedRows.Count > 0)
+            if (DataGridViewItemLists.SelectedRows[0].Index >= 0 && DataGridViewItemLists.Rows.Count > 0)
             {
-                foreach (DataGridViewRow row in DataGridViewItemLists.SelectedRows)
-                {
-                    var items = new EditItemList
-                    {
-                        Subject = row.Cells["QueuedSubject"].Value.ToString(),
-                        Tutor = row.Cells["QueuedTutor"].Value.ToString(),
-                        EditHourlyRate = Convert.ToDecimal(row.Cells["QueuedHourlyRate"].Value),
-                        EditStartTime = (TimeSpan)row.Cells["QueuedStartTime"].Value,
-                        EditEndTime = (TimeSpan)row.Cells["QueuedEndTime"].Value,
-                        EditScheduleDate = Convert.ToDateTime(row.Cells["QueuedSessionSchedule"].Value)
-                    };
+                int selectedRowIndex = DataGridViewItemLists.SelectedRows[0].Index;
+                TransactionItems items = (TransactionItems)DataGridViewItemLists.Rows[selectedRowIndex].DataBoundItem;
 
-                    EditItemListCollection.EditSubject = row.Cells["QueuedSubject"].Value.ToString();
-                    EditItemListCollection.EditTutor = row.Cells["QueuedTutor"].Value.ToString();
-                    EditItemListCollection.EditHourlyRate = Convert.ToDecimal(row.Cells["QueuedHourlyRate"].Value);
-                    EditItemListCollection.EditStartTime = (TimeSpan)row.Cells["QueuedStartTime"].Value;
-                    EditItemListCollection.EditEndTime = (TimeSpan)row.Cells["QueuedEndTime"].Value;
-                    EditItemListCollection.EditScheduleDate = Convert.ToDateTime(row.Cells["QueuedSessionSchedule"].Value);
+                using (var form = new CapsuleForm(_bindingList, CapsuleForm.FormMode.Update, items, selectedRowIndex))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        MessageBox.Show("Update Successfully!");
+                    }
                 }
             }
         }
@@ -340,7 +352,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             }
             decimal newTotal = OpsAndCalcs.CalculateSubtSessionFee(TemporalData.SessionTotal, subtracted);
             textBoxTotal.Text = newTotal.ToString();
-            TemporalData.SessionTotal = newTotal    ;
+            TemporalData.SessionTotal = newTotal;
         }
 
         private void buttonEnroll_Click(object sender, EventArgs e)
@@ -396,9 +408,9 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void fetchRecords()
         {
-            TransactionItemList.BindingList.Clear();
+            _bindingList.Clear();
             var editItemList = EditClass.FetchClientData();
-            TransactionItemList.BindingList.AddRange(editItemList);
+            _bindingList.AddRange(editItemList);
             textBoxTotal.Text = EditClass.FetchTransactionTotal().ToString("0.00");
         }
 
@@ -427,5 +439,17 @@ namespace _3_13_25.D2.View.D2.MainFormV
         }
 
         #endregion
+
+        private void DataGridViewItemLists_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button button && (button == buttonRemove || button == buttonEdit))
+                {
+                    button.Visible = DataGridViewItemLists.Rows.Count > 1 && e.RowIndex >= 0 && (DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString() == "Draft" || string.IsNullOrEmpty(DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString()));
+                }
+                else { }
+            }
+        }
     }
 }

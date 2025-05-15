@@ -41,6 +41,9 @@
             this.Name = "CapsuleBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_";
+            this.Load += new System.EventHandler(this.CapsuleBase_Load);
+            this.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.CapsuleBase_ControlAdded);
+            this.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.CapsuleBase_ControlRemoved);
             this.ResumeLayout(false);
 
         }
