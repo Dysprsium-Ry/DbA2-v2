@@ -58,7 +58,7 @@
             this.dataGridViewBillingList.AllowUserToResizeRows = false;
             this.dataGridViewBillingList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBillingList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewBillingList.BackgroundColor = System.Drawing.Color.Gray;
+            this.dataGridViewBillingList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,9 +69,9 @@
             this.dataGridViewBillingList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewBillingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -90,7 +90,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
             this.panel1.Controls.Add(this.labelBookDateInfo);
             this.panel1.Controls.Add(this.labelStatusInfo);
             this.panel1.Controls.Add(this.labelNameInfo);
@@ -107,7 +107,7 @@
             // labelBookDateInfo
             // 
             this.labelBookDateInfo.AutoSize = true;
-            this.labelBookDateInfo.BackColor = System.Drawing.Color.Gray;
+            this.labelBookDateInfo.BackColor = System.Drawing.Color.Transparent;
             this.labelBookDateInfo.ForeColor = System.Drawing.Color.White;
             this.labelBookDateInfo.Location = new System.Drawing.Point(159, 185);
             this.labelBookDateInfo.Name = "labelBookDateInfo";
@@ -118,7 +118,7 @@
             // labelStatusInfo
             // 
             this.labelStatusInfo.AutoSize = true;
-            this.labelStatusInfo.BackColor = System.Drawing.Color.Gray;
+            this.labelStatusInfo.BackColor = System.Drawing.Color.Transparent;
             this.labelStatusInfo.ForeColor = System.Drawing.Color.White;
             this.labelStatusInfo.Location = new System.Drawing.Point(159, 138);
             this.labelStatusInfo.Name = "labelStatusInfo";
@@ -129,7 +129,7 @@
             // labelNameInfo
             // 
             this.labelNameInfo.AutoSize = true;
-            this.labelNameInfo.BackColor = System.Drawing.Color.Gray;
+            this.labelNameInfo.BackColor = System.Drawing.Color.Transparent;
             this.labelNameInfo.ForeColor = System.Drawing.Color.White;
             this.labelNameInfo.Location = new System.Drawing.Point(159, 91);
             this.labelNameInfo.Name = "labelNameInfo";
@@ -140,7 +140,7 @@
             // labelTransactionIdInfo
             // 
             this.labelTransactionIdInfo.AutoSize = true;
-            this.labelTransactionIdInfo.BackColor = System.Drawing.Color.Gray;
+            this.labelTransactionIdInfo.BackColor = System.Drawing.Color.Transparent;
             this.labelTransactionIdInfo.ForeColor = System.Drawing.Color.White;
             this.labelTransactionIdInfo.Location = new System.Drawing.Point(159, 44);
             this.labelTransactionIdInfo.Name = "labelTransactionIdInfo";
@@ -199,6 +199,7 @@
             // 
             // textBoxTotal
             // 
+            this.textBoxTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.textBoxTotal.Location = new System.Drawing.Point(587, 341);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
@@ -216,7 +217,10 @@
             // 
             // buttonPay
             // 
-            this.buttonPay.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPay.ForeColor = System.Drawing.Color.White;
             this.buttonPay.Location = new System.Drawing.Point(720, 501);
             this.buttonPay.Name = "buttonPay";
@@ -244,6 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.buttonPay);
             this.Controls.Add(this.labelPayAmount);
             this.Controls.Add(this.textBoxTotal);

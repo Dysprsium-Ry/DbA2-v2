@@ -139,7 +139,8 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
             {
                 if (control is Button button)
                 {
-                    button.BackColor = Color.FromArgb(95, 108, 175);
+                    button.BackColor = Color.FromArgb(249, 250, 251);
+                    button.ForeColor = Color.FromArgb(43, 50, 85);
                 }
             }
         }
@@ -151,25 +152,31 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
             switch (currentControl)
             {
                 case UserControlTransactionList:
-                    buttonTransactionListPage.BackColor = Color.FromArgb(43, 50, 85);
+                    buttonTransactionListPage.BackColor = Color.FromArgb(93, 155, 155);
+                    buttonTransactionListPage.ForeColor = Color.FromArgb(249, 250, 251);
                     break;
                 case UserControlStudentEnrollment:
-                    buttonStudentEnrollmentPage.BackColor = Color.FromArgb(43, 50, 85);
+                    buttonStudentEnrollmentPage.BackColor = Color.FromArgb(93, 155, 155);
+                    buttonStudentEnrollmentPage.ForeColor = Color.FromArgb(249, 250, 251);
                     break;
                 case UserControlTutorRegistration:
-                    buttonTutorRegistrationPage.BackColor = Color.FromArgb(43, 50, 85);
+                    buttonTutorRegistrationPage.BackColor = Color.FromArgb(93, 155, 155);
+                    buttonTutorRegistrationPage.ForeColor = Color.FromArgb(249, 250, 251);
                     break;
                 case UserControlTutorLedger:
                     //buttonTutorProfileLedgerPage.BackColor = Color.FromArgb(43, 50, 85);
                     break;
                 case UserControlSubjectLibrary:
-                    buttonSubjectLibraryPage.BackColor = Color.FromArgb(43, 50, 85);
+                    buttonSubjectLibraryPage.BackColor = Color.FromArgb(93, 155, 155);
+                    buttonSubjectLibraryPage.ForeColor = Color.FromArgb(249, 250, 251);
                     break;
                 case UserControlTransactionBilling:
-                    buttonTransactionBillingPage.BackColor = Color.FromArgb(43, 50, 85);
+                    buttonTransactionBillingPage.BackColor = Color.FromArgb(93, 155, 155);
+                    buttonTransactionBillingPage.ForeColor = Color.FromArgb(249, 250, 251);
                     break;
                 case UserControlReceipt:
-                    buttonReceiptPage.BackColor = Color.FromArgb(43, 50, 85);
+                    buttonReceiptPage.BackColor = Color.FromArgb(93, 155, 155);
+                    buttonReceiptPage.ForeColor = Color.FromArgb(249, 250, 251);
                     break;
                 default:
                     break;

@@ -346,6 +346,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="D2.DataModels\TutorModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -446,6 +447,13 @@
       <LastGenOutput>TutorModel.cs</LastGenOutput>
     </Content>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\icons8-invoice-30.png" />
+    <None Include="Resources\icons8-cash-register-30.png" />
+    <None Include="Resources\icons8-books-30.png" />
+    <None Include="Resources\icons8-teacher-30.png" />
+    <None Include="Resources\icons8-student-registration-30%281%29.png" />
+    <None Include="Resources\icons8-transaction-list-30.png" />
+    <None Include="Resources\image-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

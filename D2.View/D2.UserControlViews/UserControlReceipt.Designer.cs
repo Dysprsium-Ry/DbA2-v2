@@ -33,13 +33,14 @@
             // 
             // reportViewerReceipt
             // 
-            this.reportViewerReceipt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportViewerReceipt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.reportViewerReceipt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.reportViewerReceipt.Location = new System.Drawing.Point(26, 18);
+            this.reportViewerReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewerReceipt.Location = new System.Drawing.Point(0, 0);
             this.reportViewerReceipt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.reportViewerReceipt.Name = "reportViewerReceipt";
             this.reportViewerReceipt.ServerReport.BearerToken = null;
-            this.reportViewerReceipt.Size = new System.Drawing.Size(555, 527);
+            this.reportViewerReceipt.Size = new System.Drawing.Size(612, 568);
             this.reportViewerReceipt.TabIndex = 1;
             this.reportViewerReceipt.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             // 
@@ -47,6 +48,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.reportViewerReceipt);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

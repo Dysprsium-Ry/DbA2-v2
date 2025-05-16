@@ -48,6 +48,7 @@
             // dateTimePickerEndTime
             // 
             this.dateTimePickerEndTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerEndTime.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(232)))), ((int)(((byte)(248)))));
             this.dateTimePickerEndTime.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerEndTime.Location = new System.Drawing.Point(245, 365);
@@ -59,6 +60,7 @@
             // dateTimePickerBeginTime
             // 
             this.dateTimePickerBeginTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerBeginTime.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(232)))), ((int)(((byte)(248)))));
             this.dateTimePickerBeginTime.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerBeginTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerBeginTime.Location = new System.Drawing.Point(87, 365);
@@ -92,6 +94,8 @@
             // textBoxTutorEmail
             // 
             this.textBoxTutorEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTutorEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.textBoxTutorEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxTutorEmail.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTutorEmail.Location = new System.Drawing.Point(87, 148);
             this.textBoxTutorEmail.Name = "textBoxTutorEmail";
@@ -112,10 +116,12 @@
             // comboBoxExpertise
             // 
             this.comboBoxExpertise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxExpertise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(232)))), ((int)(((byte)(248)))));
             this.comboBoxExpertise.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxExpertise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxExpertise.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxExpertise.FormattingEnabled = true;
-            this.comboBoxExpertise.Location = new System.Drawing.Point(87, 218);
+            this.comboBoxExpertise.Location = new System.Drawing.Point(87, 221);
             this.comboBoxExpertise.Name = "comboBoxExpertise";
             this.comboBoxExpertise.Size = new System.Drawing.Size(316, 33);
             this.comboBoxExpertise.TabIndex = 32;
@@ -134,6 +140,8 @@
             // textBoxTutorName
             // 
             this.textBoxTutorName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTutorName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.textBoxTutorName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxTutorName.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTutorName.Location = new System.Drawing.Point(87, 75);
             this.textBoxTutorName.Name = "textBoxTutorName";
@@ -165,9 +173,10 @@
             // buttonTutorDelete
             // 
             this.buttonTutorDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTutorDelete.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonTutorDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonTutorDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
             this.buttonTutorDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTutorDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTutorDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTutorDelete.ForeColor = System.Drawing.Color.White;
             this.buttonTutorDelete.Location = new System.Drawing.Point(87, 440);
             this.buttonTutorDelete.Name = "buttonTutorDelete";
@@ -180,9 +189,11 @@
             // buttonRegisterTutor
             // 
             this.buttonRegisterTutor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRegisterTutor.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.buttonRegisterTutor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonRegisterTutor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonRegisterTutor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
             this.buttonRegisterTutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegisterTutor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegisterTutor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegisterTutor.ForeColor = System.Drawing.Color.White;
             this.buttonRegisterTutor.Location = new System.Drawing.Point(245, 440);
             this.buttonRegisterTutor.Name = "buttonRegisterTutor";
@@ -194,9 +205,12 @@
             // 
             // numericUpDownHourlyRate
             // 
+            this.numericUpDownHourlyRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownHourlyRate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(232)))), ((int)(((byte)(248)))));
+            this.numericUpDownHourlyRate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericUpDownHourlyRate.DecimalPlaces = 2;
             this.numericUpDownHourlyRate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownHourlyRate.Location = new System.Drawing.Point(87, 288);
+            this.numericUpDownHourlyRate.Location = new System.Drawing.Point(87, 292);
             this.numericUpDownHourlyRate.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -220,6 +234,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.numericUpDownHourlyRate);
             this.Controls.Add(this.dateTimePickerEndTime);
             this.Controls.Add(this.dateTimePickerBeginTime);

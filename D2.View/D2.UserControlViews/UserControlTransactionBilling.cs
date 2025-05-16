@@ -71,6 +71,8 @@ namespace _3_13_25.D2.View.D2.UserControlViews
         {
             if (numericUpDownPayAmount.Value < 1) return;
 
+            if (dataGridViewBillingList.SelectedRows.Count < 1) return;
+
             decimal total = Convert.ToDecimal(dataGridViewBillingList.SelectedRows[0].Cells[2].Value) + numericUpDownPayAmount.Value;
 
             if (total <= _total)

@@ -138,6 +138,5 @@ namespace _3_13_25.D2.View.D2.UserControlCapsules
                 }
             };
         }
-
     }
 }

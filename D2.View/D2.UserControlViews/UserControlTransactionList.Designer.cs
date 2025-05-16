@@ -40,7 +40,9 @@
             // buttonNew
             // 
             this.buttonNew.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonNew.BackColor = System.Drawing.Color.Teal;
+            this.buttonNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
             this.buttonNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNew.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.buttonNew.ForeColor = System.Drawing.Color.White;
@@ -58,11 +60,12 @@
             this.textBoxSearchBar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.textBoxSearchBar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBoxSearchBar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxSearchBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.textBoxSearchBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchBar.Location = new System.Drawing.Point(284, 66);
+            this.textBoxSearchBar.Location = new System.Drawing.Point(178, 66);
             this.textBoxSearchBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxSearchBar.Name = "textBoxSearchBar";
-            this.textBoxSearchBar.Size = new System.Drawing.Size(580, 29);
+            this.textBoxSearchBar.Size = new System.Drawing.Size(686, 29);
             this.textBoxSearchBar.TabIndex = 4;
             // 
             // DataGridViewTransactionList
@@ -76,7 +79,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridViewTransactionList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DataGridViewTransactionList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.DataGridViewTransactionList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(226)))), ((int)(((byte)(217)))));
+            this.DataGridViewTransactionList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,8 +104,8 @@
             this.DataGridViewTransactionList.ReadOnly = true;
             this.DataGridViewTransactionList.RowHeadersVisible = false;
             this.DataGridViewTransactionList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.DataGridViewTransactionList.RowsDefaultCellStyle = dataGridViewCellStyle3;
@@ -115,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(226)))), ((int)(((byte)(217)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.textBoxSearchBar);
             this.Controls.Add(this.DataGridViewTransactionList);

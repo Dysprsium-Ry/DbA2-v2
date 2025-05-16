@@ -36,12 +36,15 @@
             this.buttonStudentEnrollmentPage = new System.Windows.Forms.Button();
             this.buttonTransactionListPage = new System.Windows.Forms.Button();
             this.panelMainField = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SidePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SidePanel
             // 
-            this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
+            this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.SidePanel.Controls.Add(this.pictureBox1);
             this.SidePanel.Controls.Add(this.buttonReceiptPage);
             this.SidePanel.Controls.Add(this.buttonTransactionBillingPage);
             this.SidePanel.Controls.Add(this.buttonSubjectLibraryPage);
@@ -51,56 +54,64 @@
             this.SidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SidePanel.Location = new System.Drawing.Point(0, 0);
             this.SidePanel.Name = "SidePanel";
+            this.SidePanel.Padding = new System.Windows.Forms.Padding(10);
             this.SidePanel.Size = new System.Drawing.Size(226, 568);
             this.SidePanel.TabIndex = 1;
             // 
             // buttonReceiptPage
             // 
-            this.buttonReceiptPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
+            this.buttonReceiptPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonReceiptPage.FlatAppearance.BorderSize = 0;
-            this.buttonReceiptPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
-            this.buttonReceiptPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonReceiptPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.buttonReceiptPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.buttonReceiptPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReceiptPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReceiptPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
-            this.buttonReceiptPage.Location = new System.Drawing.Point(7, 416);
+            this.buttonReceiptPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonReceiptPage.Image = global::_3_13_25.Properties.Resources.icons8_invoice_30;
+            this.buttonReceiptPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonReceiptPage.Location = new System.Drawing.Point(7, 431);
             this.buttonReceiptPage.Name = "buttonReceiptPage";
-            this.buttonReceiptPage.Size = new System.Drawing.Size(211, 40);
+            this.buttonReceiptPage.Size = new System.Drawing.Size(211, 41);
             this.buttonReceiptPage.TabIndex = 6;
-            this.buttonReceiptPage.Text = "Receipt";
+            this.buttonReceiptPage.Text = "          Receipt";
+            this.buttonReceiptPage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonReceiptPage.UseVisualStyleBackColor = false;
             this.buttonReceiptPage.Visible = false;
             this.buttonReceiptPage.Click += new System.EventHandler(this.buttonReceiptPage_Click);
             // 
             // buttonTransactionBillingPage
             // 
-            this.buttonTransactionBillingPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
+            this.buttonTransactionBillingPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonTransactionBillingPage.FlatAppearance.BorderSize = 0;
-            this.buttonTransactionBillingPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
-            this.buttonTransactionBillingPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonTransactionBillingPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.buttonTransactionBillingPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.buttonTransactionBillingPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTransactionBillingPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTransactionBillingPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
-            this.buttonTransactionBillingPage.Location = new System.Drawing.Point(8, 370);
+            this.buttonTransactionBillingPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonTransactionBillingPage.Image = global::_3_13_25.Properties.Resources.icons8_cash_register_30;
+            this.buttonTransactionBillingPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTransactionBillingPage.Location = new System.Drawing.Point(7, 385);
             this.buttonTransactionBillingPage.Name = "buttonTransactionBillingPage";
-            this.buttonTransactionBillingPage.Size = new System.Drawing.Size(211, 40);
+            this.buttonTransactionBillingPage.Size = new System.Drawing.Size(211, 41);
             this.buttonTransactionBillingPage.TabIndex = 5;
-            this.buttonTransactionBillingPage.Text = "Transaction Billing";
+            this.buttonTransactionBillingPage.Text = "       Transaction Billing";
             this.buttonTransactionBillingPage.UseVisualStyleBackColor = false;
             this.buttonTransactionBillingPage.Click += new System.EventHandler(this.buttonTransactionBillingPage_Click);
             // 
             // buttonSubjectLibraryPage
             // 
-            this.buttonSubjectLibraryPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
+            this.buttonSubjectLibraryPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonSubjectLibraryPage.FlatAppearance.BorderSize = 0;
-            this.buttonSubjectLibraryPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
-            this.buttonSubjectLibraryPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonSubjectLibraryPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.buttonSubjectLibraryPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.buttonSubjectLibraryPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSubjectLibraryPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubjectLibraryPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
-            this.buttonSubjectLibraryPage.Location = new System.Drawing.Point(7, 324);
+            this.buttonSubjectLibraryPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonSubjectLibraryPage.Image = global::_3_13_25.Properties.Resources.icons8_books_30;
+            this.buttonSubjectLibraryPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSubjectLibraryPage.Location = new System.Drawing.Point(7, 339);
             this.buttonSubjectLibraryPage.Name = "buttonSubjectLibraryPage";
-            this.buttonSubjectLibraryPage.Size = new System.Drawing.Size(211, 40);
+            this.buttonSubjectLibraryPage.Size = new System.Drawing.Size(211, 41);
             this.buttonSubjectLibraryPage.TabIndex = 4;
             this.buttonSubjectLibraryPage.Text = "Subject Library";
             this.buttonSubjectLibraryPage.UseVisualStyleBackColor = false;
@@ -108,58 +119,65 @@
             // 
             // buttonTutorRegistrationPage
             // 
-            this.buttonTutorRegistrationPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
+            this.buttonTutorRegistrationPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonTutorRegistrationPage.FlatAppearance.BorderSize = 0;
-            this.buttonTutorRegistrationPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
-            this.buttonTutorRegistrationPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonTutorRegistrationPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.buttonTutorRegistrationPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.buttonTutorRegistrationPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTutorRegistrationPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTutorRegistrationPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
-            this.buttonTutorRegistrationPage.Location = new System.Drawing.Point(7, 278);
+            this.buttonTutorRegistrationPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonTutorRegistrationPage.Image = global::_3_13_25.Properties.Resources.icons8_teacher_30;
+            this.buttonTutorRegistrationPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTutorRegistrationPage.Location = new System.Drawing.Point(7, 293);
             this.buttonTutorRegistrationPage.Name = "buttonTutorRegistrationPage";
-            this.buttonTutorRegistrationPage.Size = new System.Drawing.Size(211, 40);
+            this.buttonTutorRegistrationPage.Size = new System.Drawing.Size(211, 41);
             this.buttonTutorRegistrationPage.TabIndex = 2;
-            this.buttonTutorRegistrationPage.Text = "Tutor Registration";
+            this.buttonTutorRegistrationPage.Text = "      Tutor Registration";
             this.buttonTutorRegistrationPage.UseVisualStyleBackColor = false;
             this.buttonTutorRegistrationPage.Click += new System.EventHandler(this.buttonTutorRegistrationPage_Click);
             // 
             // buttonStudentEnrollmentPage
             // 
-            this.buttonStudentEnrollmentPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
+            this.buttonStudentEnrollmentPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonStudentEnrollmentPage.FlatAppearance.BorderSize = 0;
-            this.buttonStudentEnrollmentPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
-            this.buttonStudentEnrollmentPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonStudentEnrollmentPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.buttonStudentEnrollmentPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.buttonStudentEnrollmentPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStudentEnrollmentPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStudentEnrollmentPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
-            this.buttonStudentEnrollmentPage.Location = new System.Drawing.Point(7, 232);
+            this.buttonStudentEnrollmentPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonStudentEnrollmentPage.Image = global::_3_13_25.Properties.Resources.icons8_student_registration_30_1_;
+            this.buttonStudentEnrollmentPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonStudentEnrollmentPage.Location = new System.Drawing.Point(7, 247);
             this.buttonStudentEnrollmentPage.Name = "buttonStudentEnrollmentPage";
-            this.buttonStudentEnrollmentPage.Size = new System.Drawing.Size(211, 40);
+            this.buttonStudentEnrollmentPage.Size = new System.Drawing.Size(211, 41);
             this.buttonStudentEnrollmentPage.TabIndex = 1;
-            this.buttonStudentEnrollmentPage.Text = "Student Enrollment";
+            this.buttonStudentEnrollmentPage.Text = "         Student Enrollment";
             this.buttonStudentEnrollmentPage.UseVisualStyleBackColor = false;
             this.buttonStudentEnrollmentPage.Click += new System.EventHandler(this.buttonStudentEnrollmentPage_Click);
             // 
             // buttonTransactionListPage
             // 
-            this.buttonTransactionListPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
+            this.buttonTransactionListPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.buttonTransactionListPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonTransactionListPage.FlatAppearance.BorderSize = 0;
-            this.buttonTransactionListPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
-            this.buttonTransactionListPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonTransactionListPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.buttonTransactionListPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.buttonTransactionListPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTransactionListPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTransactionListPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
-            this.buttonTransactionListPage.Location = new System.Drawing.Point(7, 186);
+            this.buttonTransactionListPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonTransactionListPage.Image = global::_3_13_25.Properties.Resources.icons8_transaction_list_30;
+            this.buttonTransactionListPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTransactionListPage.Location = new System.Drawing.Point(7, 201);
             this.buttonTransactionListPage.Name = "buttonTransactionListPage";
-            this.buttonTransactionListPage.Size = new System.Drawing.Size(211, 40);
+            this.buttonTransactionListPage.Size = new System.Drawing.Size(211, 41);
             this.buttonTransactionListPage.TabIndex = 0;
-            this.buttonTransactionListPage.Text = "Transaction List";
+            this.buttonTransactionListPage.Text = " Transaction List";
             this.buttonTransactionListPage.UseVisualStyleBackColor = false;
             this.buttonTransactionListPage.Click += new System.EventHandler(this.TransactionListPage_Click);
             // 
             // panelMainField
             // 
-            this.panelMainField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(232)))), ((int)(((byte)(248)))));
+            this.panelMainField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.panelMainField.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainField.Location = new System.Drawing.Point(226, 0);
             this.panelMainField.Name = "panelMainField";
@@ -168,10 +186,22 @@
             this.panelMainField.TabIndex = 2;
             this.panelMainField.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelMainField_ControlRemoved);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::_3_13_25.Properties.Resources.image_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(206, 166);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(1110, 568);
             this.Controls.Add(this.panelMainField);
             this.Controls.Add(this.SidePanel);
@@ -181,6 +211,7 @@
             this.Text = "Bienvenido Online Tutoring Service";
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.SidePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,5 +225,6 @@
         private System.Windows.Forms.Button buttonTransactionBillingPage;
         private System.Windows.Forms.Button buttonSubjectLibraryPage;
         private System.Windows.Forms.Panel panelMainField;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -77,9 +77,9 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             TemporalData.StudentLevel = textBoxLevel.Text;
 
             StudentEnrollment.Update();
-            DataGrid_Load();
+            //DataGrid_Load();
             buttonEnroll.Enabled = true;
-            clear();
+            RefreshControl();
         }
 
         private void FieldValidity()

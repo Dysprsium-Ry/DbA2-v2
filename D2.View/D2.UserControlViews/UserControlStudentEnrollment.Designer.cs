@@ -51,6 +51,8 @@
             // 
             // textBoxUsername
             // 
+            this.textBoxUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsername.Location = new System.Drawing.Point(140, 387);
             this.textBoxUsername.Name = "textBoxUsername";
@@ -60,6 +62,8 @@
             // 
             // textBoxFname
             // 
+            this.textBoxFname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.textBoxFname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFname.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFname.Location = new System.Drawing.Point(140, 426);
             this.textBoxFname.Name = "textBoxFname";
@@ -69,8 +73,10 @@
             // 
             // textBoxLname
             // 
+            this.textBoxLname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.textBoxLname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxLname.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLname.Location = new System.Drawing.Point(583, 426);
+            this.textBoxLname.Location = new System.Drawing.Point(140, 465);
             this.textBoxLname.Name = "textBoxLname";
             this.textBoxLname.Size = new System.Drawing.Size(255, 33);
             this.textBoxLname.TabIndex = 2;
@@ -78,8 +84,10 @@
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(140, 465);
+            this.textBoxEmail.Location = new System.Drawing.Point(583, 387);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(255, 33);
             this.textBoxEmail.TabIndex = 3;
@@ -87,8 +95,11 @@
             // 
             // buttonEnroll
             // 
-            this.buttonEnroll.BackColor = System.Drawing.Color.ForestGreen;
-            this.buttonEnroll.ForeColor = System.Drawing.Color.White;
+            this.buttonEnroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonEnroll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonEnroll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonEnroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEnroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonEnroll.Location = new System.Drawing.Point(719, 517);
             this.buttonEnroll.Name = "buttonEnroll";
             this.buttonEnroll.Size = new System.Drawing.Size(119, 34);
@@ -99,8 +110,11 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.BackColor = System.Drawing.Color.Silver;
-            this.buttonClear.ForeColor = System.Drawing.Color.Black;
+            this.buttonClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonClear.Location = new System.Drawing.Point(594, 517);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(119, 34);
@@ -134,7 +148,7 @@
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(486, 432);
+            this.labelLastName.Location = new System.Drawing.Point(43, 471);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelLastName.Size = new System.Drawing.Size(91, 21);
@@ -145,7 +159,7 @@
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(79, 471);
+            this.labelEmail.Location = new System.Drawing.Point(522, 393);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelEmail.Size = new System.Drawing.Size(55, 21);
@@ -156,7 +170,7 @@
             // labelLevel
             // 
             this.labelLevel.AutoSize = true;
-            this.labelLevel.Location = new System.Drawing.Point(478, 471);
+            this.labelLevel.Location = new System.Drawing.Point(478, 431);
             this.labelLevel.Name = "labelLevel";
             this.labelLevel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelLevel.Size = new System.Drawing.Size(99, 21);
@@ -166,8 +180,10 @@
             // 
             // textBoxLevel
             // 
+            this.textBoxLevel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.textBoxLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxLevel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLevel.Location = new System.Drawing.Point(583, 465);
+            this.textBoxLevel.Location = new System.Drawing.Point(583, 425);
             this.textBoxLevel.Name = "textBoxLevel";
             this.textBoxLevel.Size = new System.Drawing.Size(255, 33);
             this.textBoxLevel.TabIndex = 4;
@@ -181,8 +197,7 @@
             this.dataGridViewStudentList.AllowUserToResizeRows = false;
             this.dataGridViewStudentList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewStudentList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridViewStudentList.BackgroundColor = System.Drawing.Color.Gray;
-            this.dataGridViewStudentList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewStudentList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.dataGridViewStudentList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -209,8 +224,8 @@
             this.dataGridViewStudentList.ReadOnly = true;
             this.dataGridViewStudentList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewStudentList.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridViewStudentList.RowsDefaultCellStyle = dataGridViewCellStyle3;
@@ -226,8 +241,11 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.BackColor = System.Drawing.Color.CadetBlue;
-            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonUpdate.Location = new System.Drawing.Point(469, 517);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(119, 34);
@@ -238,8 +256,11 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Firebrick;
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(61)))), ((int)(((byte)(81)))));
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.buttonDelete.Location = new System.Drawing.Point(344, 517);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(119, 34);
@@ -252,6 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.dataGridViewStudentList);
