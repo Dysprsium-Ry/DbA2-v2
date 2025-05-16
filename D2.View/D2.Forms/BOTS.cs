@@ -2,6 +2,7 @@
 using _3_13_25.D2.DbConn;
 using _3_13_25.D2.IdFetcherClasses;
 using _3_13_25.D2.QueryStorage;
+using _3_13_25.D2.View;
 using _3_13_25.D2.View.D2.MainFormV;
 using _3_13_25.D2.View.D2.UserControlViews;
 using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
@@ -85,60 +86,51 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
         }
         #endregion
 
-        private void TransactionListPage_Click(object sender, EventArgs e)
+        private void RefreshControls(UserControl control)
         {
             OnFocusHandler();
             panelMainField.Controls.Clear();
-            panelMainField.Controls.Add(transactionPage);
+            panelMainField.Controls.Add(control);
+            if (control is IRefreshableControl refreshable)
+            {
+                refreshable.RefreshControl();
+            }
             OnFocus();
+        }
+
+        private void TransactionListPage_Click(object sender, EventArgs e)
+        {
+            RefreshControls(transactionPage);
         }
 
         private void buttonStudentEnrollmentPage_Click(object sender, EventArgs e)
         {
-            OnFocusHandler();
-            panelMainField.Controls.Clear();
-            panelMainField.Controls.Add(studentPage);
-            OnFocus();
+            RefreshControls(studentPage);
         }
 
         private void buttonTutorRegistrationPage_Click(object sender, EventArgs e)
         {
-            OnFocusHandler();
-            panelMainField.Controls.Clear();
-            panelMainField.Controls.Add(tutorPage);
-            OnFocus();
+            RefreshControls(tutorPage);
         }
 
         private void buttonTutorProfileLedgerPage_Click(object sender, EventArgs e)
         {
-            OnFocusHandler();
-            panelMainField.Controls.Clear();
-            panelMainField.Controls.Add(tutorLedgerPage);
-            OnFocus();
+            RefreshControls(tutorLedgerPage);
         }
 
         private void buttonSubjectLibraryPage_Click(object sender, EventArgs e)
         {
-            OnFocusHandler();
-            panelMainField.Controls.Clear();
-            panelMainField.Controls.Add(subjectPage);
-            OnFocus();
+            RefreshControls(subjectPage);
         }
 
         private void buttonTransactionBillingPage_Click(object sender, EventArgs e)
         {
-            OnFocusHandler();
-            panelMainField.Controls.Clear();
-            panelMainField.Controls.Add(billingPage);
-            OnFocus();
+            RefreshControls(billingPage);
         }
 
         private void buttonReceiptPage_Click(object sender, EventArgs e)
         {
-            OnFocusHandler();
-            panelMainField.Controls.Clear();
-            panelMainField.Controls.Add(receiptPage);
-            OnFocus();
+            RefreshControls(receiptPage);
         }
 
         private void OnFocusHandler()
@@ -147,7 +139,7 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
             {
                 if (control is Button button)
                 {
-                    button.BackColor = Color.PaleTurquoise;
+                    button.BackColor = Color.FromArgb(95, 108, 175);
                 }
             }
         }
@@ -159,29 +151,38 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
             switch (currentControl)
             {
                 case UserControlTransactionList:
-                    buttonTransactionListPage.BackColor = Color.DarkTurquoise;
+                    buttonTransactionListPage.BackColor = Color.FromArgb(43, 50, 85);
                     break;
                 case UserControlStudentEnrollment:
-                    buttonStudentEnrollmentPage.BackColor = Color.DarkTurquoise;
+                    buttonStudentEnrollmentPage.BackColor = Color.FromArgb(43, 50, 85);
                     break;
                 case UserControlTutorRegistration:
-                    buttonTutorRegistrationPage.BackColor = Color.DarkTurquoise;
+                    buttonTutorRegistrationPage.BackColor = Color.FromArgb(43, 50, 85);
                     break;
                 case UserControlTutorLedger:
-                    //buttonTutorProfileLedgerPage.BackColor = Color.DarkTurquoise;
+                    //buttonTutorProfileLedgerPage.BackColor = Color.FromArgb(43, 50, 85);
                     break;
                 case UserControlSubjectLibrary:
-                    buttonSubjectLibraryPage.BackColor = Color.DarkTurquoise;
+                    buttonSubjectLibraryPage.BackColor = Color.FromArgb(43, 50, 85);
                     break;
                 case UserControlTransactionBilling:
-                    buttonTransactionBillingPage.BackColor = Color.DarkTurquoise;
+                    buttonTransactionBillingPage.BackColor = Color.FromArgb(43, 50, 85);
                     break;
                 case UserControlReceipt:
-                    buttonReceiptPage.BackColor = Color.DarkTurquoise;
+                    buttonReceiptPage.BackColor = Color.FromArgb(43, 50, 85);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void panelMainField_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            transactionPage.Refresh();
+            studentPage.Refresh();
+            tutorPage.Refresh();
+            subjectPage.Refresh();
+            receiptPage.Refresh();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using _3_13_25.D2.DbConn;
+﻿using _3_13_25.D2.Classes;
+using _3_13_25.D2.DbConn;
+using _3_13_25.D2.View.D2.Forms;
 using _3_13_25.D2.ViewModel.D2.BusinessLogics;
 using System;
 using System.Collections.Generic;
@@ -13,10 +15,18 @@ using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
 namespace _3_13_25.D2.View.D2.UserControlViews
 {
-    public partial class UserControlTransactionBilling : UserControl
+    public partial class UserControlTransactionBilling : UserControl, IRefreshableControl
     {
+        CapsuleBase capsule;
         private long _id;
         private decimal _total;
+
+        public void RefreshControl()
+        {
+            Data_Load();
+            DisplayData(string.Empty, string.Empty, string.Empty, string.Empty);
+            numericUpDownPayAmount.Value = 1;
+        }
 
         public UserControlTransactionBilling()
         {
@@ -25,8 +35,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 
         private void UserControlTransactionBilling_Load(object sender, EventArgs e)
         {
-            Data_Load();
-            DisplayData(string.Empty, string.Empty, string.Empty, string.Empty);
+            RefreshControl();
         }
 
         private void Data_Load()
@@ -67,7 +76,12 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             if (total <= _total)
             {
                 BillingLogics.PaymentRegistration(_id, total);
-                Data_Load();
+
+                UserControlReceipt receipt = new UserControlReceipt();
+                capsule = new CapsuleBase(receipt);
+                ReceiptReport._Id = _id;
+                capsule.ShowDialog();
+                RefreshControl();
             }
         }
 

@@ -8,8 +8,15 @@ using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
 namespace _3_13_25.D2.View.D2.UserControlViews
 {
-    public partial class UserControlStudentEnrollment : UserControl
+    public partial class UserControlStudentEnrollment : UserControl, IRefreshableControl
     {
+        public void RefreshControl()
+        {
+            //TemporalData.Clear();
+            DataGrid_Load();
+            clear();
+        }
+
         public UserControlStudentEnrollment()
         {
             InitializeComponent();
@@ -34,8 +41,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             {
                 StudentEnrollment.Save();
                 TemporalData.Clear();
-                DataGrid_Load();
-                clear();
+                RefreshControl();
             }
             else { MessageBox.Show("Username already used please select another.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
         }
@@ -145,8 +151,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             if (MessageBox.Show("This action cannot be undone, \n\nDo you wish to proceed?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 StudentEnrollment.Delete();
-                DataGrid_Load();
-                clear();
+                RefreshControl();
             }
             buttonEnroll.Enabled = true;
         }

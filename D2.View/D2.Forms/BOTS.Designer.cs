@@ -41,6 +41,7 @@
             // 
             // SidePanel
             // 
+            this.SidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
             this.SidePanel.Controls.Add(this.buttonReceiptPage);
             this.SidePanel.Controls.Add(this.buttonTransactionBillingPage);
             this.SidePanel.Controls.Add(this.buttonSubjectLibraryPage);
@@ -55,31 +56,32 @@
             // 
             // buttonReceiptPage
             // 
-            this.buttonReceiptPage.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonReceiptPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
             this.buttonReceiptPage.FlatAppearance.BorderSize = 0;
-            this.buttonReceiptPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonReceiptPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonReceiptPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonReceiptPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
             this.buttonReceiptPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReceiptPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReceiptPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonReceiptPage.Location = new System.Drawing.Point(8, 388);
+            this.buttonReceiptPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReceiptPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
+            this.buttonReceiptPage.Location = new System.Drawing.Point(7, 416);
             this.buttonReceiptPage.Name = "buttonReceiptPage";
             this.buttonReceiptPage.Size = new System.Drawing.Size(211, 40);
             this.buttonReceiptPage.TabIndex = 6;
             this.buttonReceiptPage.Text = "Receipt";
             this.buttonReceiptPage.UseVisualStyleBackColor = false;
+            this.buttonReceiptPage.Visible = false;
             this.buttonReceiptPage.Click += new System.EventHandler(this.buttonReceiptPage_Click);
             // 
             // buttonTransactionBillingPage
             // 
-            this.buttonTransactionBillingPage.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonTransactionBillingPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
             this.buttonTransactionBillingPage.FlatAppearance.BorderSize = 0;
-            this.buttonTransactionBillingPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonTransactionBillingPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonTransactionBillingPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonTransactionBillingPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
             this.buttonTransactionBillingPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTransactionBillingPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTransactionBillingPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonTransactionBillingPage.Location = new System.Drawing.Point(9, 342);
+            this.buttonTransactionBillingPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTransactionBillingPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
+            this.buttonTransactionBillingPage.Location = new System.Drawing.Point(8, 370);
             this.buttonTransactionBillingPage.Name = "buttonTransactionBillingPage";
             this.buttonTransactionBillingPage.Size = new System.Drawing.Size(211, 40);
             this.buttonTransactionBillingPage.TabIndex = 5;
@@ -89,14 +91,14 @@
             // 
             // buttonSubjectLibraryPage
             // 
-            this.buttonSubjectLibraryPage.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonSubjectLibraryPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
             this.buttonSubjectLibraryPage.FlatAppearance.BorderSize = 0;
-            this.buttonSubjectLibraryPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonSubjectLibraryPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonSubjectLibraryPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonSubjectLibraryPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
             this.buttonSubjectLibraryPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSubjectLibraryPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubjectLibraryPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonSubjectLibraryPage.Location = new System.Drawing.Point(8, 296);
+            this.buttonSubjectLibraryPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubjectLibraryPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
+            this.buttonSubjectLibraryPage.Location = new System.Drawing.Point(7, 324);
             this.buttonSubjectLibraryPage.Name = "buttonSubjectLibraryPage";
             this.buttonSubjectLibraryPage.Size = new System.Drawing.Size(211, 40);
             this.buttonSubjectLibraryPage.TabIndex = 4;
@@ -106,14 +108,14 @@
             // 
             // buttonTutorRegistrationPage
             // 
-            this.buttonTutorRegistrationPage.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonTutorRegistrationPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
             this.buttonTutorRegistrationPage.FlatAppearance.BorderSize = 0;
-            this.buttonTutorRegistrationPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonTutorRegistrationPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonTutorRegistrationPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonTutorRegistrationPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
             this.buttonTutorRegistrationPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTutorRegistrationPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTutorRegistrationPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonTutorRegistrationPage.Location = new System.Drawing.Point(8, 250);
+            this.buttonTutorRegistrationPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTutorRegistrationPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
+            this.buttonTutorRegistrationPage.Location = new System.Drawing.Point(7, 278);
             this.buttonTutorRegistrationPage.Name = "buttonTutorRegistrationPage";
             this.buttonTutorRegistrationPage.Size = new System.Drawing.Size(211, 40);
             this.buttonTutorRegistrationPage.TabIndex = 2;
@@ -123,14 +125,14 @@
             // 
             // buttonStudentEnrollmentPage
             // 
-            this.buttonStudentEnrollmentPage.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonStudentEnrollmentPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
             this.buttonStudentEnrollmentPage.FlatAppearance.BorderSize = 0;
-            this.buttonStudentEnrollmentPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonStudentEnrollmentPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonStudentEnrollmentPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonStudentEnrollmentPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
             this.buttonStudentEnrollmentPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStudentEnrollmentPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStudentEnrollmentPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonStudentEnrollmentPage.Location = new System.Drawing.Point(8, 204);
+            this.buttonStudentEnrollmentPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStudentEnrollmentPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
+            this.buttonStudentEnrollmentPage.Location = new System.Drawing.Point(7, 232);
             this.buttonStudentEnrollmentPage.Name = "buttonStudentEnrollmentPage";
             this.buttonStudentEnrollmentPage.Size = new System.Drawing.Size(211, 40);
             this.buttonStudentEnrollmentPage.TabIndex = 1;
@@ -140,14 +142,14 @@
             // 
             // buttonTransactionListPage
             // 
-            this.buttonTransactionListPage.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonTransactionListPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(108)))), ((int)(((byte)(175)))));
             this.buttonTransactionListPage.FlatAppearance.BorderSize = 0;
-            this.buttonTransactionListPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
-            this.buttonTransactionListPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonTransactionListPage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
+            this.buttonTransactionListPage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(50)))), ((int)(((byte)(85)))));
             this.buttonTransactionListPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTransactionListPage.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTransactionListPage.ForeColor = System.Drawing.Color.Black;
-            this.buttonTransactionListPage.Location = new System.Drawing.Point(8, 158);
+            this.buttonTransactionListPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTransactionListPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(179)))));
+            this.buttonTransactionListPage.Location = new System.Drawing.Point(7, 186);
             this.buttonTransactionListPage.Name = "buttonTransactionListPage";
             this.buttonTransactionListPage.Size = new System.Drawing.Size(211, 40);
             this.buttonTransactionListPage.TabIndex = 0;
@@ -157,11 +159,14 @@
             // 
             // panelMainField
             // 
+            this.panelMainField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(232)))), ((int)(((byte)(248)))));
             this.panelMainField.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainField.Location = new System.Drawing.Point(226, 0);
             this.panelMainField.Name = "panelMainField";
+            this.panelMainField.Padding = new System.Windows.Forms.Padding(10);
             this.panelMainField.Size = new System.Drawing.Size(884, 568);
             this.panelMainField.TabIndex = 2;
+            this.panelMainField.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelMainField_ControlRemoved);
             // 
             // MainForm
             // 

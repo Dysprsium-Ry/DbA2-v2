@@ -21,39 +21,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 
         private void UserControlReceipt_Load(object sender, EventArgs e)
         {
-
+            ReceiptReport.ReceiptSetup(reportViewerReceipt);
         }
-
-        //private void buttonPaid_Click(object sender, EventArgs e)
-        //{
-        //    foreach (Control control in this.Controls)
-        //    {
-        //        if (control is DataGridView datagrid && datagrid.SelectedRows.Count < 0)
-        //        {
-        //            MessageBox.Show("Select a single row before proceeding payment.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //            return;
-        //        }
-        //    }
-        //    if (string.IsNullOrEmpty(textBoxPayment.Text))
-        //    {
-        //        return;
-        //    }
-
-        //    BillingObj.Pay = decimal.Parse(textBoxPayment.Text);
-
-        //    if (OpsAndCalcs.SumPaidFee(BillingObj.PayFee, BillingObj.Pay) <= BillingObj.TotalFee)
-        //    {
-        //        BillingClass.UpdatePayment();
-        //        refresh();
-        //    }
-        //    else { MessageBox.Show("Excess Pay Fee!\nPay for the appropriate remaining amount left only", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-
-        //    ReceiptReportClass.ReceiptSetup(reportViewerReceipt);
-        //}
-
-        //private void DataGridViewPendingPayment_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        //{
-        //    //BillingClass.SelectedValue(DataGridViewPendingPayment);
-        //}
     }
 }

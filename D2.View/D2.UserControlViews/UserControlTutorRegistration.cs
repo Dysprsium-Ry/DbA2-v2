@@ -9,8 +9,12 @@ using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
 namespace _3_13_25.D2.View.D2.UserControlViews
 {
-    public partial class UserControlTutorRegistration : UserControl
+    public partial class UserControlTutorRegistration : UserControl, IRefreshableControl
     {
+        public void RefreshControl()
+        {
+            DataGrid_Load();
+        }
 
         public UserControlTutorRegistration()
         {

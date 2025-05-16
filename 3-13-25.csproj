@@ -186,7 +186,7 @@
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\BillingClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\EditClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\OpsAndCalcs.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\ReceiptReportClass.cs" />
+    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\ReceiptReport.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\TutorClass.cs" />
     <Compile Include="D2.dbEstablisher\Database.cs" />
     <Compile Include="D2.ViewModel\D2.RegistrationLogics\BookingLogics.cs" />
@@ -272,6 +272,12 @@
     <Compile Include="D2.View\D2.UserControlViews\UserControlTransactionList.Designer.cs">
       <DependentUpon>UserControlTransactionList.cs</DependentUpon>
     </Compile>
+    <Compile Include="D2.View\Interface.cs" />
+    <Compile Include="DbA2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbA2DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TransacItemFetcherDataSet.cs">
       <DependentUpon>TransacItemFetcherDataSet.xsd</DependentUpon>
     </Compile>
@@ -354,6 +360,17 @@
     </None>
     <None Include="D2.DataModels\TutorModel.edmx.diagram">
       <DependentUpon>TutorModel.edmx</DependentUpon>
+    </None>
+    <None Include="DbA2DataSet1.xsc">
+      <DependentUpon>DbA2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DbA2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DbA2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DbA2DataSet1.xss">
+      <DependentUpon>DbA2DataSet1.xsd</DependentUpon>
     </None>
     <None Include="TransacItemFetcherDataSet.xsc">
       <DependentUpon>TransacItemFetcherDataSet.xsd</DependentUpon>

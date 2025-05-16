@@ -6,10 +6,16 @@ using System.Windows.Forms;
 
 namespace _3_13_25.D2.View.D2.UserControlViews
 {
-    public partial class UserControlSubjectLibrary : UserControl
+    public partial class UserControlSubjectLibrary : UserControl, IRefreshableControl
     {
         CapsuleBase openBase;
         UserControlSubjectLibControls openControl;
+
+        public void RefreshControl()
+        {
+            Load_Data();
+            Load_Data_Tutor(string.Empty);
+        }
 
         public UserControlSubjectLibrary()
         {
@@ -18,8 +24,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 
         private void UserControlSubjectLibrary_Load(object sender, EventArgs e)
         {
-            Load_Data();
-            Load_Data_Tutor(string.Empty);
+            RefreshControl();
         }
 
         private void Load_Data()
@@ -53,8 +58,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             openControl = new UserControlSubjectLibControls(UserControlSubjectLibControls.RegistrationType.Save, string.Empty);
             openBase = new CapsuleBase(openControl);
             openBase.ShowDialog();
-            Load_Data();
-            Load_Data_Tutor(string.Empty);
+            RefreshControl();
         }
 
         private void buttonDeleteToolInventory_Click(object sender, EventArgs e)
@@ -62,8 +66,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             if (dataGridViewSubjects.SelectedRows[0].Index >= 0)
             {
                 SubjectLogics.DeleteSubject(dataGridViewSubjects.SelectedRows[0].Cells["Subject"].Value.ToString());
-                Load_Data();
-                Load_Data_Tutor(string.Empty);
+                RefreshControl();
             }
         }
 
@@ -77,8 +80,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
                     openBase = new CapsuleBase(openControl);
                     openBase.ShowDialog();
 
-                    Load_Data();
-                    Load_Data_Tutor(string.Empty);
+                    RefreshControl();
                 }
             }
             else

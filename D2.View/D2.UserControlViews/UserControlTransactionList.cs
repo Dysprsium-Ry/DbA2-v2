@@ -16,9 +16,14 @@ using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
 namespace _3_13_25.D2.View.D2.UserControlViews
 {
-    public partial class UserControlTransactionList : System.Windows.Forms.UserControl
+    public partial class UserControlTransactionList : System.Windows.Forms.UserControl, IRefreshableControl
     {
         TransactionForm form = new TransactionForm();
+
+        public void RefreshControl()
+        {
+            DataLoadCast.TransactionList(DataGridViewTransactionList);
+        }
 
         public UserControlTransactionList()
         {

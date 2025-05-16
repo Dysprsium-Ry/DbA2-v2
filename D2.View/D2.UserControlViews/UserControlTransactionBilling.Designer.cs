@@ -32,14 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewBillingList = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelTransactionId = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
-            this.labelStatus = new System.Windows.Forms.Label();
-            this.labelBookDate = new System.Windows.Forms.Label();
-            this.labelTransactionIdInfo = new System.Windows.Forms.Label();
-            this.labelNameInfo = new System.Windows.Forms.Label();
-            this.labelStatusInfo = new System.Windows.Forms.Label();
             this.labelBookDateInfo = new System.Windows.Forms.Label();
+            this.labelStatusInfo = new System.Windows.Forms.Label();
+            this.labelNameInfo = new System.Windows.Forms.Label();
+            this.labelTransactionIdInfo = new System.Windows.Forms.Label();
+            this.labelBookDate = new System.Windows.Forms.Label();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelTransactionId = new System.Windows.Forms.Label();
             this.labelTotalFee = new System.Windows.Forms.Label();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelPayAmount = new System.Windows.Forms.Label();
@@ -104,63 +104,16 @@
             this.panel1.Size = new System.Drawing.Size(375, 267);
             this.panel1.TabIndex = 1;
             // 
-            // labelTransactionId
+            // labelBookDateInfo
             // 
-            this.labelTransactionId.AutoSize = true;
-            this.labelTransactionId.Location = new System.Drawing.Point(30, 44);
-            this.labelTransactionId.Name = "labelTransactionId";
-            this.labelTransactionId.Size = new System.Drawing.Size(113, 21);
-            this.labelTransactionId.TabIndex = 0;
-            this.labelTransactionId.Text = "Transaction Id :";
-            // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(84, 91);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(59, 21);
-            this.labelName.TabIndex = 1;
-            this.labelName.Text = "Name :";
-            // 
-            // labelStatus
-            // 
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(84, 138);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(59, 21);
-            this.labelStatus.TabIndex = 2;
-            this.labelStatus.Text = "Status :";
-            // 
-            // labelBookDate
-            // 
-            this.labelBookDate.AutoSize = true;
-            this.labelBookDate.Location = new System.Drawing.Point(55, 185);
-            this.labelBookDate.Name = "labelBookDate";
-            this.labelBookDate.Size = new System.Drawing.Size(88, 21);
-            this.labelBookDate.TabIndex = 3;
-            this.labelBookDate.Text = "Book Date :";
-            // 
-            // labelTransactionIdInfo
-            // 
-            this.labelTransactionIdInfo.AutoSize = true;
-            this.labelTransactionIdInfo.BackColor = System.Drawing.Color.Gray;
-            this.labelTransactionIdInfo.ForeColor = System.Drawing.Color.White;
-            this.labelTransactionIdInfo.Location = new System.Drawing.Point(159, 44);
-            this.labelTransactionIdInfo.Name = "labelTransactionIdInfo";
-            this.labelTransactionIdInfo.Size = new System.Drawing.Size(102, 21);
-            this.labelTransactionIdInfo.TabIndex = 4;
-            this.labelTransactionIdInfo.Text = "TransactionId";
-            // 
-            // labelNameInfo
-            // 
-            this.labelNameInfo.AutoSize = true;
-            this.labelNameInfo.BackColor = System.Drawing.Color.Gray;
-            this.labelNameInfo.ForeColor = System.Drawing.Color.White;
-            this.labelNameInfo.Location = new System.Drawing.Point(159, 91);
-            this.labelNameInfo.Name = "labelNameInfo";
-            this.labelNameInfo.Size = new System.Drawing.Size(52, 21);
-            this.labelNameInfo.TabIndex = 5;
-            this.labelNameInfo.Text = "Name";
+            this.labelBookDateInfo.AutoSize = true;
+            this.labelBookDateInfo.BackColor = System.Drawing.Color.Gray;
+            this.labelBookDateInfo.ForeColor = System.Drawing.Color.White;
+            this.labelBookDateInfo.Location = new System.Drawing.Point(159, 185);
+            this.labelBookDateInfo.Name = "labelBookDateInfo";
+            this.labelBookDateInfo.Size = new System.Drawing.Size(81, 21);
+            this.labelBookDateInfo.TabIndex = 7;
+            this.labelBookDateInfo.Text = "Book Date";
             // 
             // labelStatusInfo
             // 
@@ -173,16 +126,67 @@
             this.labelStatusInfo.TabIndex = 6;
             this.labelStatusInfo.Text = "Status";
             // 
-            // labelBookDateInfo
+            // labelNameInfo
             // 
-            this.labelBookDateInfo.AutoSize = true;
-            this.labelBookDateInfo.BackColor = System.Drawing.Color.Gray;
-            this.labelBookDateInfo.ForeColor = System.Drawing.Color.White;
-            this.labelBookDateInfo.Location = new System.Drawing.Point(159, 185);
-            this.labelBookDateInfo.Name = "labelBookDateInfo";
-            this.labelBookDateInfo.Size = new System.Drawing.Size(81, 21);
-            this.labelBookDateInfo.TabIndex = 7;
-            this.labelBookDateInfo.Text = "Book Date";
+            this.labelNameInfo.AutoSize = true;
+            this.labelNameInfo.BackColor = System.Drawing.Color.Gray;
+            this.labelNameInfo.ForeColor = System.Drawing.Color.White;
+            this.labelNameInfo.Location = new System.Drawing.Point(159, 91);
+            this.labelNameInfo.Name = "labelNameInfo";
+            this.labelNameInfo.Size = new System.Drawing.Size(52, 21);
+            this.labelNameInfo.TabIndex = 5;
+            this.labelNameInfo.Text = "Name";
+            // 
+            // labelTransactionIdInfo
+            // 
+            this.labelTransactionIdInfo.AutoSize = true;
+            this.labelTransactionIdInfo.BackColor = System.Drawing.Color.Gray;
+            this.labelTransactionIdInfo.ForeColor = System.Drawing.Color.White;
+            this.labelTransactionIdInfo.Location = new System.Drawing.Point(159, 44);
+            this.labelTransactionIdInfo.Name = "labelTransactionIdInfo";
+            this.labelTransactionIdInfo.Size = new System.Drawing.Size(102, 21);
+            this.labelTransactionIdInfo.TabIndex = 4;
+            this.labelTransactionIdInfo.Text = "TransactionId";
+            // 
+            // labelBookDate
+            // 
+            this.labelBookDate.AutoSize = true;
+            this.labelBookDate.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelBookDate.Location = new System.Drawing.Point(55, 185);
+            this.labelBookDate.Name = "labelBookDate";
+            this.labelBookDate.Size = new System.Drawing.Size(88, 21);
+            this.labelBookDate.TabIndex = 3;
+            this.labelBookDate.Text = "Book Date :";
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelStatus.Location = new System.Drawing.Point(84, 138);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(59, 21);
+            this.labelStatus.TabIndex = 2;
+            this.labelStatus.Text = "Status :";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelName.Location = new System.Drawing.Point(84, 91);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(59, 21);
+            this.labelName.TabIndex = 1;
+            this.labelName.Text = "Name :";
+            // 
+            // labelTransactionId
+            // 
+            this.labelTransactionId.AutoSize = true;
+            this.labelTransactionId.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelTransactionId.Location = new System.Drawing.Point(30, 44);
+            this.labelTransactionId.Name = "labelTransactionId";
+            this.labelTransactionId.Size = new System.Drawing.Size(113, 21);
+            this.labelTransactionId.TabIndex = 0;
+            this.labelTransactionId.Text = "Transaction Id :";
             // 
             // labelTotalFee
             // 

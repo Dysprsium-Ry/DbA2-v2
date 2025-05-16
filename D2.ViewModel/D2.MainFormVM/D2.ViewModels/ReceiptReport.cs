@@ -11,18 +11,18 @@ using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
 
 namespace _3_13_25.D2.Classes
 {
-    public class ReceiptReportClass
+    public class ReceiptReport
     {
+        public static long _Id;
+
         public static void ReceiptSetup(ReportViewer receipt)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand("D2.TransacItemFetcher", connection))
+                using (SqlCommand command = new SqlCommand("D2.InvoiceDetailsFetcher", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@TransacId", BillingObj.TransactionId);
-                    command.Parameters.AddWithValue("@Student", BillingObj.Student);
-                    //command.Parameters.AddWithValue("@transactionId", BillingObj.TransactionId);
+                    command.Parameters.AddWithValue("@TransactionId", _Id);
 
                     DataTable dataTable = new DataTable();
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -32,11 +32,11 @@ namespace _3_13_25.D2.Classes
 
                     ReportDataSource reportDataSource = new ReportDataSource("DbDtSet", dataTable);
 
-                    ReportParameter StudName = new ReportParameter("StudentName", BillingObj.Student);
+                    ReportParameter transactionId = new ReportParameter("TransactionId", _Id.ToString());
 
                     receipt.LocalReport.ReportPath = "ReceiptReport.rdlc";
                     receipt.LocalReport.DataSources.Add(reportDataSource);
-                    receipt.LocalReport.SetParameters(StudName);
+                    receipt.LocalReport.SetParameters(transactionId);
 
                     receipt.RefreshReport();
                     receipt.Refresh();
