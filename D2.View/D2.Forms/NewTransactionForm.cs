@@ -70,6 +70,8 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 {
                     MessageBox.Show("Username does not match any record", "Invalid Student!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBoxStudentName.Focus();
+                    textBoxStudentName.SelectAll();
+                    textBoxStudentName.Enabled = true;
                     return;
                 }
                 else
