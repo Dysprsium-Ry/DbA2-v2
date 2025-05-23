@@ -1,8 +1,12 @@
-﻿using _3_13_25.D2.QueryStorage;
+﻿using _3_13_25.D2.DataModels;
+using _3_13_25.D2.QueryStorage;
+using Azure.Core;
+using BienvenidoOnlineTutorServices.D2.Classes;
 using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -18,7 +22,7 @@ namespace _3_13_25.D2.ViewModel.D2.BusinessLogics
 
     public class TransactionLogics
     {
-        public static bool IsTutorAvailable(string tutor, TimeSpan outTime, DateTime date)
+        public static bool IsTutorAvailable(long tutor, TimeSpan outTime, DateTime date)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
@@ -76,13 +80,13 @@ namespace _3_13_25.D2.ViewModel.D2.BusinessLogics
             }
         }
 
-        public static void UpdateSubject(string oldSubject, string newSubject)
+        public static void UpdateSubject(long id, string newSubject)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand("UPDATE D2.Subject SET Subject = @newSubject WHERE Subject = @oldSubject", connection))
+                using (SqlCommand command = new SqlCommand("UPDATE D2.Subject SET Subject = @newSubject WHERE SubjectId = @id", connection))
                 {
-                    command.Parameters.AddWithValue("@oldSubject", oldSubject);
+                    command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@newSubject", newSubject);
                     command.ExecuteNonQuery();
                 }
@@ -123,6 +127,48 @@ namespace _3_13_25.D2.ViewModel.D2.BusinessLogics
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        public static void RecordHistory(long id, decimal value, decimal amount)
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand("INSERT INTO D2.BillingHistory (Transaction_Id, Total_Value, Payment_Amount, Transaction_Date) VALUES (@id, @value, @amount, GETDATE())", connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@value", value);
+                    command.Parameters.AddWithValue("@amount", amount);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static List<BillingHistory> FetchBillingHistory(long id)
+        {
+            List<BillingHistory> _list = new List<BillingHistory>();
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT * FROM D2.BillingHistory WHERE Transaction_Id = @id", connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var item = new BillingHistory
+                            {
+                                TransactionId = reader.GetInt64(reader.GetOrdinal("Transaction_Id")),
+                                TotalValue = reader.GetDecimal(reader.GetOrdinal("Total_Value")),
+                                Amount = reader.GetDecimal(reader.GetOrdinal("Payment_Amount")),
+                                TransactionDate = reader.GetDateTime(reader.GetOrdinal("Transaction_Date"))
+                            };
+                            _list.Add(item);
+                        }
+                    }
+                }
+            }
+            return _list;
         }
     }
 }

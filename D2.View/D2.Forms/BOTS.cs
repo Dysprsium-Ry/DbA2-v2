@@ -4,6 +4,7 @@ using _3_13_25.D2.IdFetcherClasses;
 using _3_13_25.D2.QueryStorage;
 using _3_13_25.D2.View;
 using _3_13_25.D2.View.D2.MainFormV;
+using _3_13_25.D2.View.D2.UserControlCapsules;
 using _3_13_25.D2.View.D2.UserControlViews;
 using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
 using _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_;
@@ -27,10 +28,10 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
         UserControlTransactionList transactionPage = new UserControlTransactionList();
         UserControlStudentEnrollment studentPage = new UserControlStudentEnrollment();
         UserControlTutorRegistration tutorPage = new UserControlTutorRegistration();
-        UserControlTutorLedger tutorLedgerPage = new UserControlTutorLedger();
         UserControlSubjectLibrary subjectPage = new UserControlSubjectLibrary();
         UserControlTransactionBilling billingPage = new UserControlTransactionBilling();
         UserControlReceipt receiptPage = new UserControlReceipt();
+        UserControlBillHistory billHistoryPage = new UserControlBillHistory();
 
         public MainForm()
         {
@@ -113,11 +114,6 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
             RefreshControls(tutorPage);
         }
 
-        private void buttonTutorProfileLedgerPage_Click(object sender, EventArgs e)
-        {
-            RefreshControls(tutorLedgerPage);
-        }
-
         private void buttonSubjectLibraryPage_Click(object sender, EventArgs e)
         {
             RefreshControls(subjectPage);
@@ -131,6 +127,10 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
         private void buttonReceiptPage_Click(object sender, EventArgs e)
         {
             RefreshControls(receiptPage);
+        }
+        private void buttonTransactionHistory_Click(object sender, EventArgs e)
+        {
+            RefreshControls(billHistoryPage);
         }
 
         private void OnFocusHandler()
@@ -178,6 +178,10 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
                     buttonReceiptPage.BackColor = Color.FromArgb(93, 155, 155);
                     buttonReceiptPage.ForeColor = Color.FromArgb(249, 250, 251);
                     break;
+                case UserControlBillHistory:
+                    buttonBillHistory.BackColor = Color.FromArgb(93, 155, 155);
+                    buttonBillHistory.ForeColor = Color.FromArgb(249, 250, 251);
+                    break;
                 default:
                     break;
             }
@@ -190,6 +194,7 @@ namespace BienvenidoOnlineTutorServices.D2.Forms
             tutorPage.Refresh();
             subjectPage.Refresh();
             receiptPage.Refresh();
+            billingPage.Refresh();
         }
     }
 }

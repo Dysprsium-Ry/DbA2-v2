@@ -141,30 +141,31 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
             }
         }
 
-        public static string[] Subjects()
+        public static List<SubjectList> Subjects()
         {
+            List<SubjectList> subjects = new List<SubjectList>();
+
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
                 using (SqlCommand command = new SqlCommand(Queries.Subjects, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        List<string> subjects = new List<string>();
                         while (reader.Read())
                         {
-                            for (int i = 0; i < reader.FieldCount; i++)
+                            subjects.Add(new SubjectList
                             {
-                                subjects.Add(reader.GetString(i));
-                            }
+                                SubjectId = reader.GetInt64(0),
+                                Subject = reader.GetString(1)
+                            });
                         }
-
-                        return subjects.Count > 0 ? subjects.ToArray() : new string[0];
                     }
                 }
             }
+            return subjects;
         }
 
-        public static List<TutorDetails> TutorsDetailsFetcher(string Subject)
+        public static List<TutorDetails> TutorsDetailsFetcher(long Subject)
         {
             var TutorDetail = new List<TutorDetails>();
 
@@ -180,8 +181,8 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
                         {
                             TutorDetail.Add(new TutorDetails
                             {
-                                TutorName = reader.GetString(0),
-                                Expertise = reader.GetString(1),
+                                TutorId = reader.GetInt64(0),
+                                TutorName = reader.GetString(1),
                                 HourlyRate = reader.GetDecimal(2),
                                 InTime = reader.GetTimeSpan(3),
                                 OutTime = reader.GetTimeSpan(4)
@@ -190,7 +191,6 @@ namespace _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery
                     }
                 }
             }
-
             return TutorDetail;
         }
     }

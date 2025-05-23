@@ -63,6 +63,16 @@ namespace _3_13_25.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_activity_history_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-activity-history-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_books_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-books-30", resourceCulture);
@@ -93,6 +103,16 @@ namespace _3_13_25.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_student_registration_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-student-registration-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_student_registration_30_1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-student-registration-30(1)", resourceCulture);
@@ -116,6 +136,16 @@ namespace _3_13_25.Properties {
         internal static System.Drawing.Bitmap icons8_transaction_list_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-transaction-list-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_transaction_list_30_2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-transaction-list-30(2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

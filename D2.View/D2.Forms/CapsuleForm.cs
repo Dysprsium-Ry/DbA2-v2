@@ -1,4 +1,5 @@
 ﻿using _3_13_25.D2.Classes;
+using _3_13_25.D2.Model;
 using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
 using _3_13_25.D2.ViewModel.D2.BusinessLogics;
 using _3_13_25.D2.ViewModel.D2.RegistrationLogics;
@@ -16,35 +17,35 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         public enum FormMode { New, Update }
         private readonly FormMode _mode;
-        private readonly TransactionItems _editItem;
-        private readonly BindingList<TransactionItems> _editList = new BindingList<TransactionItems>();
+        private readonly TransactionItems _Items;
+        private readonly BindingList<TransactionItems> _itemList = new BindingList<TransactionItems>();
         private readonly int _index = -1;
 
         public CapsuleForm(BindingList<TransactionItems> binding, FormMode mode, TransactionItems editItem = null, int index = -1)
         {
             InitializeComponent();
 
-            //this.FormClosed += (s, e) => { _editList.Clear(); this.Dispose(); };
-
             _mode = mode;
-            _editList = binding;
-            _editItem = editItem ?? new TransactionItems();
+            _itemList = binding;
+            _Items = editItem ?? new TransactionItems();
             _index = index;
 
             this.Text = _mode == FormMode.New ? "New Transaction" : "Edit Transaction";
 
             DateTimePickerDateSelection.MinDate = DateTime.Today;
+            ComboBoxSubjectSelection.DisplayMember = "Subject";
+            ComboBoxSubjectSelection.ValueMember = "SubjectId";
             ComboBoxSubjectSelection.DataSource = DbItemFetcher.Subjects();
-            TutorDetailsBindingSource.DataSource = DbItemFetcher.TutorsDetailsFetcher(ComboBoxSubjectSelection.Text);
+            TutorDetailsBindingSource.DataSource = DbItemFetcher.TutorsDetailsFetcher(Convert.ToInt64(ComboBoxSubjectSelection.SelectedValue));
 
-            ComboBoxTutorSelection.DataSource = TutorDetailsBindingSource;
             ComboBoxTutorSelection.DisplayMember = "TutorName";
-            ComboBoxTutorSelection.ValueMember = "TutorName";
+            ComboBoxTutorSelection.ValueMember = "TutorId";
+            ComboBoxTutorSelection.DataSource = TutorDetailsBindingSource;
         }
 
         private void CapsuleForm_Load(object sender, EventArgs e)
         {
-            DataLoad(_editItem);
+            DataLoad(_Items);
 
             if (_mode == FormMode.New)
             {
@@ -57,18 +58,18 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 ComboBoxTutorSelection.Enabled = false;
             }
             else { }
-
         }
 
         private void Save()
         {
-            if (TransactionLogics.IsTutorAvailable(ComboBoxTutorSelection.Text, TemporalData.OutTime, DateTimePickerDateSelection.Value.Date))
+            if (TransactionLogics.IsTutorAvailable(Convert.ToInt64(ComboBoxTutorSelection.SelectedValue), TemporalData.OutTime, DateTimePickerDateSelection.Value.Date))
             {
                 MessageBox.Show("Date occupied", "Date Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             TemporalData.Subject = ComboBoxSubjectSelection.Text;
+            TemporalData.TutorId = Convert.ToInt64(ComboBoxTutorSelection.SelectedValue);
             TemporalData.TutorName = ComboBoxTutorSelection.Text;
             TemporalData.HourlyRate = Convert.ToDecimal(textBoxHourlyRate.Text);
             TemporalData.SessionScheduleDate = DateTimePickerDateSelection.Value.Date;
@@ -79,22 +80,22 @@ namespace _3_13_25.D2.View.D2.MainFormV
             {
                 TransactionId = TemporalData.TransactionId,
                 Subject = TemporalData.Subject,
-                Tutor = TemporalData.TutorName,
+                Tutor = TemporalData.TutorId,
+                TutorName = TemporalData.TutorName,
                 HourlyRate = TemporalData.HourlyRate,
                 SessionScheduleDate = TemporalData.SessionScheduleDate,
                 StartSchedule = TemporalData.InTime,
                 EndSchedule = TemporalData.OutTime
             };
 
-            bool isOverlapping = TransactionItemList.TransactionQueues.SelectMany(kvp => kvp.Value).Any(item => item.Tutor == newItem.Tutor && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
-            bool isAlreadyExist = _editList.Any(item => item.Tutor == newItem.Tutor && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
+            bool isConflict = _itemList.Any(item =>
+            item.Tutor == newItem.Tutor &&
+                (item.SessionScheduleDate.Date + item.StartSchedule) < (newItem.SessionScheduleDate.Date + newItem.EndSchedule) &&
+                (item.SessionScheduleDate.Date + item.EndSchedule) > (newItem.SessionScheduleDate.Date + newItem.StartSchedule));
 
-            bool isStudentAvailable = _editList.Any(id => id.TransactionId == newItem.TransactionId && id.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < id.EndSchedule && newItem.EndSchedule > id.StartSchedule);
-            bool isStudentOverlapping = TransactionItemList.TransactionQueues.SelectMany(sv => sv.Value).Any(item => item.TransactionId == newItem.TransactionId && item.SessionScheduleDate.Date == newItem.SessionScheduleDate.Date && newItem.StartSchedule < item.EndSchedule && newItem.EndSchedule > item.StartSchedule);
-
-            if (!_editList.Contains(newItem))
+            if (!_itemList.Contains(newItem))
             {
-                if (isAlreadyExist || isOverlapping || isStudentAvailable || isStudentOverlapping)
+                while (isConflict)
                 {
                     DateTimePickerDateSelection.Focus();
                     if (MessageBox.Show("Date already occupied.", "Schedule Unavailable", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning) == DialogResult.Retry)
@@ -106,23 +107,24 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
                 if (_mode == FormMode.New)
                 {
-                    _editList.Add(newItem);
+                    _itemList.Add(newItem);
 
                 }
                 else if (_mode == FormMode.Update)
                 {
-                    BookingLogics.DropOnUpdate(_editItem.TransactionId, _editItem.Subject, _editItem.Tutor, _editItem.SessionScheduleDate);
-
-                    _editItem.Subject = newItem.Subject;
-                    _editItem.Tutor = newItem.Tutor;
-                    _editItem.HourlyRate = newItem.HourlyRate;
-                    _editItem.StartSchedule = newItem.StartSchedule;
-                    _editItem.EndSchedule = newItem.EndSchedule;
-                    _editItem.SessionScheduleDate = newItem.SessionScheduleDate;
+                    BookingLogics.DropOnUpdate(_Items.TransactionId, _Items.Subject, _Items.Tutor, _Items.SessionScheduleDate);
 
                     if (OpsAndCalcs.CombineDateAndTime(newItem.SessionScheduleDate, newItem.StartSchedule) > DateTime.Now.AddHours(1) && DateTime.Now < OpsAndCalcs.CombineDateAndTime(newItem.SessionScheduleDate, newItem.EndSchedule))
                     {
-                        _editList[_index] = _editItem;
+                        _Items.Subject = newItem.Subject;
+                        _Items.Tutor = newItem.Tutor;
+                        _Items.TutorName = newItem.TutorName;
+                        _Items.HourlyRate = newItem.HourlyRate;
+                        _Items.StartSchedule = newItem.StartSchedule;
+                        _Items.EndSchedule = newItem.EndSchedule;
+                        _Items.SessionScheduleDate = newItem.SessionScheduleDate;
+
+                        _itemList[_index] = _Items;
                     }
                     else { MessageBox.Show("Date invalid for transation", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
                 }
@@ -137,13 +139,13 @@ namespace _3_13_25.D2.View.D2.MainFormV
         {
             if (ComboBoxSubjectSelection.SelectedIndex != -1)
             {
-                TutorDetailsBindingSource.DataSource = DbItemFetcher.TutorsDetailsFetcher(ComboBoxSubjectSelection.Text);
+                TutorDetailsBindingSource.DataSource = DbItemFetcher.TutorsDetailsFetcher((long)ComboBoxSubjectSelection.SelectedValue);
 
                 ComboBoxTutorSelection.DataSource = null;
                 ComboBoxTutorSelection.DataSource = TutorDetailsBindingSource;
 
                 ComboBoxTutorSelection.DisplayMember = "TutorName";
-                ComboBoxTutorSelection.ValueMember = "TutorName";
+                ComboBoxTutorSelection.ValueMember = "TutorId";
             }
         }
 
@@ -181,7 +183,8 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (_mode == FormMode.Update)
             {
                 ComboBoxSubjectSelection.Text = _item.Subject;
-                ComboBoxTutorSelection.Text = _item.Tutor;
+                ComboBoxTutorSelection.SelectedValue = _item.Tutor;
+                ComboBoxTutorSelection.Text = _item.TutorName;
                 DateTimePickerDateSelection.Value = _item.SessionScheduleDate;
             }
         }

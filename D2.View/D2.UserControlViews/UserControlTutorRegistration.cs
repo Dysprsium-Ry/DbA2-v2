@@ -94,5 +94,21 @@ namespace _3_13_25.D2.View.D2.UserControlViews
                 //dgv.Columns["OutTime"].DefaultCellStyle.Format = @"hh:mm tt";
             }
         }
+
+        private void dataGridViewTutorManagement_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                TemporalData.TutorId = Convert.ToInt64(dataGridViewTutorManagement.SelectedRows[0].Cells["TutorId"].Value);
+                TemporalData.TutorName = Convert.ToString(dataGridViewTutorManagement.SelectedRows[0].Cells["TutorName"].Value);
+                string email = Convert.ToString(dataGridViewTutorManagement.SelectedRows[0].Cells["Email"].Value);
+
+
+                UserControlTutorLedger control = new UserControlTutorLedger(TemporalData.TutorId, TemporalData.TutorName, email);
+                CapsuleBase OpenForm = new CapsuleBase(control);
+                OpenForm.ShowDialog();
+                DataGrid_Load();
+            }
+        }
     }
 }

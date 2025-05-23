@@ -1,4 +1,5 @@
 ﻿using _3_13_25.D2.DbConn;
+using _3_13_25.D2.Model;
 using _3_13_25.D2.View.D2.MainFormV;
 using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
 using _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_;

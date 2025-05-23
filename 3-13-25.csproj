@@ -42,6 +42,9 @@
     <Reference Include="Azure.Core, Version=1.45.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>packages\Azure.Core.1.45.0\lib\net472\Azure.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.2.1.66\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -131,6 +134,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -143,44 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="D2.DAL\DAL_RepoClass.cs" />
-    <Compile Include="D2.DataModels\Student.cs">
-      <DependentUpon>StudentModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="D2.DataModels\StudentModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="D2.DataModels\StudentModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="D2.DataModels\StudentModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="D2.DataModels\Tutor.cs">
-      <DependentUpon>TutorModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="D2.DataModels\TutorModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TutorModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="D2.DataModels\TutorModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TutorModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="D2.DataModels\TutorModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TutorModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="D2.DataModels\BillingHistory.cs" />
     <Compile Include="D2.dbEstablisher\DataLoadCast.cs" />
     <Compile Include="D2.Model\BindingListExtensionsBase.cs" />
+    <Compile Include="D2.Model\ExpertiseList.cs" />
+    <Compile Include="D2.Model\TransactionItems.cs" />
+    <Compile Include="D2.Model\WeeklyScheduleSource.cs" />
     <Compile Include="D2.ViewModel\D2.AutomotiveExecQuery\DbItemFetcher.cs" />
     <Compile Include="D2.ViewModel\D2.BusinessLogics\Logics.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\BillingClass.cs" />
@@ -224,16 +196,28 @@
     <Compile Include="D2.View\D2.UserControlCapsules\UserControlAddTutor.Designer.cs">
       <DependentUpon>UserControlAddTutor.cs</DependentUpon>
     </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlBillHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlViews\UserControlBillHistory.Designer.cs">
+      <DependentUpon>UserControlBillHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlSelectExpertise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlSelectExpertise.Designer.cs">
+      <DependentUpon>UserControlSelectExpertise.cs</DependentUpon>
+    </Compile>
     <Compile Include="D2.View\D2.UserControlCapsules\UserControlSubjectLibControls.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="D2.View\D2.UserControlCapsules\UserControlSubjectLibControls.Designer.cs">
       <DependentUpon>UserControlSubjectLibControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="D2.View\D2.UserControlViews\UserControlReceipt.cs">
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlReceipt.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="D2.View\D2.UserControlViews\UserControlReceipt.Designer.cs">
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlReceipt.Designer.cs">
       <DependentUpon>UserControlReceipt.cs</DependentUpon>
     </Compile>
     <Compile Include="D2.View\D2.UserControlViews\UserControlStudentEnrollment.cs">
@@ -254,10 +238,10 @@
     <Compile Include="D2.View\D2.UserControlViews\UserControlTransactionBilling.Designer.cs">
       <DependentUpon>UserControlTransactionBilling.cs</DependentUpon>
     </Compile>
-    <Compile Include="D2.View\D2.UserControlViews\UserControlTutorLedger.cs">
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlTutorLedger.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="D2.View\D2.UserControlViews\UserControlTutorLedger.Designer.cs">
+    <Compile Include="D2.View\D2.UserControlCapsules\UserControlTutorLedger.Designer.cs">
       <DependentUpon>UserControlTutorLedger.cs</DependentUpon>
     </Compile>
     <Compile Include="D2.View\D2.UserControlViews\UserControlTutorRegistration.cs">
@@ -314,10 +298,16 @@
     <EmbeddedResource Include="D2.View\D2.UserControlCapsules\UserControlAddTutor.resx">
       <DependentUpon>UserControlAddTutor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlBillHistory.resx">
+      <DependentUpon>UserControlBillHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="D2.View\D2.UserControlCapsules\UserControlSelectExpertise.resx">
+      <DependentUpon>UserControlSelectExpertise.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="D2.View\D2.UserControlCapsules\UserControlSubjectLibControls.resx">
       <DependentUpon>UserControlSubjectLibControls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlReceipt.resx">
+    <EmbeddedResource Include="D2.View\D2.UserControlCapsules\UserControlReceipt.resx">
       <DependentUpon>UserControlReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlStudentEnrollment.resx">
@@ -329,7 +319,7 @@
     <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlTransactionBilling.resx">
       <DependentUpon>UserControlTransactionBilling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlTutorLedger.resx">
+    <EmbeddedResource Include="D2.View\D2.UserControlCapsules\UserControlTutorLedger.resx">
       <DependentUpon>UserControlTutorLedger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="D2.View\D2.UserControlViews\UserControlTutorRegistration.resx">
@@ -348,20 +338,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="D2.DataModels\TutorModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TutorModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="D2.DataModels\StudentModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StudentModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="D2.DataModels\StudentModel.edmx.diagram">
-      <DependentUpon>StudentModel.edmx</DependentUpon>
-    </None>
-    <None Include="D2.DataModels\TutorModel.edmx.diagram">
-      <DependentUpon>TutorModel.edmx</DependentUpon>
-    </None>
     <None Include="DbA2DataSet1.xsc">
       <DependentUpon>DbA2DataSet1.xsd</DependentUpon>
     </None>
@@ -373,6 +349,8 @@
     <None Include="DbA2DataSet1.xss">
       <DependentUpon>DbA2DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\_3_13_25.D2.DataModels.BillingHistory.datasource" />
+    <None Include="Properties\DataSources\_3_13_25.D2.Model.WeeklyScheduleSource.datasource" />
     <None Include="TransacItemFetcherDataSet.xsc">
       <DependentUpon>TransacItemFetcherDataSet.xsd</DependentUpon>
     </None>
@@ -387,8 +365,6 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BienvenidoOnlineTutorServices.D2.Objects.ObjectModels+ReceiptObject.datasource" />
     <None Include="Properties\DataSources\BienvenidoOnlineTutorServices.D2.Objects.ObjectModels.datasource" />
-    <None Include="Properties\DataSources\_3_13_25.D2.DataModels.Student.datasource" />
-    <None Include="Properties\DataSources\_3_13_25.D2.DataModels.Tutor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -426,27 +402,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="D2.DataModels\StudentModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StudentModel.edmx</DependentUpon>
-      <LastGenOutput>StudentModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="D2.DataModels\StudentModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StudentModel.edmx</DependentUpon>
-      <LastGenOutput>StudentModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="D2.DataModels\TutorModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TutorModel.edmx</DependentUpon>
-      <LastGenOutput>TutorModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="D2.DataModels\TutorModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TutorModel.edmx</DependentUpon>
-      <LastGenOutput>TutorModel.cs</LastGenOutput>
-    </Content>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\icons8-student-registration-30.png" />
+    <None Include="Resources\icons8-transaction-list-30%282%29.png" />
+    <None Include="Resources\icons8-activity-history-30.png" />
     <None Include="Resources\icons8-invoice-30.png" />
     <None Include="Resources\icons8-cash-register-30.png" />
     <None Include="Resources\icons8-books-30.png" />

@@ -1,4 +1,5 @@
-﻿using BOTS.Database_Connection;
+﻿using _3_13_25.D2.Model;
+using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -66,7 +67,7 @@ namespace _3_13_25.D2.DAL
                             {
                                 TransactionId = Convert.ToInt64(reader["TransactionId"]),
                                 Subject = reader["Subject"].ToString(),
-                                Tutor = reader["Tutor"].ToString(),
+                                Tutor = Convert.ToInt64(reader["Tutor"]),
                                 HourlyRate = Convert.ToDecimal(reader["HourlyRate"]),
                                 SessionScheduleDate = Convert.ToDateTime(reader["SessionScheduleDate"]),
                                 StartSchedule = TimeSpan.Parse(reader["StartSchedule"].ToString()),

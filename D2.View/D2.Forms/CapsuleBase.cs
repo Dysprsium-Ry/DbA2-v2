@@ -18,20 +18,25 @@ namespace _3_13_25.D2.View.D2.Forms
         {
             InitializeComponent();
 
-            this.FormClosing += (s, e) => { this.Controls.Clear(); };
+            this.FormClosing += (s, e) => 
+            {
+                this.Controls.Remove(_control);
+                _control.Dispose();
+            };
             _control = control;
         }
 
         private void CapsuleBase_Load(object sender, EventArgs e)
         {
-            this.Size = _control.Size;
+            this.ClientSize = _control.Size;
             _control.Dock = DockStyle.Fill;
             this.Controls.Add(_control);
         }
 
         private void CapsuleBase_ControlRemoved(object sender, ControlEventArgs e)
         {
-            this.Close();
+            if (e.Control == _control && !this.IsDisposed)
+                this.Close();
         }
 
         private void CapsuleBase_ControlAdded(object sender, ControlEventArgs e)

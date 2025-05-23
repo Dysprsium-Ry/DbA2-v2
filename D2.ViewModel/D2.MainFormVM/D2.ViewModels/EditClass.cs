@@ -1,7 +1,9 @@
-﻿using _3_13_25.D2.QueryStorage;
+﻿using _3_13_25.D2.Model;
+using _3_13_25.D2.QueryStorage;
 using BOTS.Database_Connection;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -20,7 +22,8 @@ namespace _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_
             {
                 using (SqlCommand command = new SqlCommand(Queries.FetchTransactionInformation, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", TemporalData.TransactionId);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id", TemporalData.TransactionId);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -30,7 +33,8 @@ namespace _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_
                             {
                                 TransactionId = reader["Transaction_Id"] != DBNull.Value ? (long)reader["Transaction_Id"] : 0,
                                 Subject = reader["Subject"] != DBNull.Value ? (string)reader["Subject"] : string.Empty,
-                                Tutor = reader["Tutor"] != DBNull.Value ? (string)reader["Tutor"] : string.Empty,
+                                Tutor = reader["Tutor"] != DBNull.Value ? (long)reader["Tutor"] : 0,
+                                TutorName = reader["TutorName"] != DBNull.Value ? (string)reader["TutorName"] : string.Empty,
                                 HourlyRate = reader["Per_Hour_Rate"] != DBNull.Value ? (decimal)reader["Per_Hour_Rate"] : decimal.Zero,
                                 StartSchedule = reader["Time_Period_Begin"] != DBNull.Value ? (TimeSpan)reader["Time_Period_Begin"] : TimeSpan.Zero,
                                 EndSchedule = reader["Time_Period_End"] != DBNull.Value ? (TimeSpan)reader["Time_Period_End"] : TimeSpan.Zero,

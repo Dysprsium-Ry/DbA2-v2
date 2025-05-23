@@ -97,13 +97,13 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string Subjects
         {
-            get => "SELECT Subject FROM D2.Subject";
+            get => "SELECT * FROM D2.Subject";
             set { }
         }
 
         public static string Tutors
         {
-            get => "SELECT TutorName, Expertise, HourlyRate, InTime, OutTime FROM D2.Tutor WHERE Expertise = @subject";
+            get => "SELECT t.TutorId, t.TutorName, te.HourlyRate, te.InTime, te.OutTime FROM D2.TutorExpertise te JOIN D2.Tutor t ON te.TutorID = t.TutorID JOIN D2.Subject s ON te.SubjectID = s.SubjectID WHERE s.SubjectId = @subject;";
             set { }
         }
 
@@ -152,7 +152,7 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string FetchTransactionInformation
         {
-            get => "SELECT * FROM D2.TransactionInformation WHERE Transaction_Id = @Id";
+            get => "D2.TransactionInformationFetcher";
             set { }
         }
 

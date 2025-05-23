@@ -9,23 +9,19 @@ namespace _3_13_25.D2.View.D2.UserControlViews
     {
         public enum RegistrationType { Save, Update }
         private RegistrationType _registrationType;
-        private readonly string _subjectOld;
+        private readonly long _subjectId;
 
-        public UserControlSubjectLibControls(RegistrationType registrationType, string subjectOld)
+        public UserControlSubjectLibControls(RegistrationType registrationType, long subjectId)
         {
             InitializeComponent();
             buttonSave.Text = registrationType == RegistrationType.Save ? RegistrationType.Save.ToString() : RegistrationType.Update.ToString();
             _registrationType = registrationType;
-            _subjectOld = subjectOld;
+            _subjectId = subjectId;
         }
 
         private void UserControlSubjectLibControls_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(_subjectOld))
-            {
-                textBoxSubject.Text = _subjectOld;
-            }
-            else { }
+            
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -42,7 +38,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             {
                 if (!string.IsNullOrWhiteSpace(textBoxSubject.Text))
                 {
-                    SubjectLogics.UpdateSubject(_subjectOld, textBoxSubject.Text);
+                    SubjectLogics.UpdateSubject(_subjectId, textBoxSubject.Text);  
                     CapsuleBase.ActiveForm.Close();
                 }
             }

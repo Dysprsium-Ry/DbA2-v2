@@ -78,6 +78,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             if (total <= _total)
             {
                 BillingLogics.PaymentRegistration(_id, total);
+                BillingLogics.RecordHistory(_id, _total, total);    
 
                 UserControlReceipt receipt = new UserControlReceipt();
                 capsule = new CapsuleBase(receipt);
@@ -103,6 +104,11 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 
             if (dgv.Columns.Contains("Bill_Status"))
                 dgv.Columns["Bill_Status"].HeaderText = "Status";
+        }
+
+        private void dataGridViewBillingList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

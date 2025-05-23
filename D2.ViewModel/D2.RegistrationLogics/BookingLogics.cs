@@ -23,7 +23,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
                 {
                     command.Parameters.AddWithValue("@Id", Enrollment.TransactionId);
                     command.Parameters.AddWithValue("@Subject", Enrollment.Subject);
-                    command.Parameters.AddWithValue("@Tutor", Enrollment.TutorName);
+                    command.Parameters.AddWithValue("@Tutor", Enrollment.TutorId);
                     command.Parameters.AddWithValue("@DateTime", OpsAndCalcs.CombineDateAndTime(Enrollment.SessionScheduleDate, Enrollment.StartSchedule));
 
                     return Convert.ToInt32(command.ExecuteScalar()) > 0;
@@ -84,7 +84,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
                     command.Parameters.AddWithValue("@Subject", Enrollment.Subject);
-                    command.Parameters.AddWithValue("@Tutor", Enrollment.TutorName);
+                    command.Parameters.AddWithValue("@Tutor", Enrollment.TutorId);
                     command.Parameters.AddWithValue("@Per_Hour_Rate", Enrollment.HourlyRate);
                     command.Parameters.AddWithValue("@Time_Period_Begin", Enrollment.StartSchedule);
                     command.Parameters.AddWithValue("@Time_Period_End", Enrollment.EndSchedule);
@@ -95,7 +95,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
             }
         }
 
-        public static void UpdateTransactionInformation(string State, string tutor, DateTime date)
+        public static void UpdateTransactionInformation(string State, long tutor, DateTime date)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
@@ -165,7 +165,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
             }
         }
 
-        public static bool IsTutorAvailable(string tutor, DateTime date)
+        public static bool IsTutorAvailable(long tutor, DateTime date)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
@@ -178,7 +178,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
             }
         }
 
-        public static void DropOnUpdate(long id, string subject, string tutor, DateTime date)
+        public static void DropOnUpdate(long id, string subject, long tutor, DateTime date)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {

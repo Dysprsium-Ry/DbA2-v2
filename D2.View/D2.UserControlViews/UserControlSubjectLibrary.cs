@@ -14,7 +14,7 @@ namespace _3_13_25.D2.View.D2.UserControlViews
         public void RefreshControl()
         {
             Load_Data();
-            Load_Data_Tutor(string.Empty);
+            Load_Data_Tutor(0);
         }
 
         public UserControlSubjectLibrary()
@@ -32,10 +32,11 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             dataGridViewSubjects.DataSource = null;
             dataGridViewSubjects.DataSource = DataLoadCast.fetchSubject();
             dataGridViewSubjects.AutoGenerateColumns = true;
+            SetColumnHeaders(dataGridViewSubjects);
             dataGridViewSubjects.Refresh();
         }
 
-        private void Load_Data_Tutor(string subject)
+        private void Load_Data_Tutor(long subject)
         {
             dataGridViewTutors.DataSource = null;
             dataGridViewTutors.DataSource = DataLoadCast.fetchSubjectTutor(subject);
@@ -48,14 +49,14 @@ namespace _3_13_25.D2.View.D2.UserControlViews
         {
             if (e.RowIndex >= 0)
             {
-                string subject = dataGridViewSubjects.Rows[e.RowIndex].Cells["Subject"].Value.ToString();
+                long subject = Convert.ToInt64(dataGridViewSubjects.Rows[e.RowIndex].Cells["SubjectId"].Value);
                 Load_Data_Tutor(subject);
             }
         }
 
         private void buttonAddToolInventory_Click(object sender, EventArgs e)
         {
-            openControl = new UserControlSubjectLibControls(UserControlSubjectLibControls.RegistrationType.Save, string.Empty);
+            openControl = new UserControlSubjectLibControls(UserControlSubjectLibControls.RegistrationType.Save, long.MinValue);
             openBase = new CapsuleBase(openControl);
             openBase.ShowDialog();
             RefreshControl();
@@ -72,25 +73,40 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            if (dataGridViewSubjects.SelectedRows[0].Index >= 0)
+            if (dataGridViewSubjects.Rows.Count > 0)
             {
-                if (!string.IsNullOrEmpty(dataGridViewSubjects.SelectedRows[0].Cells["Subject"].Value.ToString()))
+                if (dataGridViewSubjects.SelectedRows[0].Index >= 0)
                 {
-                    openControl = new UserControlSubjectLibControls(UserControlSubjectLibControls.RegistrationType.Update, dataGridViewSubjects.SelectedRows[0].Cells["Subject"].Value.ToString());
-                    openBase = new CapsuleBase(openControl);
-                    openBase.ShowDialog();
+                    if (!string.IsNullOrEmpty(dataGridViewSubjects.SelectedRows[0].Cells["Subject"].Value.ToString()))
+                    {
+                        openControl = new UserControlSubjectLibControls(UserControlSubjectLibControls.RegistrationType.Update, Convert.ToInt64(dataGridViewSubjects.SelectedRows[0].Cells["SubjectId"].Value));
+                        openBase = new CapsuleBase(openControl);
+                        openBase.ShowDialog();
 
-                    RefreshControl();
+                        RefreshControl();
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Please select a subject to update.");
+                else
+                {
+                    MessageBox.Show("Please select a subject to update.");
+                }
             }
         }
 
         private void SetColumnHeaders(DataGridView dgv)
         {
+            if (dgv.Columns.Contains("TutorId"))
+            {
+                dgv.Columns["TutorId"].HeaderText = "Id";
+                dgv.Columns["TutorId"].Visible = false;
+            }
+
+            if (dgv.Columns.Contains("SubjectId"))
+            {
+                dgv.Columns["SubjectId"].HeaderText = "Subject Id";
+                dgv.Columns["SubjectId"].Visible = false;
+            }
+
             if (dgv.Columns.Contains("TutorName"))
             {
                 dgv.Columns["TutorName"].HeaderText = "Name";

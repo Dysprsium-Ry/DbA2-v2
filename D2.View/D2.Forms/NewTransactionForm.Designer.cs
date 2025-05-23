@@ -151,6 +151,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DataGridViewItemLists.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridViewItemLists.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.DataGridViewItemLists.EnableHeadersVisualStyles = false;
             this.DataGridViewItemLists.GridColor = System.Drawing.Color.Black;
             this.DataGridViewItemLists.Location = new System.Drawing.Point(12, 320);
             this.DataGridViewItemLists.Name = "DataGridViewItemLists";
@@ -388,6 +389,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "_";
             this.Load += new System.EventHandler(this.NewTransactionForm_Load);
+            this.Shown += new System.EventHandler(this.TransactionForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemLists)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -28,22 +28,6 @@ namespace _3_13_25.D2.Classes
         {
             return PaidFee + PayFee;
         }
-        public static bool IfScheduleExist(DateTime date, TimeSpan time)
-        {
-            DateTime scheduleTime = date.Date + time;
-
-            using (SqlConnection connection = DatabaseConnection.Establish())
-            {
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM D2.TransactionLog WHERE SessionEndSchedule >= @scheduleDate AND TutorId = @tutorId;", connection))
-                {
-                    command.Parameters.Add("@scheduleDate", SqlDbType.DateTime).Value = scheduleTime;
-                    command.Parameters.AddWithValue("@tutorId", IdFetcher.TutorId());
-
-                    int count = (command.ExecuteScalar() as int?) ?? 0;
-                    return count > 0;
-                }
-            }
-        }
         public static DateTime SessessionEndSchedule(DateTime date, TimeSpan time, int sessionDuration)
         {
             DateTime calculatedTime = date + time;

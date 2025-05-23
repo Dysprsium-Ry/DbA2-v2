@@ -1,7 +1,9 @@
 ﻿using _3_13_25.D2.Classes;
 using _3_13_25.D2.DAL;
 using _3_13_25.D2.DbConn;
+using _3_13_25.D2.Model;
 using _3_13_25.D2.ViewModel.D2.AutomotiveExecQuery;
+using _3_13_25.D2.ViewModel.D2.BusinessLogics;
 using _3_13_25.D2.ViewModel.D2.MainFormVM.D2.BusinessLogics_MFVM_;
 using _3_13_25.D2.ViewModel.D2.RegistrationLogics;
 using BienvenidoOnlineTutorServices.D2.Objects;
@@ -17,7 +19,6 @@ namespace _3_13_25.D2.View.D2.MainFormV
         public TransactionForm()
         {
             InitializeComponent();
-            textBoxStudentName.AutoCompleteCustomSource = DataLoadCast.studentListFetcher();
             this.FormClosed += (s, e) => { TemporalData.Clear(); Cancel(_bindingList); refreshControls(); _bindingList.Clear(); };
             _sumTotal();
         }
@@ -143,11 +144,26 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 //dgv.Columns["Status"].Visible = false;
             }
 
+            if (dgv.Columns.Contains("SubjectId"))
+            {
+                dgv.Columns["SubjectId"].HeaderText = "Subject Id";
+                dgv.Columns["SubjectId"].Visible = false;
+            }
+
             if (dgv.Columns.Contains("Subject"))
                 dgv.Columns["Subject"].HeaderText = "Subject";
 
             if (dgv.Columns.Contains("Tutor"))
-                dgv.Columns["Tutor"].HeaderText = "Tutor";
+            {
+                dgv.Columns["Tutor"].HeaderText = "Tutor Id";
+                dgv.Columns["Tutor"].Visible = false;
+            }
+
+            if (dgv.Columns.Contains("TutorName"))
+            {
+                dgv.Columns["TutorName"].HeaderText = "Tutor";
+                //dgv.Columns["TutorName"].Visible = false;
+            }
 
             if (dgv.Columns.Contains("HourlyRate"))
                 dgv.Columns["HourlyRate"].HeaderText = "Hourly Rate";
@@ -234,7 +250,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             foreach (var item in _bindingList)
             {
                 Enrollment.Subject = item.Subject;
-                Enrollment.TutorName = item.Tutor;
+                Enrollment.TutorId = item.Tutor;
                 Enrollment.HourlyRate = item.HourlyRate;
                 Enrollment.StartSchedule = item.StartSchedule;
                 Enrollment.EndSchedule = item.EndSchedule;
@@ -253,6 +269,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
             }
 
             BookingLogics.RegisterTransactionBilling();
+            BillingLogics.RecordHistory(Enrollment.TransactionId, Enrollment.TotalFee, 0);
             //Cancel(TransactionItemList.BindingList);
         }
 
@@ -309,6 +326,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                         _bindingList.RemoveAt(DataGridViewItemLists.SelectedRows[0].Index);
                         Register("Draft");
                     }
+
                     foreach (DataGridViewRow row in DataGridViewItemLists.SelectedRows)
                     {
                         _bindingList.RemoveAt(row.Index);
@@ -451,7 +469,31 @@ namespace _3_13_25.D2.View.D2.MainFormV
                     button.Visible = DataGridViewItemLists.Rows.Count > 1 && e.RowIndex >= 0 && (DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString() == "Draft" || string.IsNullOrEmpty(DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString()));
                 }
                 else { }
+
+                if (DataGridViewItemLists.SelectedRows.Count > 0)
+                {
+                    var cellValue = DataGridViewItemLists.SelectedRows[0].Cells["Status"]?.Value;
+                    if (cellValue != null && cellValue.ToString() == "Draft")
+                    {
+                        if (control is Button Button && (Button == buttonRemove || Button == buttonEdit || Button == buttonEnroll))
+                        {
+                            Button.Visible = DataGridViewItemLists.Rows.Count > 1 && e.RowIndex >= 0 && (DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString() == "Draft" || string.IsNullOrEmpty(DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString()));
+                        }
+                    }
+                    else
+                    {
+                        if (control is Button Button && (Button == buttonEnroll))
+                        {
+                            Button.Visible = false;
+                        }
+                    }
+                }
             }
+        }
+
+        private void TransactionForm_Shown(object sender, EventArgs e)
+        {
+            textBoxStudentName.AutoCompleteCustomSource = DataLoadCast.studentListFetcher();
         }
     }
 }
