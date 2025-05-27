@@ -302,10 +302,10 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void Enroll()
         {
-            switch (Register("Enrolled"))
+            switch (Register("Enlisted"))
             {
                 case true:
-                    MessageBox.Show("Enrolled Successfully", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Listed Successfully", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case false:
                     //MessageBox.Show("Failed to enroll. Please check the tutor's availability.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

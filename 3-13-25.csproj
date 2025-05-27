@@ -149,13 +149,13 @@
     <Compile Include="D2.DAL\DAL_RepoClass.cs" />
     <Compile Include="D2.DataModels\BillingHistory.cs" />
     <Compile Include="D2.dbEstablisher\DataLoadCast.cs" />
+    <Compile Include="D2.dbEstablisher\TransactionStatus.cs" />
     <Compile Include="D2.Model\BindingListExtensionsBase.cs" />
     <Compile Include="D2.Model\ExpertiseList.cs" />
     <Compile Include="D2.Model\TransactionItems.cs" />
     <Compile Include="D2.Model\WeeklyScheduleSource.cs" />
     <Compile Include="D2.ViewModel\D2.AutomotiveExecQuery\DbItemFetcher.cs" />
     <Compile Include="D2.ViewModel\D2.BusinessLogics\Logics.cs" />
-    <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\BillingClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\EditClass.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\OpsAndCalcs.cs" />
     <Compile Include="D2.ViewModel\D2.MainFormVM\D2.ViewModels\ReceiptReport.cs" />
