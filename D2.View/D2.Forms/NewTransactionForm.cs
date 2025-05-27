@@ -261,7 +261,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 Enrollment.StartSchedule = item.StartSchedule;
                 Enrollment.EndSchedule = item.EndSchedule;
                 Enrollment.SessionScheduleDate = item.SessionScheduleDate;
-                Enrollment.TotalFee = _bindingList.Sum(t => item.HourlyRate);
+                Enrollment.TotalFee = _bindingList.Sum(t => t.HourlyRate);
 
                 if (!BookingLogics.IsTutorAvailable(item.Tutor, item.SessionScheduleDate.Date, item.StartSchedule))
                 {
@@ -282,8 +282,12 @@ namespace _3_13_25.D2.View.D2.MainFormV
                     continue;
                 }
             }
-            BookingLogics.RegisterTransactionBilling();
-            BillingLogics.RecordHistory(Enrollment.TransactionId, Enrollment.TotalFee, 0);
+
+            if (atLeastOneSuccess)
+            {
+                BookingLogics.RegisterTransactionBilling();
+                BillingLogics.RecordHistory(Enrollment.TransactionId, Enrollment.TotalFee, 0);
+            }
             return atLeastOneSuccess;
         }
 
