@@ -61,9 +61,10 @@
             this.textBoxSearchBar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBoxSearchBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
             this.textBoxSearchBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchBar.Location = new System.Drawing.Point(178, 66);
+            this.textBoxSearchBar.Location = new System.Drawing.Point(178, 67);
             this.textBoxSearchBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxSearchBar.Name = "textBoxSearchBar";
+            this.textBoxSearchBar.ReadOnly = true;
             this.textBoxSearchBar.Size = new System.Drawing.Size(686, 29);
             this.textBoxSearchBar.TabIndex = 4;
             // 
