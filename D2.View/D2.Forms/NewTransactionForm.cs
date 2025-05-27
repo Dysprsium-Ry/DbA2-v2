@@ -9,8 +9,10 @@ using _3_13_25.D2.ViewModel.D2.RegistrationLogics;
 using BienvenidoOnlineTutorServices.D2.Objects;
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 using static BienvenidoOnlineTutorServices.D2.Objects.ObjectModels;
+using static System.Windows.Forms.AxHost;
 
 namespace _3_13_25.D2.View.D2.MainFormV
 {
@@ -232,45 +234,57 @@ namespace _3_13_25.D2.View.D2.MainFormV
             else { TextBoxTransactionID.Text = (TemporalData.TransactionId = DbItemFetcher.NewTransactionIdFetcher()).ToString(); }
         }
 
-        private void Register(string State)
+        private bool Register(string State)
         {
             Enrollment.TransactionId = long.Parse(TextBoxTransactionID.Text);
             Enrollment.StudentName = TemporalData.StudentUserN;
             Enrollment.StudentEmail = TextBoxStudEmail.Text;
 
-            if (!BookingLogics.IsTransactionExist())
-            {
-                BookingLogics.RegisterTransaction(State);
-            }
-            else
+            if (BookingLogics.IsTransactionsExist())
             {
                 BookingLogics.UpdateTransaction(State);
             }
+            else
+            {
+                BookingLogics.RegisterTransaction(State);
+            }
+
+            bool atLeastOneSuccess = false;
 
             foreach (var item in _bindingList)
             {
+                if (item.Status == "Enrolled") continue;
+
                 Enrollment.Subject = item.Subject;
                 Enrollment.TutorId = item.Tutor;
                 Enrollment.HourlyRate = item.HourlyRate;
                 Enrollment.StartSchedule = item.StartSchedule;
                 Enrollment.EndSchedule = item.EndSchedule;
                 Enrollment.SessionScheduleDate = item.SessionScheduleDate;
-                Enrollment.TotalFee = TemporalData.SessionTotal;
+                Enrollment.TotalFee = _bindingList.Sum(t => item.HourlyRate);
 
-                if (BookingLogics.isTransactionItemExist())
+                if (!BookingLogics.IsTutorAvailable(item.Tutor, item.SessionScheduleDate.Date, item.StartSchedule))
                 {
-                    if (!BookingLogics.IsTutorAvailable(item.Tutor, item.SessionScheduleDate.Date))
+                    if (BookingLogics.isTransactionItemExist())
                     {
-                        BookingLogics.UpdateTransactionInformation(State, item.Tutor, item.SessionScheduleDate.Date);
+                        BookingLogics.UpdateTransactionInformation(State, item.Tutor, item.SessionScheduleDate.Date, item.StartSchedule);
+                        atLeastOneSuccess = true;
                     }
-                    //else { MessageBox.Show($"Tutor : {item.Tutor} is current unavailable to book.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+                    else
+                    {
+                        BookingLogics.RegisterTransactionInformation(State);
+                        atLeastOneSuccess = true;
+                    }
                 }
-                else BookingLogics.RegisterTransactionInformation(State);
+                else
+                {
+                    MessageBox.Show($"This Tutor for Subject: {item.Subject} \n\nIs currently unavailable for booking for the specified date.\n\nYou can modify the date or remove it.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    continue;
+                }
             }
-
             BookingLogics.RegisterTransactionBilling();
             BillingLogics.RecordHistory(Enrollment.TransactionId, Enrollment.TotalFee, 0);
-            //Cancel(TransactionItemList.BindingList);
+            return atLeastOneSuccess;
         }
 
         private void DataGridReloader(object binding)
@@ -284,8 +298,17 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void Enroll()
         {
-            Register("Enrolled");
-            MessageBox.Show("Enrolled Successfully", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            switch (Register("Enrolled"))
+            {
+                case true:
+                    MessageBox.Show("Enrolled Successfully", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case false:
+                    //MessageBox.Show("Failed to enroll. Please check the tutor's availability.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                default:
+            }
+            //MessageBox.Show("Enrolled Successfully", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
@@ -302,8 +325,18 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void Save()
         {
-            Register("Draft");
-            MessageBox.Show("Transaction Saved as Draft", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            switch (Register("Draft"))
+            {
+                case true:
+                    MessageBox.Show("Saved as Draft", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case false:
+                    MessageBox.Show("Failed to save. Please check the tutor's availability.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DataGridReloader(_bindingList);
+                    return;
+                default:
+            }
+            //MessageBox.Show("Transaction Saved as Draft", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
@@ -322,9 +355,14 @@ namespace _3_13_25.D2.View.D2.MainFormV
                     if (EditClass.IsItemExist() && DataGridViewItemLists.Rows.Count > 1)
                     {
                         EditClass.RemoveItem();
-                        _subtractTotal();
                         _bindingList.RemoveAt(DataGridViewItemLists.SelectedRows[0].Index);
-                        Register("Draft");
+
+                        if (_bindingList.Any(t => t.Status == "Enrolled"))
+                        {
+                            Register("Enrolled"); 
+                            BookingLogics.UpdateTransaction("Enrolled");
+                        }
+                        else { Register("Draft"); }
                     }
 
                     foreach (DataGridViewRow row in DataGridViewItemLists.SelectedRows)
@@ -356,23 +394,11 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void _sumTotal()
         {
-            decimal calculatedSum = OpsAndCalcs.CalculateSumSessionFee(TemporalData.SessionTotal, TemporalData.HourlyRate);
-            textBoxTotal.Text = calculatedSum.ToString("0.00");
-
-            textBoxTotal.TextChanged += (s, e) => { if (!string.IsNullOrWhiteSpace(textBoxTotal.Text)) TemporalData.SessionTotal = Convert.ToDecimal(textBoxTotal.Text); };
-        }
-
-        private void _subtractTotal()
-        {
-            decimal subtracted = 0m;
-            if (DataGridViewItemLists.SelectedRows.Count > 0)
+            _bindingList.ListChanged += (s, e) => 
             {
-                var cellValue = DataGridViewItemLists.SelectedRows[0].Cells["HourlyRate"].Value;
-                subtracted = Convert.ToDecimal(cellValue ?? 0m);
-            }
-            decimal newTotal = OpsAndCalcs.CalculateSubtSessionFee(TemporalData.SessionTotal, subtracted);
-            textBoxTotal.Text = newTotal.ToString();
-            TemporalData.SessionTotal = newTotal;
+                decimal value = _bindingList.Sum(t => t.HourlyRate);
+                textBoxTotal.Text = value.ToString("0.00");
+            };
         }
 
         private void buttonEnroll_Click(object sender, EventArgs e)
@@ -494,6 +520,11 @@ namespace _3_13_25.D2.View.D2.MainFormV
         private void TransactionForm_Shown(object sender, EventArgs e)
         {
             textBoxStudentName.AutoCompleteCustomSource = DataLoadCast.studentListFetcher();
+        }
+
+        private void textBoxStudentName_Leave(object sender, EventArgs e)
+        {
+            textBoxStudentName.Text = textBoxStudentName.Text.Trim().ToUpper();
         }
     }
 }

@@ -12,12 +12,12 @@ namespace BienvenidoOnlineTutorServices.D2.Objects
 {
     public class ObjectModels
     {
-        public class DataId
+        public enum TransactionOperation 
         {
-            public static long StudentId { get; set; }
-            public static long TutorId { get; set; }
-            public static long SubjectId { get; set; }
+            Register,
+            Update
         }
+
         public class Enrollment
         {
             public static long TransactionId { get; set; }

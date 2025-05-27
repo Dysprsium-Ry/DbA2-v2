@@ -93,9 +93,13 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 (item.SessionScheduleDate.Date + item.StartSchedule) < (newItem.SessionScheduleDate.Date + newItem.EndSchedule) &&
                 (item.SessionScheduleDate.Date + item.EndSchedule) > (newItem.SessionScheduleDate.Date + newItem.StartSchedule));
 
+            bool ConflictSchedule = _itemList.Any(item => 
+                (item.SessionScheduleDate.Date + item.StartSchedule) < (newItem.SessionScheduleDate.Date + newItem.EndSchedule) &&
+                (item.SessionScheduleDate.Date + item.EndSchedule) > (newItem.SessionScheduleDate.Date + newItem.StartSchedule));
+
             if (!_itemList.Contains(newItem))
             {
-                while (isConflict)
+                while (isConflict || ConflictSchedule)
                 {
                     DateTimePickerDateSelection.Focus();
                     if (MessageBox.Show("Date already occupied.", "Schedule Unavailable", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning) == DialogResult.Retry)
@@ -107,7 +111,15 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
                 if (_mode == FormMode.New)
                 {
-                    _itemList.Add(newItem);
+                    if (!BookingLogics.IsTutorAvailable(newItem.Tutor, newItem.SessionScheduleDate.Date, newItem.StartSchedule))
+                    {
+                        _itemList.Add(newItem);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"This Tutor for Subject: {newItem.Subject} \n\nIs currently unavailable for booking for the specified date.\n\nYou can modify the date or change the details.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
 
                 }
                 else if (_mode == FormMode.Update)
@@ -124,7 +136,15 @@ namespace _3_13_25.D2.View.D2.MainFormV
                         _Items.EndSchedule = newItem.EndSchedule;
                         _Items.SessionScheduleDate = newItem.SessionScheduleDate;
 
-                        _itemList[_index] = _Items;
+                        if (!BookingLogics.IsTutorAvailable(_Items.Tutor, _Items.SessionScheduleDate, _Items.StartSchedule))
+                        {
+                            _itemList[_index] = _Items;
+                        }
+                        else
+                        {
+                            MessageBox.Show($"This Tutor for this Subject\nIs currently unavailable for booking for the specified date.\n\nYou can modify the date or change the details.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
                     }
                     else { MessageBox.Show("Date invalid for transation", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
                 }

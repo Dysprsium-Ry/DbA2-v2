@@ -56,9 +56,12 @@ namespace _3_13_25.D2.View.D2.UserControlCapsules
             TutorClass.ManageTutor();
             TemporalData.TutorId = TutorClass.FetchTutorId();
 
-            foreach (var item in _list)
+            if (_list != null)
             {
-                TutorClass.registerExpertise(TemporalData.TutorId, item.SubjectId, item.HourlyRate, item.InTime, item.OutTime);
+                foreach (var item in _list)
+                {
+                    TutorClass.registerExpertise(TemporalData.TutorId, item.SubjectId, item.HourlyRate, item.InTime, item.OutTime);
+                }
             }
 
             this.Dispose();

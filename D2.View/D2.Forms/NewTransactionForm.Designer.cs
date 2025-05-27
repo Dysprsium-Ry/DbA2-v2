@@ -216,6 +216,7 @@
             this.textBoxStudentName.TabIndex = 2;
             this.textBoxStudentName.TextChanged += new System.EventHandler(this.textBoxStudentName_TextChanged);
             this.textBoxStudentName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxStudentName_KeyUp);
+            this.textBoxStudentName.Leave += new System.EventHandler(this.textBoxStudentName_Leave);
             // 
             // buttonEnroll
             // 

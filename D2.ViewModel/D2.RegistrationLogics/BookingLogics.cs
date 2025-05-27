@@ -19,7 +19,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM D2.TransactionInformation WHERE Transaction_Id = @Id AND Subject = @Subject AND Tutor = @Tutor AND CAST(@DateTime AS DATETIME) BETWEEN CAST(Date_Schedule AS DATETIME) + CAST(Time_Period_Begin AS DATETIME) AND CAST(Date_Schedule AS DATETIME) + CAST(Time_Period_End AS DATETIME)", connection))
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) AS Count FROM D2.TransactionInformation WHERE Transaction_Id = @Id AND Subject = @Subject AND Tutor = @Tutor AND CAST(@DateTime AS DATETIME) BETWEEN CAST(Date_Schedule AS DATETIME) + CAST(Time_Period_Begin AS DATETIME) AND CAST(Date_Schedule AS DATETIME) + CAST(Time_Period_End AS DATETIME)", connection))
                 {
                     command.Parameters.AddWithValue("@Id", Enrollment.TransactionId);
                     command.Parameters.AddWithValue("@Subject", Enrollment.Subject);
@@ -95,7 +95,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
             }
         }
 
-        public static void UpdateTransactionInformation(string State, long tutor, DateTime date)
+        public static void UpdateTransactionInformation(string State, long tutor, DateTime date, TimeSpan time)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
@@ -105,6 +105,7 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
                     command.Parameters.AddWithValue("@Transaction_Id", Enrollment.TransactionId);
                     command.Parameters.AddWithValue("@Tutor", tutor);
                     command.Parameters.AddWithValue("@Date", date);
+                    command.Parameters.AddWithValue("@Time", time);
                     command.Parameters.AddWithValue("@State", State);
                     command.ExecuteNonQuery();
                 }
@@ -126,6 +127,19 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
             }
         }
 
+        public static bool IsTransactionsExist()
+        {
+            using (SqlConnection connection = DatabaseConnection.Establish())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(1) AS COUNT FROM D2.Transactions WHERE Transaction_Id = @Id", connection))
+                {
+                    command.Parameters.AddWithValue("@Id", Enrollment.TransactionId);
+
+                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
+
         public static void RegisterTransactionBilling()
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
@@ -141,14 +155,11 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
                         command.ExecuteNonQuery();
                     }
                 }
-                else
+                using (SqlCommand command = new SqlCommand("UPDATE D2.TransactionBilling SET Total_Value = @Value WHERE Transaction_Id = @Id", connection))
                 {
-                    using (SqlCommand command = new SqlCommand("UPDATE D2.TransactionBilling SET Total_Value = @Value WHERE Transaction_Id = @Id", connection))
-                    {
-                        command.Parameters.AddWithValue("@Value", Enrollment.TotalFee);
-                        command.Parameters.AddWithValue("@Id", Enrollment.TransactionId);
-                        command.ExecuteNonQuery();
-                    }
+                    command.Parameters.AddWithValue("@Value", Enrollment.TotalFee);
+                    command.Parameters.AddWithValue("@Id", Enrollment.TransactionId);
+                    command.ExecuteNonQuery();
                 }
             }
         }
@@ -165,14 +176,14 @@ namespace _3_13_25.D2.ViewModel.D2.RegistrationLogics
             }
         }
 
-        public static bool IsTutorAvailable(long tutor, DateTime date)
+        public static bool IsTutorAvailable(long tutor, DateTime date, TimeSpan timeStart)
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
                 using (SqlCommand command = new SqlCommand(Queries.IsTutorValid, connection))
                 {
                     command.Parameters.AddWithValue("@tutor", tutor);
-                    command.Parameters.AddWithValue("@date", date);
+                    command.Parameters.AddWithValue("@date", OpsAndCalcs.CombineDateAndTime(date, timeStart));
                     return Convert.ToInt32(command.ExecuteScalar()) > 0;
                 }
             }
