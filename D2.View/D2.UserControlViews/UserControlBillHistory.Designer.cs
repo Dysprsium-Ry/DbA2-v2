@@ -30,19 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewBillHistory = new System.Windows.Forms.DataGridView();
-            this.billingHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelTransactionId = new System.Windows.Forms.Label();
             this.numericUpDownTransactionId = new System.Windows.Forms.NumericUpDown();
             this.buttonSearchHistory = new System.Windows.Forms.Button();
-            this.transactionIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transactionDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.billingHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transactionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBillHistory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billingHistoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTransactionId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billingHistoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewBillHistory
@@ -63,31 +65,29 @@
             this.dataGridViewBillHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewBillHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBillHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.transactionIdDataGridViewTextBoxColumn,
-            this.totalValueDataGridViewTextBoxColumn,
-            this.amountDataGridViewTextBoxColumn,
-            this.transactionDateDataGridViewTextBoxColumn});
+            this.transactionId,
+            this.totalValue,
+            this.amount,
+            this.transactionDate});
             this.dataGridViewBillHistory.DataSource = this.billingHistoryBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewBillHistory.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewBillHistory.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewBillHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridViewBillHistory.EnableHeadersVisualStyles = false;
             this.dataGridViewBillHistory.Location = new System.Drawing.Point(9, 65);
             this.dataGridViewBillHistory.Name = "dataGridViewBillHistory";
             this.dataGridViewBillHistory.ReadOnly = true;
             this.dataGridViewBillHistory.RowHeadersVisible = false;
+            this.dataGridViewBillHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewBillHistory.Size = new System.Drawing.Size(828, 409);
             this.dataGridViewBillHistory.TabIndex = 0;
-            // 
-            // billingHistoryBindingSource
-            // 
-            this.billingHistoryBindingSource.DataSource = typeof(_3_13_25.D2.DataModels.BillingHistory);
+            this.dataGridViewBillHistory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBillHistory_CellDoubleClick);
             // 
             // labelTransactionId
             // 
@@ -133,33 +133,43 @@
             this.buttonSearchHistory.UseVisualStyleBackColor = false;
             this.buttonSearchHistory.Click += new System.EventHandler(this.buttonSearchHistory_Click);
             // 
-            // transactionIdDataGridViewTextBoxColumn
+            // billingHistoryBindingSource
             // 
-            this.transactionIdDataGridViewTextBoxColumn.DataPropertyName = "TransactionId";
-            this.transactionIdDataGridViewTextBoxColumn.HeaderText = "Transaction Id";
-            this.transactionIdDataGridViewTextBoxColumn.Name = "transactionIdDataGridViewTextBoxColumn";
-            this.transactionIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.billingHistoryBindingSource.DataSource = typeof(_3_13_25.D2.DataModels.BillingHistory);
             // 
-            // totalValueDataGridViewTextBoxColumn
+            // transactionId
             // 
-            this.totalValueDataGridViewTextBoxColumn.DataPropertyName = "TotalValue";
-            this.totalValueDataGridViewTextBoxColumn.HeaderText = "Total Value";
-            this.totalValueDataGridViewTextBoxColumn.Name = "totalValueDataGridViewTextBoxColumn";
-            this.totalValueDataGridViewTextBoxColumn.ReadOnly = true;
+            this.transactionId.DataPropertyName = "TransactionId";
+            this.transactionId.HeaderText = "Transaction Id";
+            this.transactionId.Name = "transactionId";
+            this.transactionId.ReadOnly = true;
             // 
-            // amountDataGridViewTextBoxColumn
+            // totalValue
             // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalValue.DataPropertyName = "TotalValue";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.totalValue.DefaultCellStyle = dataGridViewCellStyle2;
+            this.totalValue.HeaderText = "Total Value";
+            this.totalValue.Name = "totalValue";
+            this.totalValue.ReadOnly = true;
             // 
-            // transactionDateDataGridViewTextBoxColumn
+            // amount
             // 
-            this.transactionDateDataGridViewTextBoxColumn.DataPropertyName = "TransactionDate";
-            this.transactionDateDataGridViewTextBoxColumn.HeaderText = "Transaction Date";
-            this.transactionDateDataGridViewTextBoxColumn.Name = "transactionDateDataGridViewTextBoxColumn";
-            this.transactionDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amount.DataPropertyName = "Amount";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.amount.DefaultCellStyle = dataGridViewCellStyle3;
+            this.amount.HeaderText = "Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            // 
+            // transactionDate
+            // 
+            this.transactionDate.DataPropertyName = "TransactionDate";
+            this.transactionDate.HeaderText = "Transaction Date";
+            this.transactionDate.Name = "transactionDate";
+            this.transactionDate.ReadOnly = true;
             // 
             // UserControlBillHistory
             // 
@@ -177,8 +187,8 @@
             this.Size = new System.Drawing.Size(846, 483);
             this.Load += new System.EventHandler(this.UserControlBillHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBillHistory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.billingHistoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTransactionId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.billingHistoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,9 +201,9 @@
         private System.Windows.Forms.Label labelTransactionId;
         private System.Windows.Forms.NumericUpDown numericUpDownTransactionId;
         private System.Windows.Forms.Button buttonSearchHistory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn transactionIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalValueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn transactionDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transactionId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transactionDate;
     }
 }

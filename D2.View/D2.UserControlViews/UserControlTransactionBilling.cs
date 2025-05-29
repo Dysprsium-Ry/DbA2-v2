@@ -20,12 +20,12 @@ namespace _3_13_25.D2.View.D2.UserControlViews
         CapsuleBase capsule;
         private long _id;
         private decimal _total;
+        private decimal _paidAmount;
 
         public void RefreshControl()
         {
             Data_Load();
             DisplayData(string.Empty, string.Empty, string.Empty, string.Empty);
-            numericUpDownPayAmount.Value = 1;
         }
 
         public UserControlTransactionBilling()
@@ -56,7 +56,10 @@ namespace _3_13_25.D2.View.D2.UserControlViews
             DisplayData(_id.ToString(), TemporalData.StudentUserN, TemporalData.Status, TemporalData.SessionScheduleDate.ToString());
 
             _total = Convert.ToDecimal(dataGridViewBillingList.SelectedRows[0].Cells[1].Value);
-            textBoxTotal.Text = _total.ToString();
+            textBoxTotal.Text = _total.ToString("C");
+
+            _paidAmount = Convert.ToDecimal(dataGridViewBillingList.SelectedRows[0].Cells[2].Value);
+            textBoxTotalAmountPaid.Text = _paidAmount.ToString("C");
         }
 
         private void DisplayData(string transactionId, string name, string status, string bookDate)
@@ -69,11 +72,11 @@ namespace _3_13_25.D2.View.D2.UserControlViews
 
         private void buttonPay_Click(object sender, EventArgs e)
         {
-            if (numericUpDownPayAmount.Value < 1) return;
+            if (numericTextBoxPayAmount.Text == string.Empty) return;
 
             if (dataGridViewBillingList.SelectedRows.Count < 1) return;
 
-            decimal total = Convert.ToDecimal(dataGridViewBillingList.SelectedRows[0].Cells[2].Value) + numericUpDownPayAmount.Value;
+            decimal total = Convert.ToDecimal(dataGridViewBillingList.SelectedRows[0].Cells[2].Value) + Convert.ToDecimal(numericTextBoxPayAmount.Text);
 
             if (total <= _total)
             {
@@ -81,10 +84,14 @@ namespace _3_13_25.D2.View.D2.UserControlViews
                 BillingLogics.RecordHistory(_id, _total, total);    
 
                 UserControlReceipt receipt = new UserControlReceipt();
+                RefreshControl();
                 capsule = new CapsuleBase(receipt);
                 ReceiptReport._Id = _id;
                 capsule.ShowDialog();
-                RefreshControl();
+            }
+            else
+            {
+                MessageBox.Show("Payment exceeds the total amount due.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -106,9 +113,9 @@ namespace _3_13_25.D2.View.D2.UserControlViews
                 dgv.Columns["Bill_Status"].HeaderText = "Status";
         }
 
-        private void dataGridViewBillingList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void numericTextBoxPayAmount_TextChanged(object sender, EventArgs e)
         {
-
+            textBoxTotalAmountPaid.Text = numericTextBoxPayAmount.Text == string.Empty ? _paidAmount.ToString() : (Convert.ToDecimal(numericTextBoxPayAmount.Text) + _paidAmount).ToString("C");
         }
     }
 }

@@ -97,6 +97,7 @@
             this.comboBoxExpertise.Name = "comboBoxExpertise";
             this.comboBoxExpertise.Size = new System.Drawing.Size(168, 29);
             this.comboBoxExpertise.TabIndex = 1;
+            this.comboBoxExpertise.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // labelExpertise
             // 
@@ -148,6 +149,7 @@
             0,
             0,
             0});
+            this.numericUpDownHourlyRate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // buttonAdd
             // 
@@ -164,6 +166,7 @@
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // buttonRemove
             // 
@@ -205,6 +208,7 @@
             this.dateTimePickerEndTime.ShowUpDown = true;
             this.dateTimePickerEndTime.Size = new System.Drawing.Size(200, 29);
             this.dateTimePickerEndTime.TabIndex = 18;
+            this.dateTimePickerEndTime.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // dateTimePickerBeginTime
             // 
@@ -214,6 +218,7 @@
             this.dateTimePickerBeginTime.ShowUpDown = true;
             this.dateTimePickerBeginTime.Size = new System.Drawing.Size(200, 29);
             this.dateTimePickerBeginTime.TabIndex = 17;
+            this.dateTimePickerBeginTime.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // labelOutTime
             // 
@@ -256,6 +261,7 @@
             this.Padding = new System.Windows.Forms.Padding(7);
             this.Size = new System.Drawing.Size(640, 391);
             this.Load += new System.EventHandler(this.UserControlSelectExpertise_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpertiseList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHourlyRate)).EndInit();
             this.ResumeLayout(false);

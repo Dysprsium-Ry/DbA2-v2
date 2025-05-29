@@ -165,5 +165,10 @@ namespace _3_13_25.D2.View.D2.UserControlCapsules
                 this.ParentForm.FormClosing += (s, e) => { if (_expertiseList.Contains != null) { save(); } };
             }
         }
+
+        private void Register_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) buttonAdd_Click(sender, e);
+        }
     }
 }

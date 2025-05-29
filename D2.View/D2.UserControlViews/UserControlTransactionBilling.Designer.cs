@@ -44,10 +44,11 @@
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelPayAmount = new System.Windows.Forms.Label();
             this.buttonPay = new System.Windows.Forms.Button();
-            this.numericUpDownPayAmount = new System.Windows.Forms.NumericUpDown();
+            this.textBoxTotalAmountPaid = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericTextBoxPayAmount = new _3_13_25.D2._0_Misc.NumericTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBillingList)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPayAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewBillingList
@@ -88,7 +89,6 @@
             this.dataGridViewBillingList.Size = new System.Drawing.Size(436, 517);
             this.dataGridViewBillingList.TabIndex = 0;
             this.dataGridViewBillingList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBillingList_CellClick);
-            this.dataGridViewBillingList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBillingList_CellDoubleClick);
             // 
             // panel1
             // 
@@ -193,7 +193,7 @@
             // labelTotalFee
             // 
             this.labelTotalFee.AutoSize = true;
-            this.labelTotalFee.Location = new System.Drawing.Point(500, 344);
+            this.labelTotalFee.Location = new System.Drawing.Point(546, 344);
             this.labelTotalFee.Name = "labelTotalFee";
             this.labelTotalFee.Size = new System.Drawing.Size(77, 21);
             this.labelTotalFee.TabIndex = 3;
@@ -202,16 +202,16 @@
             // textBoxTotal
             // 
             this.textBoxTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.textBoxTotal.Location = new System.Drawing.Point(587, 341);
+            this.textBoxTotal.Location = new System.Drawing.Point(629, 341);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
-            this.textBoxTotal.Size = new System.Drawing.Size(268, 29);
+            this.textBoxTotal.Size = new System.Drawing.Size(207, 29);
             this.textBoxTotal.TabIndex = 4;
             // 
             // labelPayAmount
             // 
             this.labelPayAmount.AutoSize = true;
-            this.labelPayAmount.Location = new System.Drawing.Point(476, 404);
+            this.labelPayAmount.Location = new System.Drawing.Point(522, 378);
             this.labelPayAmount.Name = "labelPayAmount";
             this.labelPayAmount.Size = new System.Drawing.Size(101, 21);
             this.labelPayAmount.TabIndex = 5;
@@ -232,30 +232,52 @@
             this.buttonPay.UseVisualStyleBackColor = false;
             this.buttonPay.Click += new System.EventHandler(this.buttonPay_Click);
             // 
-            // numericUpDownPayAmount
+            // textBoxTotalAmountPaid
             // 
-            this.numericUpDownPayAmount.DecimalPlaces = 2;
-            this.numericUpDownPayAmount.Location = new System.Drawing.Point(587, 402);
-            this.numericUpDownPayAmount.Maximum = new decimal(new int[] {
-            99999999,
+            this.textBoxTotalAmountPaid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.textBoxTotalAmountPaid.Enabled = false;
+            this.textBoxTotalAmountPaid.Location = new System.Drawing.Point(629, 411);
+            this.textBoxTotalAmountPaid.Name = "textBoxTotalAmountPaid";
+            this.textBoxTotalAmountPaid.ReadOnly = true;
+            this.textBoxTotalAmountPaid.Size = new System.Drawing.Size(207, 29);
+            this.textBoxTotalAmountPaid.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(481, 414);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 21);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Total Amount Paid :";
+            // 
+            // numericTextBoxPayAmount
+            // 
+            this.numericTextBoxPayAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.numericTextBoxPayAmount.Location = new System.Drawing.Point(629, 375);
+            this.numericTextBoxPayAmount.Name = "numericTextBoxPayAmount";
+            this.numericTextBoxPayAmount.NumericValue = new decimal(new int[] {
             0,
             0,
-            0});
-            this.numericUpDownPayAmount.Name = "numericUpDownPayAmount";
-            this.numericUpDownPayAmount.Size = new System.Drawing.Size(268, 29);
-            this.numericUpDownPayAmount.TabIndex = 2;
-            this.numericUpDownPayAmount.ThousandsSeparator = true;
+            0,
+            131072});
+            this.numericTextBoxPayAmount.Size = new System.Drawing.Size(207, 29);
+            this.numericTextBoxPayAmount.TabIndex = 10;
+            this.numericTextBoxPayAmount.Text = "0.00";
+            this.numericTextBoxPayAmount.TextChanged += new System.EventHandler(this.numericTextBoxPayAmount_TextChanged);
             // 
             // UserControlTransactionBilling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
+            this.Controls.Add(this.numericTextBoxPayAmount);
+            this.Controls.Add(this.textBoxTotalAmountPaid);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonPay);
             this.Controls.Add(this.labelPayAmount);
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.labelTotalFee);
-            this.Controls.Add(this.numericUpDownPayAmount);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridViewBillingList);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -266,7 +288,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBillingList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPayAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,6 +309,8 @@
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label labelPayAmount;
         private System.Windows.Forms.Button buttonPay;
-        private System.Windows.Forms.NumericUpDown numericUpDownPayAmount;
+        private System.Windows.Forms.TextBox textBoxTotalAmountPaid;
+        private System.Windows.Forms.Label label1;
+        private _0_Misc.NumericTextBox numericTextBoxPayAmount;
     }
 }

@@ -146,6 +146,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="D2.0_Misc\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="D2.DAL\DAL_RepoClass.cs" />
     <Compile Include="D2.DataModels\BillingHistory.cs" />
     <Compile Include="D2.dbEstablisher\DataLoadCast.cs" />
@@ -257,31 +260,13 @@
       <DependentUpon>UserControlTransactionList.cs</DependentUpon>
     </Compile>
     <Compile Include="D2.View\Interface.cs" />
-    <Compile Include="DbA2DataSet1.Designer.cs">
+    <Compile Include="DbA2DataSetInvoiceReceipt.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbA2DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="TransacItemFetcherDataSet.cs">
-      <DependentUpon>TransacItemFetcherDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="TransacItemFetcherDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TransacItemFetcherDataSet.xsd</DependentUpon>
+      <DependentUpon>DbA2DataSetInvoiceReceipt.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceiptFromDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReceiptFromDb.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReceiptItemFetcher.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReceiptItemFetcher.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="bin\Debug\ReceiptReport.rdlc" />
     <EmbeddedResource Include="D2.View\D2.Forms\BOTS.resx">
       <DependentUpon>BOTS.cs</DependentUpon>
@@ -338,30 +323,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DbA2DataSet1.xsc">
-      <DependentUpon>DbA2DataSet1.xsd</DependentUpon>
+    <None Include="DbA2DataSetInvoiceReceipt.xsc">
+      <DependentUpon>DbA2DataSetInvoiceReceipt.xsd</DependentUpon>
     </None>
-    <None Include="DbA2DataSet1.xsd">
+    <None Include="DbA2DataSetInvoiceReceipt.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DbA2DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DbA2DataSetInvoiceReceipt.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DbA2DataSet1.xss">
-      <DependentUpon>DbA2DataSet1.xsd</DependentUpon>
+    <None Include="DbA2DataSetInvoiceReceipt.xss">
+      <DependentUpon>DbA2DataSetInvoiceReceipt.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\_3_13_25.D2.DataModels.BillingHistory.datasource" />
     <None Include="Properties\DataSources\_3_13_25.D2.Model.WeeklyScheduleSource.datasource" />
-    <None Include="TransacItemFetcherDataSet.xsc">
-      <DependentUpon>TransacItemFetcherDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TransacItemFetcherDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TransacItemFetcherDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TransacItemFetcherDataSet.xss">
-      <DependentUpon>TransacItemFetcherDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BienvenidoOnlineTutorServices.D2.Objects.ObjectModels+ReceiptObject.datasource" />
     <None Include="Properties\DataSources\BienvenidoOnlineTutorServices.D2.Objects.ObjectModels.datasource" />
@@ -374,28 +348,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="ReceiptFromDb.xsc">
-      <DependentUpon>ReceiptFromDb.xsd</DependentUpon>
-    </None>
-    <None Include="ReceiptFromDb.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReceiptFromDb.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReceiptFromDb.xss">
-      <DependentUpon>ReceiptFromDb.xsd</DependentUpon>
-    </None>
-    <None Include="ReceiptItemFetcher.xsc">
-      <DependentUpon>ReceiptItemFetcher.xsd</DependentUpon>
-    </None>
-    <None Include="ReceiptItemFetcher.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReceiptItemFetcher.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReceiptItemFetcher.xss">
-      <DependentUpon>ReceiptItemFetcher.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

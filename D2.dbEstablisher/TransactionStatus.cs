@@ -73,7 +73,7 @@ namespace _3_13_25.D2.dbEstablisher
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand("SELECT Transaction_Id, Payment_Amount FROM D2.TransactionBilling WHERE Transaction_Id = @Id", connection))
+                using (SqlCommand command = new SqlCommand("SELECT Transaction_Id, Payment_Amount FROM D2.TransactionBilling", connection))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -106,7 +106,7 @@ namespace _3_13_25.D2.dbEstablisher
         {
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand("UPDATE D2.Transactions SET Status = @status WHERE Transaction_Id = @id", connection))
+                using (SqlCommand command = new SqlCommand("UPDATE D2.Transactions SET Status = @status WHERE Transaction_Id = @id AND Status != 'Draft'", connection))
                 {
                     command.Parameters.AddWithValue("@status", status);
                     command.Parameters.AddWithValue("@id", id);

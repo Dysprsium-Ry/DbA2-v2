@@ -146,7 +146,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                             return;
                         }
                     }
-                    else { MessageBox.Show("Date invalid for transation", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+                    else { MessageBox.Show("Date invalid for transaction", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
                 }
                 DialogResult = DialogResult.Yes;
                 this.Close();
@@ -205,7 +205,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 ComboBoxSubjectSelection.Text = _item.Subject;
                 ComboBoxTutorSelection.SelectedValue = _item.Tutor;
                 ComboBoxTutorSelection.Text = _item.TutorName;
-                DateTimePickerDateSelection.Value = _item.SessionScheduleDate;
+                DateTimePickerDateSelection.Value = _item.SessionScheduleDate >= DateTime.Today ? _item.SessionScheduleDate : DateTime.Today;
             }
         }
     }

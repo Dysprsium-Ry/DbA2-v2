@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DbA2DataSet1" targetNamespace="http://tempuri.org/DbA2DataSet1.xsd" xmlns:mstns="http://tempuri.org/DbA2DataSet1.xsd" xmlns="http://tempuri.org/DbA2DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DbA2DataSetInvoiceReceipt" targetNamespace="http://tempuri.org/DbA2DataSetInvoiceReceipt.xsd" xmlns:mstns="http://tempuri.org/DbA2DataSetInvoiceReceipt.xsd" xmlns="http://tempuri.org/DbA2DataSetInvoiceReceipt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -25,8 +25,9 @@
               <Mapping SourceColumn="Student_Name" DataSetColumn="Student_Name" />
               <Mapping SourceColumn="Transaction_Id" DataSetColumn="Transaction_Id" />
               <Mapping SourceColumn="Subject" DataSetColumn="Subject" />
-              <Mapping SourceColumn="Tutor" DataSetColumn="Tutor" />
-              <Mapping SourceColumn="Date_Schedule" DataSetColumn="Date_Schedule" />
+              <Mapping SourceColumn="TutorName" DataSetColumn="TutorName" />
+              <Mapping SourceColumn="Per_Hour_Rate" DataSetColumn="Per_Hour_Rate" />
+              <Mapping SourceColumn="Schedule" DataSetColumn="Schedule" />
               <Mapping SourceColumn="Total_Value" DataSetColumn="Total_Value" />
               <Mapping SourceColumn="Payment_Amount" DataSetColumn="Payment_Amount" />
             </Mappings>
@@ -37,7 +38,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DbA2DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="DbA2DataSet1" msprop:Generator_DataSetName="DbA2DataSet1">
+  <xs:element name="DbA2DataSetInvoiceReceipt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="DbA2DataSetInvoiceReceipt" msprop:Generator_DataSetName="DbA2DataSetInvoiceReceipt">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="InvoiceDetailsFetcher" msprop:Generator_RowEvHandlerName="InvoiceDetailsFetcherRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceDetailsFetcherRowDeleted" msprop:Generator_RowDeletingName="InvoiceDetailsFetcherRowDeleting" msprop:Generator_RowEvArgName="InvoiceDetailsFetcherRowChangeEvent" msprop:Generator_TablePropName="InvoiceDetailsFetcher" msprop:Generator_RowChangedName="InvoiceDetailsFetcherRowChanged" msprop:Generator_RowChangingName="InvoiceDetailsFetcherRowChanging" msprop:Generator_TableClassName="InvoiceDetailsFetcherDataTable" msprop:Generator_RowClassName="InvoiceDetailsFetcherRow" msprop:Generator_TableVarName="tableInvoiceDetailsFetcher" msprop:Generator_UserTableName="InvoiceDetailsFetcher">
@@ -50,7 +51,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Transaction_Id" msprop:Generator_ColumnPropNameInRow="Transaction_Id" msprop:Generator_ColumnPropNameInTable="Transaction_IdColumn" msprop:Generator_ColumnVarNameInTable="columnTransaction_Id" msprop:Generator_UserColumnName="Transaction_Id" type="xs:long" minOccurs="0" />
+              <xs:element name="Transaction_Id" msprop:Generator_ColumnPropNameInRow="Transaction_Id" msprop:Generator_ColumnPropNameInTable="Transaction_IdColumn" msprop:Generator_ColumnVarNameInTable="columnTransaction_Id" msprop:Generator_UserColumnName="Transaction_Id" type="xs:long" />
               <xs:element name="Subject" msprop:Generator_ColumnPropNameInRow="Subject" msprop:Generator_ColumnPropNameInTable="SubjectColumn" msprop:Generator_ColumnVarNameInTable="columnSubject" msprop:Generator_UserColumnName="Subject" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -58,14 +59,15 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Tutor" msprop:Generator_ColumnPropNameInRow="Tutor" msprop:Generator_ColumnPropNameInTable="TutorColumn" msprop:Generator_ColumnVarNameInTable="columnTutor" msprop:Generator_UserColumnName="Tutor" minOccurs="0">
+              <xs:element name="TutorName" msprop:Generator_ColumnPropNameInRow="TutorName" msprop:Generator_ColumnPropNameInTable="TutorNameColumn" msprop:Generator_ColumnVarNameInTable="columnTutorName" msprop:Generator_UserColumnName="TutorName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Date_Schedule" msprop:Generator_ColumnPropNameInRow="Date_Schedule" msprop:Generator_ColumnPropNameInTable="Date_ScheduleColumn" msprop:Generator_ColumnVarNameInTable="columnDate_Schedule" msprop:Generator_UserColumnName="Date_Schedule" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Per_Hour_Rate" msprop:Generator_ColumnPropNameInRow="Per_Hour_Rate" msprop:Generator_ColumnPropNameInTable="Per_Hour_RateColumn" msprop:Generator_ColumnVarNameInTable="columnPer_Hour_Rate" msprop:Generator_UserColumnName="Per_Hour_Rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Schedule" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Schedule" msprop:Generator_ColumnPropNameInTable="ScheduleColumn" msprop:Generator_ColumnVarNameInTable="columnSchedule" msprop:Generator_UserColumnName="Schedule" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Total_Value" msprop:Generator_ColumnPropNameInRow="Total_Value" msprop:Generator_ColumnPropNameInTable="Total_ValueColumn" msprop:Generator_ColumnVarNameInTable="columnTotal_Value" msprop:Generator_UserColumnName="Total_Value" type="xs:decimal" minOccurs="0" />
               <xs:element name="Payment_Amount" msprop:Generator_ColumnPropNameInRow="Payment_Amount" msprop:Generator_ColumnPropNameInTable="Payment_AmountColumn" msprop:Generator_ColumnVarNameInTable="columnPayment_Amount" msprop:Generator_UserColumnName="Payment_Amount" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
@@ -73,7 +75,7 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1">
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:InvoiceDetailsFetcher" />
       <xs:field xpath="mstns:Transaction_Id" />
     </xs:unique>

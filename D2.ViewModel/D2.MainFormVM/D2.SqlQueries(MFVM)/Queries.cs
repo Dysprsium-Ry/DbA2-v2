@@ -179,7 +179,7 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string IsTutorAvailable
         {
-            get => "SELECT COUNT(1) AS Count FROM D2.TransactionInformation WHERE Tutor = @Tutor AND Date_Schedule = @date AND Transaction_State = 'Enrolled' AND DATEADD(MINUTE, DATEPART(MINUTE, @outTime),DATEADD(HOUR, DATEPART(HOUR, @outTime), @date)) > GETDATE()";
+            get => "SELECT COUNT(1) AS Count FROM D2.TransactionInformation WHERE Tutor = @Tutor AND Date_Schedule = @date AND Transaction_State != 'Draft' AND DATEADD(MINUTE, DATEPART(MINUTE, @outTime),DATEADD(HOUR, DATEPART(HOUR, @outTime), @date)) > GETDATE()";
         }
 
         public static string IsTransactionIdExist
@@ -195,7 +195,7 @@ namespace _3_13_25.D2.QueryStorage
 
         public static string IsTutorValid
         {
-            get => "SELECT COUNT(1) FROM D2.TransactionInformation WHERE Tutor = @tutor AND Transaction_State = 'Enrolled' AND CAST(@date AS DATETIME) BETWEEN CAST(Date_Schedule AS DATETIME) + CAST(Time_Period_Begin AS DATETIME) AND CAST(Date_Schedule AS DATETIME) + CAST(Time_Period_End AS DATETIME)";
+            get => "SELECT COUNT(1) FROM D2.TransactionInformation WHERE Tutor = @tutor AND Transaction_State != 'Draft' AND CAST(@date AS DATETIME) BETWEEN CAST(Date_Schedule AS DATETIME) + CAST(Time_Period_Begin AS DATETIME) AND CAST(Date_Schedule AS DATETIME) + CAST(Time_Period_End AS DATETIME)";
             set { }
         }
 

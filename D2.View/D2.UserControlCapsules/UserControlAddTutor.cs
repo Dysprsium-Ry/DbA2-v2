@@ -95,5 +95,17 @@ namespace _3_13_25.D2.View.D2.UserControlCapsules
             _capsule.ShowDialog();
             _list = Expertise.expertiseLists;
         }
+
+        private void UserControlAddTutor_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) buttonAddExpertise_Click(sender, e);
+        }
+
+        private void Register_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) buttonRegisterTutor_Click(sender, e);
+            else if (e.KeyCode == Keys.Escape) CapsuleBase.ActiveForm.Close();
+            else return;
+        }
     }
 }

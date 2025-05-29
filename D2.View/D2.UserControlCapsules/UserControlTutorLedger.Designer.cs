@@ -119,6 +119,7 @@
             this.textBoxTutorName.Name = "textBoxTutorName";
             this.textBoxTutorName.Size = new System.Drawing.Size(213, 29);
             this.textBoxTutorName.TabIndex = 0;
+            this.textBoxTutorName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonSave_KeyUp);
             // 
             // labelName
             // 
@@ -145,6 +146,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(213, 29);
             this.textBoxEmail.TabIndex = 2;
+            this.textBoxEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonSave_KeyUp);
             // 
             // panelTop
             // 
@@ -240,6 +242,7 @@
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonSave_KeyUp);
             // 
             // panelWeekSchedule
             // 

@@ -36,20 +36,8 @@ namespace _3_13_25.D2.View.D2.MainFormV
                 textBoxStudentName.Enabled = false;
             }
 
-            if (TemporalData.Status == "Enrolled")
-            {
-                foreach (Control control in this.Controls)
-                {
-                    if (control is Button button && button != buttonCancel)
-                    {
-                        button.Visible = false;
-                    }
-                }
-
-                TextBoxStatus.Text = TemporalData.Status.ToString();
-            }
-            else { TextBoxStatus.Text = "Draft"; }
-
+            TextBoxStatus.Text = _bindingList.Any(t => t.Status == "Enrolled") ? "Enrolled" : _bindingList.Any(t => t.Status == "Enlisted") ? "Enlisted" : "Draft".ToString();
+            AccessType();
             TextBoxTransactionID.Text = TemporalData.TransactionId.ToString();
             DataGrid_Load(_bindingList);
 
@@ -65,6 +53,16 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (DataGridViewItemLists.Rows.Count < 2) buttonRemove.Visible = false;
         }
 
+        private void AccessType()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button button && button != buttonCancel)
+                {
+                    button.Visible = _bindingList.Any(s => s.Status == "Draft") && (string)DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value == "Draft";
+                }
+            }
+        }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             foreach (Control control in this.Controls)
@@ -253,7 +251,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
             foreach (var item in _bindingList)
             {
-                if (item.Status == "Enrolled") continue;
+                if (item.Status == "Enrolled" || item.Status == "Enlisted") continue;
 
                 Enrollment.Subject = item.Subject;
                 Enrollment.TutorId = item.Tutor;
@@ -286,7 +284,6 @@ namespace _3_13_25.D2.View.D2.MainFormV
             if (atLeastOneSuccess)
             {
                 BookingLogics.RegisterTransactionBilling();
-                BillingLogics.RecordHistory(Enrollment.TransactionId, Enrollment.TotalFee, 0);
             }
             return atLeastOneSuccess;
         }
@@ -412,7 +409,7 @@ namespace _3_13_25.D2.View.D2.MainFormV
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            Cancel(TransactionItemList.BindingList);
+            Cancel(_bindingList);
         }
 
         private void buttonDraft_Click(object sender, EventArgs e)
@@ -494,31 +491,41 @@ namespace _3_13_25.D2.View.D2.MainFormV
         {
             foreach (Control control in this.Controls)
             {
+
                 if (control is Button button && (button == buttonRemove || button == buttonEdit))
                 {
                     button.Visible = DataGridViewItemLists.Rows.Count > 1 && e.RowIndex >= 0 && (DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString() == "Draft" || string.IsNullOrEmpty(DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString()));
                 }
                 else { }
 
-                if (DataGridViewItemLists.SelectedRows.Count > 0)
-                {
-                    var cellValue = DataGridViewItemLists.SelectedRows[0].Cells["Status"]?.Value;
-                    if (cellValue != null && cellValue.ToString() == "Draft")
-                    {
-                        if (control is Button Button && (Button == buttonRemove || Button == buttonEdit || Button == buttonEnroll))
-                        {
-                            Button.Visible = DataGridViewItemLists.Rows.Count > 1 && e.RowIndex >= 0 && (DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString() == "Draft" || string.IsNullOrEmpty(DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString()));
-                        }
-                    }
-                    else
-                    {
-                        if (control is Button Button && (Button == buttonEnroll))
-                        {
-                            Button.Visible = false;
-                        }
-                    }
-                }
+                //if (DataGridViewItemLists.SelectedRows.Count > 0)
+                //{
+                //    var cellValue = DataGridViewItemLists.SelectedRows[0].Cells["Status"]?.Value;
+                //    if (cellValue != null && cellValue.ToString() == "Draft")
+                //    {
+                //        if (control is Button Button && (Button == buttonRemove || Button == buttonEdit || Button == buttonEnroll))
+                //        {
+                //            Button.Visible = DataGridViewItemLists.Rows.Count > 1 && e.RowIndex >= 0 && (DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString() == "Draft" || string.IsNullOrEmpty(DataGridViewItemLists.Rows[e.RowIndex].Cells["Status"].Value?.ToString()));
+                //        }
+                //    }
+                //    else
+                //    {
+                //        if (control is Button Button && (Button == buttonEnroll))
+                //        {
+                //            Button.Visible = false;
+                //        }
+                //    }
+                //}
             }
+
+            //if (DataGridViewItemLists.SelectedRows[0].Cells["Status"].Value is (object)"Enrolled" or (object)"Enlisted")
+            //{
+            //    buttonEnroll.Visible = false;
+            //    buttonSave.Visible = false;
+            //    buttonEdit.Visible = false;
+            //    buttonRemove.Visible = false;
+            //    buttonAdd.Visible = false;
+            //}
         }
 
         private void TransactionForm_Shown(object sender, EventArgs e)

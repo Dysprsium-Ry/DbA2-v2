@@ -42,6 +42,7 @@
             this.textBoxSubject.Name = "textBoxSubject";
             this.textBoxSubject.Size = new System.Drawing.Size(324, 35);
             this.textBoxSubject.TabIndex = 13;
+            this.textBoxSubject.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // buttonSave
             // 
@@ -58,6 +59,7 @@
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // labelInventoryService
             // 
@@ -83,6 +85,7 @@
             this.Name = "UserControlSubjectLibControls";
             this.Size = new System.Drawing.Size(526, 223);
             this.Load += new System.EventHandler(this.UserControlSubjectLibControls_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 

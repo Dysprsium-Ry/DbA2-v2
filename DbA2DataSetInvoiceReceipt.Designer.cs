@@ -20,17 +20,17 @@ namespace _3_13_25 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ReceiptItemFetcher")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DbA2DataSetInvoiceReceipt")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ReceiptItemFetcher : global::System.Data.DataSet {
+    public partial class DbA2DataSetInvoiceReceipt : global::System.Data.DataSet {
         
-        private TransacItemFetcherDataTable tableTransacItemFetcher;
+        private InvoiceDetailsFetcherDataTable tableInvoiceDetailsFetcher;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public ReceiptItemFetcher() {
+        public DbA2DataSetInvoiceReceipt() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace _3_13_25 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected ReceiptItemFetcher(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DbA2DataSetInvoiceReceipt(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace _3_13_25 {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["TransacItemFetcher"] != null)) {
-                    base.Tables.Add(new TransacItemFetcherDataTable(ds.Tables["TransacItemFetcher"]));
+                if ((ds.Tables["InvoiceDetailsFetcher"] != null)) {
+                    base.Tables.Add(new InvoiceDetailsFetcherDataTable(ds.Tables["InvoiceDetailsFetcher"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace _3_13_25 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TransacItemFetcherDataTable TransacItemFetcher {
+        public InvoiceDetailsFetcherDataTable InvoiceDetailsFetcher {
             get {
-                return this.tableTransacItemFetcher;
+                return this.tableInvoiceDetailsFetcher;
             }
         }
         
@@ -127,7 +127,7 @@ namespace _3_13_25 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ReceiptItemFetcher cln = ((ReceiptItemFetcher)(base.Clone()));
+            DbA2DataSetInvoiceReceipt cln = ((DbA2DataSetInvoiceReceipt)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace _3_13_25 {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["TransacItemFetcher"] != null)) {
-                    base.Tables.Add(new TransacItemFetcherDataTable(ds.Tables["TransacItemFetcher"]));
+                if ((ds.Tables["InvoiceDetailsFetcher"] != null)) {
+                    base.Tables.Add(new InvoiceDetailsFetcherDataTable(ds.Tables["InvoiceDetailsFetcher"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace _3_13_25 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTransacItemFetcher = ((TransacItemFetcherDataTable)(base.Tables["TransacItemFetcher"]));
+            this.tableInvoiceDetailsFetcher = ((InvoiceDetailsFetcherDataTable)(base.Tables["InvoiceDetailsFetcher"]));
             if ((initTable == true)) {
-                if ((this.tableTransacItemFetcher != null)) {
-                    this.tableTransacItemFetcher.InitVars();
+                if ((this.tableInvoiceDetailsFetcher != null)) {
+                    this.tableInvoiceDetailsFetcher.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace _3_13_25 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "ReceiptItemFetcher";
+            this.DataSetName = "DbA2DataSetInvoiceReceipt";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/ReceiptItemFetcher.xsd";
+            this.Namespace = "http://tempuri.org/DbA2DataSetInvoiceReceipt.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTransacItemFetcher = new TransacItemFetcherDataTable();
-            base.Tables.Add(this.tableTransacItemFetcher);
+            this.tableInvoiceDetailsFetcher = new InvoiceDetailsFetcherDataTable();
+            base.Tables.Add(this.tableInvoiceDetailsFetcher);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeTransacItemFetcher() {
+        private bool ShouldSerializeInvoiceDetailsFetcher() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace _3_13_25 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ReceiptItemFetcher ds = new ReceiptItemFetcher();
+            DbA2DataSetInvoiceReceipt ds = new DbA2DataSetInvoiceReceipt();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,31 +270,35 @@ namespace _3_13_25 {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void TransacItemFetcherRowChangeEventHandler(object sender, TransacItemFetcherRowChangeEvent e);
+        public delegate void InvoiceDetailsFetcherRowChangeEventHandler(object sender, InvoiceDetailsFetcherRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TransacItemFetcherDataTable : global::System.Data.TypedTableBase<TransacItemFetcherRow> {
+        public partial class InvoiceDetailsFetcherDataTable : global::System.Data.TypedTableBase<InvoiceDetailsFetcherRow> {
             
-            private global::System.Data.DataColumn columnTransactionId;
+            private global::System.Data.DataColumn columnStudent_Name;
             
-            private global::System.Data.DataColumn columnStudent;
+            private global::System.Data.DataColumn columnTransaction_Id;
             
             private global::System.Data.DataColumn columnSubject;
             
-            private global::System.Data.DataColumn columnTutor;
+            private global::System.Data.DataColumn columnTutorName;
             
-            private global::System.Data.DataColumn columnTotalAmountFee;
+            private global::System.Data.DataColumn columnPer_Hour_Rate;
             
-            private global::System.Data.DataColumn columnPaidAmount;
+            private global::System.Data.DataColumn columnSchedule;
+            
+            private global::System.Data.DataColumn columnTotal_Value;
+            
+            private global::System.Data.DataColumn columnPayment_Amount;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TransacItemFetcherDataTable() {
-                this.TableName = "TransacItemFetcher";
+            public InvoiceDetailsFetcherDataTable() {
+                this.TableName = "InvoiceDetailsFetcher";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -302,7 +306,7 @@ namespace _3_13_25 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal TransacItemFetcherDataTable(global::System.Data.DataTable table) {
+            internal InvoiceDetailsFetcherDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -319,24 +323,24 @@ namespace _3_13_25 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected TransacItemFetcherDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected InvoiceDetailsFetcherDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TransactionIdColumn {
+            public global::System.Data.DataColumn Student_NameColumn {
                 get {
-                    return this.columnTransactionId;
+                    return this.columnStudent_Name;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn StudentColumn {
+            public global::System.Data.DataColumn Transaction_IdColumn {
                 get {
-                    return this.columnStudent;
+                    return this.columnTransaction_Id;
                 }
             }
             
@@ -350,25 +354,41 @@ namespace _3_13_25 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TutorColumn {
+            public global::System.Data.DataColumn TutorNameColumn {
                 get {
-                    return this.columnTutor;
+                    return this.columnTutorName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TotalAmountFeeColumn {
+            public global::System.Data.DataColumn Per_Hour_RateColumn {
                 get {
-                    return this.columnTotalAmountFee;
+                    return this.columnPer_Hour_Rate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PaidAmountColumn {
+            public global::System.Data.DataColumn ScheduleColumn {
                 get {
-                    return this.columnPaidAmount;
+                    return this.columnSchedule;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Total_ValueColumn {
+                get {
+                    return this.columnTotal_Value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Payment_AmountColumn {
+                get {
+                    return this.columnPayment_Amount;
                 }
             }
             
@@ -383,50 +403,59 @@ namespace _3_13_25 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TransacItemFetcherRow this[int index] {
+            public InvoiceDetailsFetcherRow this[int index] {
                 get {
-                    return ((TransacItemFetcherRow)(this.Rows[index]));
+                    return ((InvoiceDetailsFetcherRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TransacItemFetcherRowChangeEventHandler TransacItemFetcherRowChanging;
+            public event InvoiceDetailsFetcherRowChangeEventHandler InvoiceDetailsFetcherRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TransacItemFetcherRowChangeEventHandler TransacItemFetcherRowChanged;
+            public event InvoiceDetailsFetcherRowChangeEventHandler InvoiceDetailsFetcherRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TransacItemFetcherRowChangeEventHandler TransacItemFetcherRowDeleting;
+            public event InvoiceDetailsFetcherRowChangeEventHandler InvoiceDetailsFetcherRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TransacItemFetcherRowChangeEventHandler TransacItemFetcherRowDeleted;
+            public event InvoiceDetailsFetcherRowChangeEventHandler InvoiceDetailsFetcherRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddTransacItemFetcherRow(TransacItemFetcherRow row) {
+            public void AddInvoiceDetailsFetcherRow(InvoiceDetailsFetcherRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TransacItemFetcherRow AddTransacItemFetcherRow(long TransactionId, string Student, string Subject, string Tutor, decimal TotalAmountFee, decimal PaidAmount) {
-                TransacItemFetcherRow rowTransacItemFetcherRow = ((TransacItemFetcherRow)(this.NewRow()));
+            public InvoiceDetailsFetcherRow AddInvoiceDetailsFetcherRow(string Student_Name, long Transaction_Id, string Subject, string TutorName, decimal Per_Hour_Rate, System.DateTime Schedule, decimal Total_Value, decimal Payment_Amount) {
+                InvoiceDetailsFetcherRow rowInvoiceDetailsFetcherRow = ((InvoiceDetailsFetcherRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        TransactionId,
-                        Student,
+                        Student_Name,
+                        Transaction_Id,
                         Subject,
-                        Tutor,
-                        TotalAmountFee,
-                        PaidAmount};
-                rowTransacItemFetcherRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTransacItemFetcherRow);
-                return rowTransacItemFetcherRow;
+                        TutorName,
+                        Per_Hour_Rate,
+                        Schedule,
+                        Total_Value,
+                        Payment_Amount};
+                rowInvoiceDetailsFetcherRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowInvoiceDetailsFetcherRow);
+                return rowInvoiceDetailsFetcherRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public InvoiceDetailsFetcherRow FindByTransaction_Id(long Transaction_Id) {
+                return ((InvoiceDetailsFetcherRow)(this.Rows.Find(new object[] {
+                            Transaction_Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TransacItemFetcherDataTable cln = ((TransacItemFetcherDataTable)(base.Clone()));
+                InvoiceDetailsFetcherDataTable cln = ((InvoiceDetailsFetcherDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -434,64 +463,75 @@ namespace _3_13_25 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TransacItemFetcherDataTable();
+                return new InvoiceDetailsFetcherDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnTransactionId = base.Columns["TransactionId"];
-                this.columnStudent = base.Columns["Student"];
+                this.columnStudent_Name = base.Columns["Student_Name"];
+                this.columnTransaction_Id = base.Columns["Transaction_Id"];
                 this.columnSubject = base.Columns["Subject"];
-                this.columnTutor = base.Columns["Tutor"];
-                this.columnTotalAmountFee = base.Columns["TotalAmountFee"];
-                this.columnPaidAmount = base.Columns["PaidAmount"];
+                this.columnTutorName = base.Columns["TutorName"];
+                this.columnPer_Hour_Rate = base.Columns["Per_Hour_Rate"];
+                this.columnSchedule = base.Columns["Schedule"];
+                this.columnTotal_Value = base.Columns["Total_Value"];
+                this.columnPayment_Amount = base.Columns["Payment_Amount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnTransactionId = new global::System.Data.DataColumn("TransactionId", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTransactionId);
-                this.columnStudent = new global::System.Data.DataColumn("Student", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudent);
+                this.columnStudent_Name = new global::System.Data.DataColumn("Student_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudent_Name);
+                this.columnTransaction_Id = new global::System.Data.DataColumn("Transaction_Id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransaction_Id);
                 this.columnSubject = new global::System.Data.DataColumn("Subject", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSubject);
-                this.columnTutor = new global::System.Data.DataColumn("Tutor", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTutor);
-                this.columnTotalAmountFee = new global::System.Data.DataColumn("TotalAmountFee", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalAmountFee);
-                this.columnPaidAmount = new global::System.Data.DataColumn("PaidAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaidAmount);
-                this.columnStudent.MaxLength = 50;
+                this.columnTutorName = new global::System.Data.DataColumn("TutorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTutorName);
+                this.columnPer_Hour_Rate = new global::System.Data.DataColumn("Per_Hour_Rate", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPer_Hour_Rate);
+                this.columnSchedule = new global::System.Data.DataColumn("Schedule", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSchedule);
+                this.columnTotal_Value = new global::System.Data.DataColumn("Total_Value", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Value);
+                this.columnPayment_Amount = new global::System.Data.DataColumn("Payment_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_Amount);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTransaction_Id}, true));
+                this.columnStudent_Name.MaxLength = 50;
+                this.columnTransaction_Id.AllowDBNull = false;
+                this.columnTransaction_Id.Unique = true;
                 this.columnSubject.MaxLength = 50;
-                this.columnTutor.MaxLength = 50;
+                this.columnTutorName.MaxLength = 50;
+                this.columnSchedule.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TransacItemFetcherRow NewTransacItemFetcherRow() {
-                return ((TransacItemFetcherRow)(this.NewRow()));
+            public InvoiceDetailsFetcherRow NewInvoiceDetailsFetcherRow() {
+                return ((InvoiceDetailsFetcherRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TransacItemFetcherRow(builder);
+                return new InvoiceDetailsFetcherRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TransacItemFetcherRow);
+                return typeof(InvoiceDetailsFetcherRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TransacItemFetcherRowChanged != null)) {
-                    this.TransacItemFetcherRowChanged(this, new TransacItemFetcherRowChangeEvent(((TransacItemFetcherRow)(e.Row)), e.Action));
+                if ((this.InvoiceDetailsFetcherRowChanged != null)) {
+                    this.InvoiceDetailsFetcherRowChanged(this, new InvoiceDetailsFetcherRowChangeEvent(((InvoiceDetailsFetcherRow)(e.Row)), e.Action));
                 }
             }
             
@@ -499,8 +539,8 @@ namespace _3_13_25 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TransacItemFetcherRowChanging != null)) {
-                    this.TransacItemFetcherRowChanging(this, new TransacItemFetcherRowChangeEvent(((TransacItemFetcherRow)(e.Row)), e.Action));
+                if ((this.InvoiceDetailsFetcherRowChanging != null)) {
+                    this.InvoiceDetailsFetcherRowChanging(this, new InvoiceDetailsFetcherRowChangeEvent(((InvoiceDetailsFetcherRow)(e.Row)), e.Action));
                 }
             }
             
@@ -508,8 +548,8 @@ namespace _3_13_25 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TransacItemFetcherRowDeleted != null)) {
-                    this.TransacItemFetcherRowDeleted(this, new TransacItemFetcherRowChangeEvent(((TransacItemFetcherRow)(e.Row)), e.Action));
+                if ((this.InvoiceDetailsFetcherRowDeleted != null)) {
+                    this.InvoiceDetailsFetcherRowDeleted(this, new InvoiceDetailsFetcherRowChangeEvent(((InvoiceDetailsFetcherRow)(e.Row)), e.Action));
                 }
             }
             
@@ -517,14 +557,14 @@ namespace _3_13_25 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TransacItemFetcherRowDeleting != null)) {
-                    this.TransacItemFetcherRowDeleting(this, new TransacItemFetcherRowChangeEvent(((TransacItemFetcherRow)(e.Row)), e.Action));
+                if ((this.InvoiceDetailsFetcherRowDeleting != null)) {
+                    this.InvoiceDetailsFetcherRowDeleting(this, new InvoiceDetailsFetcherRowChangeEvent(((InvoiceDetailsFetcherRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveTransacItemFetcherRow(TransacItemFetcherRow row) {
+            public void RemoveInvoiceDetailsFetcherRow(InvoiceDetailsFetcherRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -533,7 +573,7 @@ namespace _3_13_25 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ReceiptItemFetcher ds = new ReceiptItemFetcher();
+                DbA2DataSetInvoiceReceipt ds = new DbA2DataSetInvoiceReceipt();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -551,7 +591,7 @@ namespace _3_13_25 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TransacItemFetcherDataTable";
+                attribute2.FixedValue = "InvoiceDetailsFetcherDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -595,46 +635,41 @@ namespace _3_13_25 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TransacItemFetcherRow : global::System.Data.DataRow {
+        public partial class InvoiceDetailsFetcherRow : global::System.Data.DataRow {
             
-            private TransacItemFetcherDataTable tableTransacItemFetcher;
+            private InvoiceDetailsFetcherDataTable tableInvoiceDetailsFetcher;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal TransacItemFetcherRow(global::System.Data.DataRowBuilder rb) : 
+            internal InvoiceDetailsFetcherRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTransacItemFetcher = ((TransacItemFetcherDataTable)(this.Table));
+                this.tableInvoiceDetailsFetcher = ((InvoiceDetailsFetcherDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public long TransactionId {
+            public string Student_Name {
                 get {
                     try {
-                        return ((long)(this[this.tableTransacItemFetcher.TransactionIdColumn]));
+                        return ((string)(this[this.tableInvoiceDetailsFetcher.Student_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionId\' in table \'TransacItemFetcher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Student_Name\' in table \'InvoiceDetailsFetcher\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransacItemFetcher.TransactionIdColumn] = value;
+                    this[this.tableInvoiceDetailsFetcher.Student_NameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Student {
+            public long Transaction_Id {
                 get {
-                    try {
-                        return ((string)(this[this.tableTransacItemFetcher.StudentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Student\' in table \'TransacItemFetcher\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tableInvoiceDetailsFetcher.Transaction_IdColumn]));
                 }
                 set {
-                    this[this.tableTransacItemFetcher.StudentColumn] = value;
+                    this[this.tableInvoiceDetailsFetcher.Transaction_IdColumn] = value;
                 }
             }
             
@@ -643,135 +678,180 @@ namespace _3_13_25 {
             public string Subject {
                 get {
                     try {
-                        return ((string)(this[this.tableTransacItemFetcher.SubjectColumn]));
+                        return ((string)(this[this.tableInvoiceDetailsFetcher.SubjectColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Subject\' in table \'TransacItemFetcher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Subject\' in table \'InvoiceDetailsFetcher\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransacItemFetcher.SubjectColumn] = value;
+                    this[this.tableInvoiceDetailsFetcher.SubjectColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Tutor {
+            public string TutorName {
                 get {
                     try {
-                        return ((string)(this[this.tableTransacItemFetcher.TutorColumn]));
+                        return ((string)(this[this.tableInvoiceDetailsFetcher.TutorNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Tutor\' in table \'TransacItemFetcher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TutorName\' in table \'InvoiceDetailsFetcher\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransacItemFetcher.TutorColumn] = value;
+                    this[this.tableInvoiceDetailsFetcher.TutorNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal TotalAmountFee {
+            public decimal Per_Hour_Rate {
                 get {
                     try {
-                        return ((decimal)(this[this.tableTransacItemFetcher.TotalAmountFeeColumn]));
+                        return ((decimal)(this[this.tableInvoiceDetailsFetcher.Per_Hour_RateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmountFee\' in table \'TransacItemFetcher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Per_Hour_Rate\' in table \'InvoiceDetailsFetcher\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransacItemFetcher.TotalAmountFeeColumn] = value;
+                    this[this.tableInvoiceDetailsFetcher.Per_Hour_RateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal PaidAmount {
+            public System.DateTime Schedule {
                 get {
                     try {
-                        return ((decimal)(this[this.tableTransacItemFetcher.PaidAmountColumn]));
+                        return ((global::System.DateTime)(this[this.tableInvoiceDetailsFetcher.ScheduleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaidAmount\' in table \'TransacItemFetcher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Schedule\' in table \'InvoiceDetailsFetcher\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransacItemFetcher.PaidAmountColumn] = value;
+                    this[this.tableInvoiceDetailsFetcher.ScheduleColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTransactionIdNull() {
-                return this.IsNull(this.tableTransacItemFetcher.TransactionIdColumn);
+            public decimal Total_Value {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableInvoiceDetailsFetcher.Total_ValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Value\' in table \'InvoiceDetailsFetcher\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceDetailsFetcher.Total_ValueColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTransactionIdNull() {
-                this[this.tableTransacItemFetcher.TransactionIdColumn] = global::System.Convert.DBNull;
+            public decimal Payment_Amount {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableInvoiceDetailsFetcher.Payment_AmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_Amount\' in table \'InvoiceDetailsFetcher\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableInvoiceDetailsFetcher.Payment_AmountColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsStudentNull() {
-                return this.IsNull(this.tableTransacItemFetcher.StudentColumn);
+            public bool IsStudent_NameNull() {
+                return this.IsNull(this.tableInvoiceDetailsFetcher.Student_NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetStudentNull() {
-                this[this.tableTransacItemFetcher.StudentColumn] = global::System.Convert.DBNull;
+            public void SetStudent_NameNull() {
+                this[this.tableInvoiceDetailsFetcher.Student_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsSubjectNull() {
-                return this.IsNull(this.tableTransacItemFetcher.SubjectColumn);
+                return this.IsNull(this.tableInvoiceDetailsFetcher.SubjectColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSubjectNull() {
-                this[this.tableTransacItemFetcher.SubjectColumn] = global::System.Convert.DBNull;
+                this[this.tableInvoiceDetailsFetcher.SubjectColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTutorNull() {
-                return this.IsNull(this.tableTransacItemFetcher.TutorColumn);
+            public bool IsTutorNameNull() {
+                return this.IsNull(this.tableInvoiceDetailsFetcher.TutorNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTutorNull() {
-                this[this.tableTransacItemFetcher.TutorColumn] = global::System.Convert.DBNull;
+            public void SetTutorNameNull() {
+                this[this.tableInvoiceDetailsFetcher.TutorNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTotalAmountFeeNull() {
-                return this.IsNull(this.tableTransacItemFetcher.TotalAmountFeeColumn);
+            public bool IsPer_Hour_RateNull() {
+                return this.IsNull(this.tableInvoiceDetailsFetcher.Per_Hour_RateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTotalAmountFeeNull() {
-                this[this.tableTransacItemFetcher.TotalAmountFeeColumn] = global::System.Convert.DBNull;
+            public void SetPer_Hour_RateNull() {
+                this[this.tableInvoiceDetailsFetcher.Per_Hour_RateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPaidAmountNull() {
-                return this.IsNull(this.tableTransacItemFetcher.PaidAmountColumn);
+            public bool IsScheduleNull() {
+                return this.IsNull(this.tableInvoiceDetailsFetcher.ScheduleColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPaidAmountNull() {
-                this[this.tableTransacItemFetcher.PaidAmountColumn] = global::System.Convert.DBNull;
+            public void SetScheduleNull() {
+                this[this.tableInvoiceDetailsFetcher.ScheduleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTotal_ValueNull() {
+                return this.IsNull(this.tableInvoiceDetailsFetcher.Total_ValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTotal_ValueNull() {
+                this[this.tableInvoiceDetailsFetcher.Total_ValueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPayment_AmountNull() {
+                return this.IsNull(this.tableInvoiceDetailsFetcher.Payment_AmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPayment_AmountNull() {
+                this[this.tableInvoiceDetailsFetcher.Payment_AmountColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -779,22 +859,22 @@ namespace _3_13_25 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class TransacItemFetcherRowChangeEvent : global::System.EventArgs {
+        public class InvoiceDetailsFetcherRowChangeEvent : global::System.EventArgs {
             
-            private TransacItemFetcherRow eventRow;
+            private InvoiceDetailsFetcherRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TransacItemFetcherRowChangeEvent(TransacItemFetcherRow row, global::System.Data.DataRowAction action) {
+            public InvoiceDetailsFetcherRowChangeEvent(InvoiceDetailsFetcherRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TransacItemFetcherRow Row {
+            public InvoiceDetailsFetcherRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -810,7 +890,7 @@ namespace _3_13_25 {
         }
     }
 }
-namespace _3_13_25.ReceiptItemFetcherTableAdapters {
+namespace _3_13_25.DbA2DataSetInvoiceReceiptTableAdapters {
     
     
     /// <summary>
@@ -822,7 +902,7 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class TransacItemFetcherTableAdapter : global::System.ComponentModel.Component {
+    public partial class InvoiceDetailsFetcherTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -836,7 +916,7 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public TransacItemFetcherTableAdapter() {
+        public InvoiceDetailsFetcherTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -933,13 +1013,15 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "TransacItemFetcher";
-            tableMapping.ColumnMappings.Add("TransactionId", "TransactionId");
-            tableMapping.ColumnMappings.Add("Student", "Student");
+            tableMapping.DataSetTable = "InvoiceDetailsFetcher";
+            tableMapping.ColumnMappings.Add("Student_Name", "Student_Name");
+            tableMapping.ColumnMappings.Add("Transaction_Id", "Transaction_Id");
             tableMapping.ColumnMappings.Add("Subject", "Subject");
-            tableMapping.ColumnMappings.Add("Tutor", "Tutor");
-            tableMapping.ColumnMappings.Add("TotalAmountFee", "TotalAmountFee");
-            tableMapping.ColumnMappings.Add("PaidAmount", "PaidAmount");
+            tableMapping.ColumnMappings.Add("TutorName", "TutorName");
+            tableMapping.ColumnMappings.Add("Per_Hour_Rate", "Per_Hour_Rate");
+            tableMapping.ColumnMappings.Add("Schedule", "Schedule");
+            tableMapping.ColumnMappings.Add("Total_Value", "Total_Value");
+            tableMapping.ColumnMappings.Add("Payment_Amount", "Payment_Amount");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -956,30 +1038,23 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "D2.TransacItemFetcher";
+            this._commandCollection[0].CommandText = "D2.InvoiceDetailsFetcher";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransacId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 19, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Student", global::System.Data.SqlDbType.NVarChar, 55, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ReceiptItemFetcher.TransacItemFetcherDataTable dataTable, global::System.Nullable<long> TransacId, string Student) {
+        public virtual int Fill(DbA2DataSetInvoiceReceipt.InvoiceDetailsFetcherDataTable dataTable, global::System.Nullable<int> TransactionId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((TransacId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((long)(TransacId.Value));
+            if ((TransactionId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(TransactionId.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Student == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Student));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -992,21 +1067,15 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ReceiptItemFetcher.TransacItemFetcherDataTable GetData(global::System.Nullable<long> TransacId, string Student) {
+        public virtual DbA2DataSetInvoiceReceipt.InvoiceDetailsFetcherDataTable GetData(global::System.Nullable<int> TransactionId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((TransacId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((long)(TransacId.Value));
+            if ((TransactionId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(TransactionId.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Student == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Student));
-            }
-            ReceiptItemFetcher.TransacItemFetcherDataTable dataTable = new ReceiptItemFetcher.TransacItemFetcherDataTable();
+            DbA2DataSetInvoiceReceipt.InvoiceDetailsFetcherDataTable dataTable = new DbA2DataSetInvoiceReceipt.InvoiceDetailsFetcherDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1080,7 +1149,7 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(ReceiptItemFetcher dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DbA2DataSetInvoiceReceipt dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1090,7 +1159,7 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(ReceiptItemFetcher dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DbA2DataSetInvoiceReceipt dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1100,7 +1169,7 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(ReceiptItemFetcher dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DbA2DataSetInvoiceReceipt dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1134,7 +1203,7 @@ namespace _3_13_25.ReceiptItemFetcherTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(ReceiptItemFetcher dataSet) {
+        public virtual int UpdateAll(DbA2DataSetInvoiceReceipt dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

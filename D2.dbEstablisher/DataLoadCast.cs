@@ -238,7 +238,7 @@ namespace _3_13_25.D2.DbConn
 
             using (SqlConnection connection = DatabaseConnection.Establish())
             {
-                using (SqlCommand command = new SqlCommand("SELECT D2.TransactionBilling.Transaction_Id, Total_Value, Payment_Amount, Bill_Status FROM D2.TransactionBilling INNER JOIN D2.Transactions ON D2.TransactionBilling.Transaction_Id = D2.Transactions.Transaction_Id WHERE Bill_Status != 'Paid' AND Status = 'Enrolled' ORDER BY D2.TransactionBilling.Transaction_Id", connection))
+                using (SqlCommand command = new SqlCommand("SELECT D2.TransactionBilling.Transaction_Id, Total_Value, Payment_Amount, Bill_Status FROM D2.TransactionBilling INNER JOIN D2.Transactions ON D2.TransactionBilling.Transaction_Id = D2.Transactions.Transaction_Id WHERE Bill_Status != 'Paid' AND Status != 'Draft' ORDER BY D2.TransactionBilling.Transaction_Id", connection))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {

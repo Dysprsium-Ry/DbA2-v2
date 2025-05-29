@@ -48,6 +48,7 @@
             this.textBoxTutorEmail.Name = "textBoxTutorEmail";
             this.textBoxTutorEmail.Size = new System.Drawing.Size(316, 35);
             this.textBoxTutorEmail.TabIndex = 31;
+            this.textBoxTutorEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // labelTutorEmail
             // 
@@ -81,6 +82,7 @@
             this.textBoxTutorName.Name = "textBoxTutorName";
             this.textBoxTutorName.Size = new System.Drawing.Size(316, 35);
             this.textBoxTutorName.TabIndex = 30;
+            this.textBoxTutorName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // label5
             // 
@@ -125,6 +127,7 @@
             this.buttonRegisterTutor.Text = "Register";
             this.buttonRegisterTutor.UseVisualStyleBackColor = false;
             this.buttonRegisterTutor.Click += new System.EventHandler(this.buttonRegisterTutor_Click);
+            this.buttonRegisterTutor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Register_KeyUp);
             // 
             // buttonAddExpertise
             // 

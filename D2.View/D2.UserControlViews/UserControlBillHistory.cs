@@ -1,4 +1,7 @@
-﻿using _3_13_25.D2.ViewModel.D2.BusinessLogics;
+﻿using _3_13_25.D2.Classes;
+using _3_13_25.D2.View.D2.Forms;
+using _3_13_25.D2.View.D2.UserControlViews;
+using _3_13_25.D2.ViewModel.D2.BusinessLogics;
 using BienvenidoOnlineTutorServices.D2.Classes;
 using System;
 using System.Collections.Generic;
@@ -14,6 +17,7 @@ namespace _3_13_25.D2.View.D2.UserControlCapsules
 {
     public partial class UserControlBillHistory : UserControl
     {
+        private CapsuleBase capsule;
         private long _id;
         public UserControlBillHistory()
         {
@@ -35,6 +39,17 @@ namespace _3_13_25.D2.View.D2.UserControlCapsules
         {
             _id = Convert.ToInt64(numericUpDownTransactionId.Value);
             DataGrid_Load();
+        }
+
+        private void dataGridViewBillHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewBillHistory.Rows.Count < 0) return;
+            if (e.RowIndex < 0) return;
+            long id = Convert.ToInt64(dataGridViewBillHistory.SelectedRows[0].Cells["transactionId"].Value);
+            UserControlReceipt receipt = new UserControlReceipt();
+            ReceiptReport._Id = id;
+            capsule = new CapsuleBase(receipt);
+            capsule.ShowDialog();
         }
     }
 }
